@@ -23,3 +23,146 @@
 \titleformat{\subsection}
   {\normalfont\small\bfseries}   % formato más pequeño y en negrita
   {\thesubsection}{1em}{} 
+
+  \title{Teoremario}
+\author{Luis López}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+
+\cleardoublepage
+% Introducción sin título
+\thispagestyle{plain}
+
+Un \textbf{teorema} es una proposición matemática que puede ser demostrada 
+a partir de axiomas, definiciones y otros resultados previamente aceptados. 
+En física y matemáticas, los teoremas actúan como herramientas fundamentales: 
+permiten deducir propiedades, justificar métodos de resolución y garantizar 
+que las soluciones de los problemas se apoyan en bases sólidas y verificadas. 
+Más allá de ser simples fórmulas, representan conexiones profundas entre 
+conceptos y proporcionan la seguridad de que los procedimientos seguidos
+son correctos.\\
+
+Este documento es un recopilatorio de teoremas y resultados fundamentales 
+de matemáticas y física que resultan útiles a la hora de resolver ejercicios. 
+La idea es disponer de un archivo de referencia al que poder acudir cuando se 
+presenta una duda o un bloqueo en un problema, de manera que se pueda consultar 
+rápidamente la formulación, el contexto y la demostración de un teorema concreto.\\
+
+Cada entrada de este archivo está organizada de manera uniforme para 
+facilitar la lectura y la consulta. La estructura de los teoremas es la siguiente:
+
+\begin{itemize}
+  \item \textbf{Nombre del teorema}: identificación breve y clara.  
+  \item \textbf{Dónde se usa}: rama de la física o de las matemáticas donde aparece.  
+  \item \textbf{Para qué sirve}: el objetivo o la utilidad principal del teorema 
+  en la resolución de ejercicios.  
+  \item \textbf{Explicación}: descripción sencilla de la idea central detrás del teorema.  
+  \item \textbf{Demostración}: desarrollo matemático riguroso que justifica el resultado.  
+\end{itemize}
+
+De esta forma, el archivo actúa como una herramienta práctica y ordenada, 
+pensada tanto para repasar teoría como para aplicarla directamente a la resolución 
+de problemas.
+
+% =====================
+% Índice
+% =====================
+\cleardoublepage
+\tableofcontents
+
+% =====================
+% Página con título "Teoremas"
+% =====================
+\cleardoublepage
+
+\subsection*{Teorema de Pitágoras}
+\addcontentsline{toc}{subsection}{Teorema de Pitágoras}
+
+\textbf{Dónde se usa:}  
+Geometría, trigonometría, matemáticas básicas y física en problemas de movimiento, vectores y distancias.\\
+
+\textbf{Para qué sirve:}  
+Permite calcular un lado de un triángulo rectángulo a partir de los otros dos. 
+Se aplica para hallar la hipotenusa o cualquiera de los catetos, y aparece de manera recurrente en problemas de física y matemáticas que involucran magnitudes perpendiculares, como fuerzas, desplazamientos o componentes vectoriales.\\
+
+\textbf{Explicación:}  
+El teorema establece que, en un triángulo rectángulo, el cuadrado de la longitud de la hipotenusa es igual a la suma de los cuadrados de las longitudes de los catetos.  
+Si $a$ y $b$ son los catetos y $c$ la hipotenusa:
+\[
+c^2 = a^2 + b^2
+\]
+Este resultado expresa una relación fundamental entre las distancias y constituye la base de muchas fórmulas y métodos de resolución de ejercicios.\\
+
+\textbf{Demostración:}  
+Existen múltiples demostraciones del teorema de Pitágoras. Una de las más clásicas se basa en considerar un cuadrado de lado $(a+b)$ y colocar en su interior cuatro copias del triángulo rectángulo. El área del cuadrado puede calcularse de dos formas diferentes:  
+- Como $(a+b)^2$.  
+- Como suma del área de los cuatro triángulos rectángulos más el área del cuadrado central de lado $c$, es decir: $4\cdot\frac{1}{2}ab + c^2$.  
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{IMG_0483.jpg}
+    \label{fig:pitagoras}
+\end{figure}
+
+Igualando ambas expresiones:
+\[
+(a+b)^2 = 2ab + c^2 + a^2 + b^2
+\]
+
+Lo que simplifica a:
+
+\[
+c^2 = a^2 + b^2
+\]
+
+De esta manera queda demostrada la relación pitagórica.
+
+\cleardoublepage
+
+\subsection*{Teorema fundamental de los límites laterales}
+\addcontentsline{toc}{subsection}{Teorema fundamental de los límites laterales}
+
+\textbf{Dónde se usa:}  
+Análisis matemático, cálculo diferencial y estudio de funciones. Es esencial en el tratamiento de continuidad, derivadas y en la definición rigurosa de límites.\\
+
+\textbf{Para qué sirve:}  
+Permite determinar si una función posee límite en un punto verificando la existencia e igualdad de sus límites laterales. Es una herramienta fundamental para analizar el comportamiento de funciones cerca de un valor específico.\\
+
+\textbf{Explicación:}  
+El teorema establece que el límite de una función en un punto existe \emph{si y solo si} los límites laterales tanto por la izquierda como por la derecha en ese punto existe y son iguales.  
+Si alguno de los dos límites laterales no existe, o si son diferentes, el límite bilateral no existe.  
+En notación matemática:
+\[
+\exists\lim_{x \to a} f(x)  \iff 
+\begin{cases}
+\exists \lim\limits_{x \to a^-} f(x), \\[6pt]
+\exists \lim\limits_{x \to a^+} f(x), \\[6pt]
+\lim\limits_{x \to a^-} f(x) = \lim\limits_{x \to a^+} f(x).
+\end{cases}
+\]
+
+\textbf{Demostración:}  
+El límite bilateral se define como el valor al que se aproxima la función $f(x)$ cuando $x$ se acerca a $a$ sin especificar la dirección.  
+Para que esa aproximación sea consistente, debe cumplirse que el valor desde la izquierda y desde la derecha coinciden.  
+De manera formal:  
+- Si $\lim\limits_{x \to a^-} f(x) = L$ y $\lim\limits_{x \to a^+} f(x) = L$, entonces $\lim\limits_{x \to a} f(x) = L$.  
+- Si $\lim\limits_{x \to a^-} f(x) \neq \lim\limits_{x \to a^+} f(x)$, entonces $\nexists \lim\limits_{x \to a} f(x)$.\\
+
+\textbf{Ejemplo:}  
+\[
+f(x) =
+\begin{cases}
+1 & x < 0, \\
+2 & x \geq 0,
+\end{cases}
+\]
+En $x=0$:  
+\[
+\lim_{x \to 0^-} f(x) = 1, \quad \lim_{x \to 0^+} f(x) = 2
+\]
+Como los límites laterales son distintos, no existe \(\lim_{x \to 0} f(x)\).
+
+\end{document}
