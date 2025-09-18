@@ -1,33 +1,33 @@
 \documentclass[a4paper,12pt]{article}
 
 % --- Idioma y codificación ---
-\usepackage[utf8]{inputenc}   % Acentos directos
-\usepackage[T1]{fontenc}      % Codificación de salida
-\usepackage[spanish]{babel}   % Español
-\usepackage{lmodern}          % Fuente moderna
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla, shorthands=off]{babel} % <-- clave para que TikZ no falle
+\usepackage{lmodern}
 
 % --- Matemáticas ---
-\usepackage{amsmath}          % Entornos matemáticos
-\usepackage{amssymb}          % Símbolos
-\usepackage{amsthm}           % Teoremas
-\usepackage{mathtools}        % Extras de amsmath
-\usepackage{bm}               % Negrita en símbolos
-\usepackage{esint}            % Integrales de contorno (∮)
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esint}
 
 % --- Utilidades ---
-\usepackage{graphicx}         % Imágenes
-\usepackage{xcolor}           % Colores
-\usepackage{enumitem}         % Listas
-\usepackage{titlesec}         % Títulos
-\usepackage[hidelinks]{hyperref} % Enlaces (cargar al final)
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
 
 % --- Esquemas y Dibujos ---
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 
-\titleformat{\subsection}
-  {\normalfont\small\bfseries}   % formato más pequeño y en negrita
-  {\thesubsection}{1em}{} 
+% Formato de subtítulos
+\titleformat{\subsection}{\normalfont\small\bfseries}{\thesubsection}{1em}{}
 
 \title{Apuntes de Variable Compleja}
 \author{Luis López}
@@ -42,17 +42,17 @@
 
 \section*{Introducción}
 
-Los \textbf{números complejos}, denotados por $\mathbb{C}$, constituyen una extensión de los números reales $\mathbb{R}$, cumpliéndose que $\mathbb{R} \subset \mathbb{C}$. 
+Los \textbf{números complejos}, denotados por $\mathbb{C}$, constituyen una extensión de los números reales $\mathbb{R}$, cumpliéndose que $\mathbb{R} \subset \mathbb{C}$.
 A diferencia de los reales, los complejos forman un \textit{cuerpo algebraicamente cerrado}, lo que significa que todo polinomio con coeficientes complejos admite todas sus raíces en $\mathbb{C}$.
 
-Todo número complejo puede escribirse como 
+Todo número complejo puede escribirse como
 \[
 z = x + iy,
 \]
-donde $x, y \in \mathbb{R}$ e $i$ es la unidad imaginaria ($i^2=-1$). 
+donde $x, y \in \mathbb{R}$ e $i$ es la unidad imaginaria ($i^2=-1$).
 También pueden representarse en \textit{forma polar}, mediante su módulo y argumento.
 
-El conjunto $\mathbb{C}$ no solo es fundamental en álgebra y análisis, sino que resulta indispensable en múltiples áreas de las matemáticas aplicadas y la física. 
+El conjunto $\mathbb{C}$ no solo es fundamental en álgebra y análisis, sino que resulta indispensable en múltiples áreas de las matemáticas aplicadas y la física.
 Asimismo, los números complejos son herramientas habituales en ingeniería.
 
 \newpage
@@ -60,11 +60,12 @@ Asimismo, los números complejos son herramientas habituales en ingeniería.
 
 \subsection{Teoría y estructura elemental}
 
-La imposibilidad de resolver ciertas ecuaciones con números reales nos obliga a introducir los 
+La imposibilidad de resolver ciertas ecuaciones con números reales nos obliga a introducir los
 \textbf{números imaginarios}, definidos a partir de la unidad $i$ tal que
 \[
     i^2 = -1.
 \]
+
 \subsection{Introducción elemental}
 
 Denotamos los números complejos como
@@ -84,10 +85,11 @@ Dado $z = a+bi \in \mathbb{C}$, se definen:
 \[
 \Re(1-2i) = 1, \; \Im(1-2i) = -2, \; \overline{1-2i} = 1 + 2i, \; |1-2i| = \sqrt{1^2 + (-2)^2} = \sqrt{5}.
 \]
+
 \subsection{Propiedades elementales}
 
 \begin{enumerate}
-    \item $\overline{\overline{z}} = z$. \; Demostración: si $z = a + bi \;\Rightarrow\; \overline{z} = a - bi \;\Rightarrow\; \overline{\overline{z}} = a + bi = z$.
+    \item $\overline{\overline{z}} = z$. \; Demostración: si $z = a + bi \Rightarrow \overline{z} = a - bi \Rightarrow \overline{\overline{z}} = a + bi = z$.
     \item $z + \overline{z} = 2 \Re(z)$.
     \item $z - \overline{z} = 2i \Im(z)$.
     \item $|\overline{z}| = |z|$.
@@ -96,7 +98,6 @@ Dado $z = a+bi \in \mathbb{C}$, se definen:
 \end{enumerate}
 
 Además, tenemos las siguientes propiedades asociadas al \textbf{módulo}:
-
 \begin{enumerate}
     \item $|\Re(z)| \leq |z|$.
     \item $|\Im(z)| \leq |z|$. \; En efecto, $|z| = \sqrt{a^2 + b^2} \geq |b|$.
@@ -106,7 +107,6 @@ Además, tenemos las siguientes propiedades asociadas al \textbf{módulo}:
 \end{enumerate}
 
 Todas estas propiedades, junto con la suma y producto de números complejos, generalizan las propiedades de los números reales:
-
 \[
 z+z' = (x+iy) + (x' + i y') = (x+x') + (y+y')i \in \mathbb{C},
 \]
@@ -126,8 +126,61 @@ El conjunto $\mathbb{C}$ se puede representar como $\mathbb{R}^2$ mediante la as
 \[
 z = a + bi \;\longmapsto\; (a, b) \in \mathbb{R}^2.
 \]
-De esta forma obtenemos el denominado \textbf{plano complejo}, por lo tanto la interpretación geométrica de todo los visto sería:
+De esta forma obtenemos el denominado \textbf{plano complejo}; por lo tanto, la interpretación geométrica de \emph{todo lo visto} sería:
 
+\begin{figure}[h]
+\centering
 
+% ---- Figura 1: puntos 1 e i ----
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=1]
+  % ejes
+  \draw[->] (-0.4,0) -- (1.6,0) node[below right] {\(\Re\)};
+  \draw[->] (0,-0.4) -- (0,1.6) node[left] {\(\Im\)};
+  % puntos (con etiquetas ajustadas)
+  \fill (1,0) circle (2pt) node[below] {$(1,0)$};
+  \fill (0,1) circle (2pt) node[left] {$(0,1)$};
+\end{tikzpicture}
+
+\medskip
+{\small Representación de $1$ e $i$}
+\end{minipage}
+\hfill
+% ---- Figura 2: z y conjugado ----
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=1]
+  % ejes
+  \draw[->] (-0.4,0) -- (3.5,0) node[below right] {\(\Re\)};
+  \draw[->] (0,-1.8) -- (0,2.0) node[left] {\(\Im\)};
+
+  % puntos
+  \coordinate (O) at (0,0);
+  \coordinate (Z)  at (2.2,1.1);   % z
+  \coordinate (Zc) at (2.2,-1.1);  % z conjugado
+
+  % vectores OZ y OZc
+  \draw[thick,->] (O) -- (Z);
+  \draw[thick,->] (O) -- (Zc);
+
+  % proyecciones punteadas
+  \draw[dashed] (Z)  -- (2.2,0);
+  \draw[dashed] (Z)  -- (0,1.1);
+  \draw[dashed] (Zc) -- (2.2,0);
+
+  % puntos con etiquetas
+  \fill (Z)  circle (2pt) node[above right] {$z=a+bi$};
+  \fill (Zc) circle (2pt) node[below right] {$\overline{z}=a-bi$};
+
+  % arco pequeño para arg(z)
+  \draw (0.5,0) arc (0:26:0.5);
+\end{tikzpicture}
+
+\medskip
+{\small Geometría de $z$ y $\overline{z}$}
+\end{minipage}
+
+\end{figure}
 
 \end{document}
