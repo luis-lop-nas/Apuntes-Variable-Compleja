@@ -21,6 +21,10 @@
 \usepackage{titlesec}         % Títulos
 \usepackage[hidelinks]{hyperref} % Enlaces (cargar al final)
 
+% --- Esquemas y Dibujos ---
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
 \titleformat{\subsection}
   {\normalfont\small\bfseries}   % formato más pequeño y en negrita
   {\thesubsection}{1em}{} 
@@ -61,8 +65,7 @@ La imposibilidad de resolver ciertas ecuaciones con números reales nos obliga a
 \[
     i^2 = -1.
 \]
-
-\subsection{Definiciones básicas}
+\subsection{Introducción elemental}
 
 Denotamos los números complejos como
 \[
@@ -77,21 +80,54 @@ Dado $z = a+bi \in \mathbb{C}$, se definen:
     \item Conjugado: $\overline{z} = a - bi$.
 \end{itemize}
 
+\noindent\textbf{Ejemplo.} Sea \( z = 1 - 2i \). Entonces:
+\[
+\Re(1-2i) = 1, \; \Im(1-2i) = -2, \; \overline{1-2i} = 1 + 2i, \; |1-2i| = \sqrt{1^2 + (-2)^2} = \sqrt{5}.
+\]
 \subsection{Propiedades elementales}
 
-Para $z=a+bi \in \mathbb{C}$:
-\begin{align*}
-    z + \overline{z} &= 2\Re(z), \\
-    z - \overline{z} &= 2i \Im(z), \\
-    z \cdot \overline{z} &= |z|^2.
-\end{align*}
+\begin{enumerate}
+    \item $\overline{\overline{z}} = z$. \; Demostración: si $z = a + bi \;\Rightarrow\; \overline{z} = a - bi \;\Rightarrow\; \overline{\overline{z}} = a + bi = z$.
+    \item $z + \overline{z} = 2 \Re(z)$.
+    \item $z - \overline{z} = 2i \Im(z)$.
+    \item $|\overline{z}| = |z|$.
+    \item $\overline{z + z'} = \overline{z} + \overline{z'}$.
+    \item $\overline{z \cdot z'} = \overline{z} \cdot \overline{z'}$.
+\end{enumerate}
 
-\subsection{Forma polar}
+Además, tenemos las siguientes propiedades asociadas al \textbf{módulo}:
 
-Si $z \neq 0$:
+\begin{enumerate}
+    \item $|\Re(z)| \leq |z|$.
+    \item $|\Im(z)| \leq |z|$. \; En efecto, $|z| = \sqrt{a^2 + b^2} \geq |b|$.
+    \item \textbf{Desigualdad triangular:} \; $|z+w| \leq |z| + |w| \quad \forall z,w \in \mathbb{C}$.
+    \item $z \cdot \overline{z} = |z|^2$.
+    \item \textbf{Desigualdad triangular inversa:} \; $\big||z| - |z'|\big| \leq |z-z'|$.
+\end{enumerate}
+
+Todas estas propiedades, junto con la suma y producto de números complejos, generalizan las propiedades de los números reales:
+
 \[
-    z = |z|(\cos \theta + i\sin \theta) = |z|e^{i\theta},
+z+z' = (x+iy) + (x' + i y') = (x+x') + (y+y')i \in \mathbb{C},
 \]
-donde $\theta = \arg(z)$.
+\[
+z \cdot z' = (x+iy)(x'+iy') = (xx'-yy') + (xy'+x'y)i \in \mathbb{C}.
+\]
+
+En particular, si $z = a + bi$, se cumple que
+\[
+|z| = \sqrt{a^2 + b^2},
+\]
+es decir, el módulo de $z$ coincide con el valor absoluto en los reales.
+
+\subsection{Forma polar y geometría de los números complejos}
+
+El conjunto $\mathbb{C}$ se puede representar como $\mathbb{R}^2$ mediante la asignación
+\[
+z = a + bi \;\longmapsto\; (a, b) \in \mathbb{R}^2.
+\]
+De esta forma obtenemos el denominado \textbf{plano complejo}, por lo tanto la interpretación geométrica de todo los visto sería:
+
+
 
 \end{document}
