@@ -1,0 +1,50 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.synctex.gz(busy)
+*.toc
+*.fls
+*.fdb_latexmk
+*.xdv
+*.run.xml
+
+# Archivos temporales de editores
+*~
+*.bak
+*.swp
+*.tmp
+*.temp
+*.DS_Store
+Thumbs.db
+
+# Archivos de Overleaf/TeXstudio/otros
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.upa
+*.upb
+
+# Ignorar carpetas de compilación
+build/
+latex.out/
+
+# --- Mantener solo fuentes y PDFs ---
+!*.tex
+!*.pdf
