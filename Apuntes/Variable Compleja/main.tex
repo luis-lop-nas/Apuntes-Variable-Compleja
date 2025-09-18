@@ -1,0 +1,97 @@
+\documentclass[a4paper,12pt]{article}
+
+% --- Idioma y codificación ---
+\usepackage[utf8]{inputenc}   % Acentos directos
+\usepackage[T1]{fontenc}      % Codificación de salida
+\usepackage[spanish]{babel}   % Español
+\usepackage{lmodern}          % Fuente moderna
+
+% --- Matemáticas ---
+\usepackage{amsmath}          % Entornos matemáticos
+\usepackage{amssymb}          % Símbolos
+\usepackage{amsthm}           % Teoremas
+\usepackage{mathtools}        % Extras de amsmath
+\usepackage{bm}               % Negrita en símbolos
+\usepackage{esint}            % Integrales de contorno (∮)
+
+% --- Utilidades ---
+\usepackage{graphicx}         % Imágenes
+\usepackage{xcolor}           % Colores
+\usepackage{enumitem}         % Listas
+\usepackage{titlesec}         % Títulos
+\usepackage[hidelinks]{hyperref} % Enlaces (cargar al final)
+
+\titleformat{\subsection}
+  {\normalfont\small\bfseries}   % formato más pequeño y en negrita
+  {\thesubsection}{1em}{} 
+
+\title{Apuntes de Variable Compleja}
+\author{Luis López}
+\date{Septiembre 2025}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section*{Introducción}
+
+Los \textbf{números complejos}, denotados por $\mathbb{C}$, constituyen una extensión de los números reales $\mathbb{R}$, cumpliéndose que $\mathbb{R} \subset \mathbb{C}$. 
+A diferencia de los reales, los complejos forman un \textit{cuerpo algebraicamente cerrado}, lo que significa que todo polinomio con coeficientes complejos admite todas sus raíces en $\mathbb{C}$.
+
+Todo número complejo puede escribirse como 
+\[
+z = x + iy,
+\]
+donde $x, y \in \mathbb{R}$ e $i$ es la unidad imaginaria ($i^2=-1$). 
+También pueden representarse en \textit{forma polar}, mediante su módulo y argumento.
+
+El conjunto $\mathbb{C}$ no solo es fundamental en álgebra y análisis, sino que resulta indispensable en múltiples áreas de las matemáticas aplicadas y la física. 
+Asimismo, los números complejos son herramientas habituales en ingeniería.
+
+\newpage
+\section{Números complejos}
+
+\subsection{Teoría y estructura elemental}
+
+La imposibilidad de resolver ciertas ecuaciones con números reales nos obliga a introducir los 
+\textbf{números imaginarios}, definidos a partir de la unidad $i$ tal que
+\[
+    i^2 = -1.
+\]
+
+\subsection{Definiciones básicas}
+
+Denotamos los números complejos como
+\[
+    \mathbb{C} = \{ z = a + bi \;|\; a,b \in \mathbb{R} \}.
+\]
+
+Dado $z = a+bi \in \mathbb{C}$, se definen:
+\begin{itemize}
+    \item Parte real: $\Re(z) = a \in \mathbb{R}$.
+    \item Parte imaginaria: $\Im(z) = b \in \mathbb{R}$.
+    \item Módulo: $|z| = \sqrt{a^2+b^2}$.
+    \item Conjugado: $\overline{z} = a - bi$.
+\end{itemize}
+
+\subsection{Propiedades elementales}
+
+Para $z=a+bi \in \mathbb{C}$:
+\begin{align*}
+    z + \overline{z} &= 2\Re(z), \\
+    z - \overline{z} &= 2i \Im(z), \\
+    z \cdot \overline{z} &= |z|^2.
+\end{align*}
+
+\subsection{Forma polar}
+
+Si $z \neq 0$:
+\[
+    z = |z|(\cos \theta + i\sin \theta) = |z|e^{i\theta},
+\]
+donde $\theta = \arg(z)$.
+
+\end{document}

@@ -1,0 +1,145 @@
+% --- Idioma y codificación ---
+\usepackage[utf8]{inputenc}   % Acentos directos
+\usepackage[T1]{fontenc}      % Codificación de salida
+\usepackage[spanish]{babel}   % Español
+\usepackage{lmodern}          % Fuente moderna
+
+% --- Matemáticas ---
+\usepackage{amsmath}          % Entornos matemáticos
+\usepackage{amssymb}          % Símbolos
+\usepackage{amsthm}           % Teoremas
+\usepackage{mathtools}        % Extras de amsmath
+\usepackage{bm}               % Negrita en símbolos
+\usepackage{esint}            % Integrales de contorno (∮)
+
+% --- Utilidades ---
+\usepackage{graphicx}         % Imágenes
+\usepackage{xcolor}           % Colores
+\usepackage{enumitem}         % Listas
+\usepackage{titlesec}         % Títulos
+\usepackage[hidelinks]{hyperref} % Enlaces (cargar al final)
+
+% subsecciones más pequeñas
+\titleformat{\subsection}
+  {\normalfont\small\bfseries}   % formato más pequeño y en negrita
+  {\thesubsection}{1em}{} 
+
+\title{Apuntes Ecuaciones Diferenciales}
+\author{Luis López}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle % Genera la portada
+
+\newpage % Salto de página después de la portada
+
+\section*{Introducción a las Ecuaciones Diferenciales}
+
+Una \textbf{ecuación diferencial} es una ecuación matemática que relaciona una función con sus derivadas. 
+En matemáticas aplicadas, las funciones suelen representar \textit{cantidades físicas}, las derivadas 
+indican sus \textit{tasas de cambio}, y la ecuación define la relación entre ambas. 
+Debido a que estas relaciones aparecen de forma natural en múltiples contextos, 
+las ecuaciones diferenciales juegan un rol esencial en la \textit{ingeniería}, 
+la \textit{física}, la \textit{química}, la \textit{economía} y la \textit{biología}.
+
+\subsection*{Tipos principales de ecuaciones diferenciales}
+
+De forma general, se distinguen dos grandes clases de ecuaciones diferenciales:
+
+\begin{itemize}
+    \item \textbf{Ecuaciones Diferenciales Ordinarias (EDO):} son aquellas en las que interviene una 
+    única variable independiente. Suelen escribirse en la forma
+    \[
+        F\left(x, y, y', y'', \dots, y^{(n)}\right) = 0,
+    \]
+    donde $y = y(x)$ es la función incógnita.
+    
+    \item \textbf{Ecuaciones Diferenciales en Derivadas Parciales (EDP):} aparecen cuando la función 
+    incógnita depende de dos o más variables independientes. En ellas intervienen derivadas parciales, por ejemplo:
+    \[
+        F\left(x, y, u, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \dots \right) = 0,
+    \]
+    donde $u = u(x,y)$ es la función desconocida.
+\end{itemize}
+
+\subsection*{Usos de las ecuaciones diferenciales}
+
+Las ecuaciones diferenciales permiten modelar una gran variedad de fenómenos, tales como:
+
+\begin{itemize}
+    \item El crecimiento poblacional en biología.
+    \item La transferencia de calor y difusión en física e ingeniería.
+    \item El movimiento de partículas bajo fuerzas externas.
+    \item La dinámica de circuitos eléctricos.
+    \item Modelos económicos de inversión y consumo.
+\end{itemize}
+
+En estos apuntes estudiaremos principalmente las \textbf{Ecuaciones Diferenciales Ordinarias (EDO)}, 
+ya que constituyen la base fundamental para comprender el análisis de sistemas dinámicos.  
+Más adelante, daremos una primera aproximación a las \textbf{Ecuaciones en Derivadas Parciales (EDP)}, 
+que amplían el marco teórico y permiten describir fenómenos de mayor complejidad.
+
+\newpage
+
+\section*{Ecuaciones Diferenciales}
+
+Se denomina \textbf{ecuación diferencial ordinaria (EDO)} a toda ecuación de la forma
+\[
+    F\left(x, y, y', y'', \dots, y^{(n)}\right) = 0,
+\]
+donde $x$ es la \textit{variable independiente}, $y$ es la \textit{variable dependiente} e 
+$y', y'', \dots, y^{(n)}$ son las derivadas de $y$ respecto a $x$.  
+
+El \textbf{orden de la ecuación} es el grado de la derivada de mayor orden que aparece en ella.  
+
+\subsection*{Solución de una EDO}
+Se denomina \textbf{solución de una EDO en $(a,b)$} a toda función $y(x)$ definida en $(a,b)$, 
+junto con sus derivadas hasta el orden necesario, tal que al sustituirla en la ecuación diferencial 
+se obtiene una identidad respecto de $x$ en el intervalo $(a,b)$.  
+
+\subsection*{Ejemplos}
+\begin{itemize}
+    \item $y' = x \quad \Rightarrow \quad y = \tfrac{1}{2}x^2 + C$ \\
+    Ecuación de primer orden con una constante arbitraria.
+    
+    \item $y' = y \quad \Rightarrow \quad y = Ce^{x}$ \\
+    Ecuación de primer orden con solución exponencial.
+\end{itemize}
+
+\subsection*{EDP vs EDO}
+Si una ecuación diferencial involucra más de una variable independiente, se denomina 
+\textbf{ecuación en derivadas parciales (EDP)}.  
+
+A la gráfica de una solución de una EDO también se le llama \textbf{integral de la ecuación}.  
+
+\subsection*{EDO de primer orden}
+La forma más general de una EDO de primer orden es:
+\[
+    F(x, y, y') = 0 \quad \text{(forma implícita)},
+\]
+o bien,
+\[
+    y' = f(x,y) \quad \text{(forma explícita)}.
+\]
+
+Se dice que una EDO es \textbf{autónoma} si no depende explícitamente de la variable independiente $x$, 
+es decir:
+\[
+    F(y, y') = 0 \quad \text{o bien} \quad y' = f(y).
+\]
+
+\subsection*{Problema de Cauchy}
+El problema de Cauchy (también llamado problema de valor inicial) consiste en resolver una ecuación diferencial ordinaria junto con una o más condiciones iniciales, que son valores específicos de la solución y sus derivadas en un punto dado, usualmente el instante inicial.\\
+
+Las condiciones iniciales en las ecuaciones diferenciales sirven para dar valores a las constantes que van apareciendo al resolverlas.
+\[
+    y' = f(x,y),
+\]
+tal que 
+\[
+    y(x_0) = y_0,
+\]
+es decir, se especifica una \textit{condición inicial} en el punto $(x_0,y_0)$.
+
+\end{document}
