@@ -183,4 +183,86 @@ De esta forma obtenemos el denominado \textbf{plano complejo}; por lo tanto, la 
 
 \end{figure}
 
+\newpage
+
+Si $z = \dfrac{|z|}{|z|}z = |z|\dfrac{z}{|z|} = |z|(\cos\theta + i\sin\theta)$,  
+decimos que $z$ está en \textbf{forma polar}.\\
+
+Sea:
+\[
+w = \frac{z}{|z|} \quad \Rightarrow \quad |w| = \frac{|z|}{|z|} = 1.
+\]
+Es decir, $\dfrac{z}{|z|}$ es un número complejo de módulo 1, luego existe $\theta \in \mathbb{R}$ tal que
+\[
+\frac{z}{|z|} = \cos\theta + i\sin\theta.
+\]
+
+\noindent\textbf{Ejemplo.} El número complejo $1+i$ en forma polar es:
+\[
+1+i = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right).
+\]
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=2]
+  % Ejes
+  \draw[->] (-1.2,0) -- (1.2,0) node[below] {\(\Re\)};
+  \draw[->] (0,-1.2) -- (0,1.2) node[left] {\(\Im\)};
+
+  % Circunferencia unitaria
+  \draw (0,0) circle (1);
+
+  % Ángulo (puedes cambiar este valor)
+  \def\ang{40}
+
+  % Punto en la circunferencia: w = (cosθ, sinθ)
+  \coordinate (O) at (0,0);
+  \coordinate (W) at ({cos(\ang)},{sin(\ang)});
+
+  % Radio OW (longitud 1 en la circunferencia unitaria)
+  \draw[thick,->] (O) -- (W);
+
+  % Proyecciones a los ejes
+  \draw[dashed] (W) -- ({cos(\ang)},0);
+  \draw[dashed] (W) -- (0,{sin(\ang)});
+
+  % Etiquetas de cos y sin
+  \node[below] at ({cos(\ang)},0) {$\cos\theta$};
+  \node[left]  at (0,{sin(\ang)}) {$\sin\theta$};
+
+  % Arco del ángulo θ
+  \draw (0.35,0) arc (0:\ang:0.35);
+  \node at ({0.48*cos(\ang/2)},{0.48*sin(\ang/2)}) {$\theta$};
+\end{tikzpicture}
+
+\medskip
+{\small Circunferencia unitaria: \(w=\cos\theta+i\sin\theta\)}
+\end{figure}
+
+Vemos que un mismo número complejo tiene infinitas representaciones polares por culpa del ángulo $\theta$, llamado \textbf{argumento de $z$}.  
+Para solucionar este problema introducimos el \textbf{argumento principal} de $z$, que es aquel ángulo $-\pi < \theta \leq \pi$ que verifica:
+\[
+z = |z|(\cos\theta + i\sin\theta), \qquad \theta = \arg(z).
+\]
+
+Además, si $z = x+iy$, entonces:
+\[
+\arg(z) =
+\begin{cases}
+\arctan\!\left(\dfrac{y}{x}\right), & x > 0, \, y \geq 0, \\[1ex]
+\arctan\!\left(\dfrac{y}{x}\right)+\pi, & x < 0, \, y \geq 0, \\[1ex]
+\pi, & x < 0, \, y = 0, \\[1ex]
+\arctan\!\left(\dfrac{y}{x}\right)-\pi, & x < 0, \, y < 0, \\[1ex]
+-\dfrac{\pi}{2}, & x = 0, \, y < 0, \\[1ex]
+\dfrac{\pi}{2}, & x = 0, \, y > 0, \\[1ex]
+\arctan\!\left(\dfrac{y}{x}\right), & x > 0, \, y < 0.
+\end{cases}
+\]
+
+\medskip
+\noindent Nótese que se verifica que
+\[
+\arg(z) = \arg(z) + 2k\pi, \qquad k \in \mathbb{Z}.
+\]
+
 \end{document}
