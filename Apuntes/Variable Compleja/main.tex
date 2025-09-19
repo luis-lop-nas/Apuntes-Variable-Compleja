@@ -213,7 +213,7 @@ Es decir, $\dfrac{z}{|z|}$ es un número complejo de módulo 1, luego existe $\t
   \draw (0,0) circle (1);
 
   % Ángulo (puedes cambiar este valor)
-  \def\ang{40}
+  \def\ang{45}
 
   % Punto en la circunferencia: w = (cosθ, sinθ)
   \coordinate (O) at (0,0);
@@ -264,5 +264,92 @@ Además, si $z = x+iy$, entonces:
 \[
 \arg(z) = \arg(z) + 2k\pi, \qquad k \in \mathbb{Z}.
 \]
+
+Así, geométricamente, un número complejo $z$ tendría esta información:
+\[
+z = |z| e^{i\arg(z)}.
+\]
+
+
+
+Al tener el módulo de cualquier complejo podemos hablar de la noción de distancia entre complejos,
+dada por:
+\[
+d(z,w) = |z-w|.
+\]
+
+\noindent\textbf{Definición.} El disco centrado en $z_0 \in \mathbb{C}$ y de radio $\varepsilon > 0$ es:
+\[
+D(z_0,\varepsilon) = \{ z \in \mathbb{C} : |z - z_0| < \varepsilon \}.
+\]
+
+\noindent\textbf{Ejemplo.} 
+\[
+D(1+i,1) = \{ z \in \mathbb{C} : |z-(1+i)| < 1 \}.
+\]
+
+El disco cerrado se denota por:
+\[
+\overline{D}(z_0,\varepsilon) = \{ z \in \mathbb{C} : |z - z_0| \leq \varepsilon \}.
+\]
+
+\begin{figure}[h]
+\centering
+
+% ---- Disco abierto D(1+i,1) ----
+\begin{minipage}{0.4\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.1]
+  % ejes
+  \draw[->] (-0.2,0) -- (3.0,0) node[below right] {\(\Re\)};
+  \draw[->] (0,-0.2) -- (0,3.0) node[left] {\(\Im\)};
+
+  % centro y radio
+  \coordinate (C) at (1,1);
+  \def\R{1}
+
+  % disco ABIERTO: círculo discontinuo, sin relleno
+  \draw[dashed, very thick] (C) circle (\R);
+
+  % centro
+  \fill (C) circle (2pt) node[above right] {$(1,1)$};
+\end{tikzpicture}
+
+\medskip
+{\small Disco abierto \(D(1+i,1)\)}
+\end{minipage}
+\hfill
+% ---- Flecha entre figuras ----
+\begin{minipage}{0.1\textwidth}
+\centering
+\begin{tikzpicture}
+  \draw[->, thick] (0,0) -- (1.6,0);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+% ---- Disco cerrado \overline{D}(1+i,1) ----
+\begin{minipage}{0.4\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.1]
+  % ejes
+  \draw[->] (-0.2,0) -- (3.0,0) node[below right] {\(\Re\)};
+  \draw[->] (0,-0.2) -- (0,3.0) node[left] {\(\Im\)};
+
+  % centro y radio
+  \coordinate (C) at (1,1);
+  \def\R{1}
+
+  % disco CERRADO: relleno suave + borde continuo
+  \filldraw[fill=orange!25, draw=black, very thick] (C) circle (\R);
+
+  % centro
+  \fill (C) circle (2pt) node[above right] {$(1,1)$};
+\end{tikzpicture}
+
+\medskip
+{\small Disco cerrado \(\overline{D}(1+i,1)\)}
+\end{minipage}
+
+\end{figure}
 
 \end{document}
