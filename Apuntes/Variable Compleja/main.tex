@@ -495,4 +495,85 @@ Si \(z=r\,e^{i\theta}\) y \(n\in\mathbb{N}\), entonces:
 z^n=r^n\,e^{in\theta}.
 \]
 
+\subsection{Ejemplo: cálculo en forma exponencial}
+\noindent\textbf{Ejemplo.} Calcular \((1+i)^4\).
+\[
+1+i=\sqrt{2}\,e^{i\pi/4}\;\;\Rightarrow\;\;(1+i)^4=(\sqrt{2})^4e^{i\pi}=4\cdot(-1)=-4,
+\]
+llegamos a:
+\[
+e^{i\pi}+1=0
+\]
+
+\medskip
+{\small (Fórmula de Euler, considerada la más bonita de las matemáticas).}
+
+\subsection{Raíces de números complejos}\label{subsec:raices}
+Queremos estudiar qué números complejos cumplen la ecuación \(z^n=w\) para un \(n\ge 2\), \(w\in\mathbb{C}\).
+
+\paragraph{Proposición.}
+Dado un número complejo no nulo \(w\in\mathbb{C}\setminus\{0\}\) y \(n\ge 2\), existen exactamente \(n\) números complejos que cumplen \(z^n=w\). Si
+\[
+w=r\,e^{i\theta}\quad (r>0,\;\theta\in\mathbb{R}),
+\]
+entonces las soluciones son
+\[
+z_k=r^{1/n}e^{\,i(\theta+2k\pi)/n},\qquad k=0,1,\dots,n-1,
+\]
+que son los vértices de un \(n\)-gono regular centrado en el origen.
+
+\paragraph{Demostración.}
+Si \(z=\rho e^{i\varphi}\), entonces \(z^n=\rho^n e^{in\varphi}\).
+Imponiendo \(z^n=w=r e^{i\theta}\) se obtiene \(\rho^n=r\Rightarrow \rho=r^{1/n}\) y
+\(n\varphi=\theta+2k\pi\Rightarrow \varphi=(\theta+2k\pi)/n\).
+
+\paragraph{Definición.}
+El \emph{conjunto de las raíces \(n\)-ésimas de \(w\)} es
+\[
+\sqrt[n]{w}:=\bigl\{\,r^{1/n}e^{\,i(\theta+2k\pi)/n}\;:\;k=0,\dots,n-1\,\bigr\}.
+\]
+Por abuso, se llama \emph{raíz \(n\)-ésima principal} de \(w\) a
+\[
+\sqrt[n]{w}_{\mathrm{pr}}:=r^{1/n}e^{\,i\,\arg(w)/n},
+\]
+donde \(\arg(w)\in(-\pi,\pi]\) es el argumento principal.
+
+\paragraph{Ejemplo.} Resolver \(z^3=-8i\).
+\[
+-8i=8\,e^{-i\pi/2}\quad\Rightarrow\quad
+z_k=2\,e^{\,i(-\pi/2+2k\pi)/3},\;k=0,1,2.
+\]
+Explícitamente:
+\[
+z_0=2e^{-i\pi/6}=\sqrt{3}-i,\quad
+z_1=2e^{\,i\pi/2}=2i,\quad
+z_2=2e^{\,i7\pi/6}=-\sqrt{3}-i.
+\]
+La raíz cúbica \emph{principal} es \(2e^{-i\pi/6}\).
+
+\paragraph{Notas.}
+\begin{itemize}[leftmargin=1.2em]
+  \item \((z_k)^n=w\) para todo \(k\), y \(z_k=z_0\,e^{\,i2k\pi/n}\).
+  \item \(\sqrt[n]{w}\) denota un \emph{conjunto}; la notación de raíz \emph{principal} usa \(\arg(w)\).
+\end{itemize}
+
+\newpage
+
+\section{Teoría de las funciones de variable compleja}
+Estudiaremos funciones de la forma \(f:A\subset\mathbb{C}\to\mathbb{C}\).
+
+\paragraph{Parte real e imaginaria.}
+Si \(z=x+iy\), toda función \(f\) puede escribirse como
+\[
+f(z)=u(x,y)+i\,v(x,y),
+\]
+donde \(u=\Re f\) y \(v=\Im f\).
+
+\paragraph{Ejemplos.}
+\begin{align*}
+f(z)=z^2=(x+iy)^2 &= (x^2-y^2)+i(2xy)
+&&\Rightarrow&& u(x,y)=x^2-y^2,\;\; v(x,y)=2xy,\\
+f(z)=\overline{z}=x-iy &&&\Rightarrow&& u(x,y)=x,\;\; v(x,y)=-y.
+\end{align*}
+
 \end{document}
