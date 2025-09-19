@@ -270,7 +270,40 @@ Así, geométricamente, un número complejo $z$ tendría esta información:
 z = |z| e^{i\arg(z)}.
 \]
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.2]
 
+  % ======= parámetros editables =======
+  \def\angZ{30}    % ángulo de z   (grados)
+  \def\rZ{2.2}     % módulo de z   (longitud del vector)
+
+  % ======= ejes =======
+  \draw[->] (-0.6,0) -- (3.2,0) node[below right] {\(\Re\)};
+  \draw[->] (0,-0.6) -- (0,2.6) node[left] {\(\Im\)};
+
+  % ======= origen y punto z =======
+  \coordinate (O) at (0,0);
+  \coordinate (Z) at ({\rZ*cos(\angZ)},{\rZ*sin(\angZ)});
+
+  % ======= vector OZ =======
+  \draw[thick,->] (O) -- (Z) node[pos=0.9, above left] {$z$};
+
+  % ======= arco del argumento =======
+  \draw (0.55,0) arc (0:\angZ:0.55);
+  \node at (0.7,-0.25) {\(\arg(z)\)}; % debajo del eje real
+
+  % ======= línea guía punteada (opcional) =======
+  \draw[dashed] (Z) -- ({\rZ*cos(\angZ)},0);
+
+  % punto en la punta
+  \fill (Z) circle (2pt);
+
+\end{tikzpicture}
+
+\medskip
+{\small Argumento de \(z\).}
+\end{figure}
 
 Al tener el módulo de cualquier complejo podemos hablar de la noción de distancia entre complejos,
 dada por:
@@ -311,8 +344,8 @@ El disco cerrado se denota por:
   % disco ABIERTO: círculo discontinuo, sin relleno
   \draw[dashed, very thick] (C) circle (\R);
 
-  % centro
-  \fill (C) circle (2pt) node[above right] {$(1,1)$};
+  % centro (solo punto, sin coordenada)
+  \fill (C) circle (2pt);
 \end{tikzpicture}
 
 \medskip
@@ -342,8 +375,8 @@ El disco cerrado se denota por:
   % disco CERRADO: relleno suave + borde continuo
   \filldraw[fill=orange!25, draw=black, very thick] (C) circle (\R);
 
-  % centro
-  \fill (C) circle (2pt) node[above right] {$(1,1)$};
+  % centro (solo punto, sin coordenada)
+  \fill (C) circle (2pt);
 \end{tikzpicture}
 
 \medskip
