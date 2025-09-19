@@ -385,4 +385,114 @@ El disco cerrado se denota por:
 
 \end{figure}
 
+\subsection{Forma exponencial y multiplicación de números complejos}
+
+Por conveniencia, escribimos
+\[
+\cos\theta+i\sin\theta \;=\; e^{i\theta}.
+\]
+Así, la forma polar \(z=|z|(\cos\theta+i\sin\theta)\) se expresa como
+\[
+z=|z|\,e^{i\theta}.
+\]
+
+Esta representación hace muy sencilla la multiplicación de complejos. En efecto, si:
+\[
+z = r\,e^{i\theta}, \qquad w=\rho\,e^{i\varphi} \quad (r,\rho\ge 0),
+\]
+entonces:
+\[
+z\,w = (r\rho)\,e^{i(\theta+\varphi)}.
+\]
+
+\begin{figure}[h]
+\centering
+
+% --- Panel 1: vectores z y w (sin argumentos) ---
+\begin{minipage}{0.42\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.2]
+  \def\angZ{25} \def\angW{50}
+  \def\rZ{1.6}  \def\rW{1.2}
+
+  \draw[->] (-0.6,0) -- (3.0,0) node[below right] {\(\Re\)};
+  \draw[->] (0,-0.6) -- (0,2.4) node[left] {\(\Im\)};
+
+  \coordinate (O) at (0,0);
+  \coordinate (Z) at ({\rZ*cos(\angZ)},{\rZ*sin(\angZ)});
+  \coordinate (W) at ({\rW*cos(\angW)},{\rW*sin(\angW)});
+
+  \draw[thick,->] (O) -- (Z) node[pos=0.92, above left] {$z$};
+  \draw[thick,->] (O) -- (W) node[pos=0.92, above right] {$w$};
+
+  % Guías (opcional): comenta si no las quieres
+  \draw[dashed] (Z) -- ({\rZ*cos(\angZ)},0);
+  \draw[dashed] (W) -- ({\rW*cos(\angW)},0);
+
+  \fill (Z) circle (2pt);
+  \fill (W) circle (2pt);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+% --- Flecha entre paneles ---
+\begin{minipage}{0.08\textwidth}
+\centering
+\begin{tikzpicture}
+  \draw[->, thick] (0,0) -- (1.6,0);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+% --- Panel 2: producto zw (sin argumentos) ---
+\begin{minipage}{0.42\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.2]
+  \def\angZ{25} \def\angW{50}
+  \def\rZ{1.6}  \def\rW{1.2}
+  \pgfmathsetmacro{\angP}{\angZ+\angW}
+  \pgfmathsetmacro{\rP}{\rZ*\rW}
+
+  \draw[->] (-0.6,0) -- (3.2,0) node[below right] {\(\Re\)};
+  \draw[->] (0,-0.6) -- (0,2.6) node[left] {\(\Im\)};
+
+  \coordinate (O) at (0,0);
+  \coordinate (P) at ({\rP*cos(\angP)},{\rP*sin(\angP)});
+
+  \draw[thick,->] (O) -- (P) node[pos=0.92, above right] {$zw$};
+
+  % Guía (opcional)
+  \draw[dashed] (P) -- ({\rP*cos(\angP)},0);
+
+  \fill (P) circle (2pt);
+\end{tikzpicture}
+\end{minipage}
+
+\medskip
+{\small Multiplicación en forma polar (solo vectores).}
+\end{figure}
+
+En particular,
+\[
+|zw|=|z|\,|w|, \qquad \arg(zw)=\arg(z)+\arg(w)\pmod{2\pi}.
+\]
+\textbf{Nota.} En general es \emph{falso} que
+\[
+\arg(zw)=\arg(z)+\arg(w),
+\]
+pues \(\arg\) es el argumento principal (restringido a \((-\pi,\pi]\)) y puede requerir ajustar por múltiplos de \(2\pi\).
+
+\paragraph{Ejemplo.}
+\[
+\arg(i)=\frac{\pi}{2}, \qquad \arg(-i)=-\frac{\pi}{2},
+\]
+mientras que
+\[
+\arg(i)=\frac{\pi}{2}+2k\pi, \qquad \arg(-i)=-\frac{\pi}{2}+2k\pi, \quad k\in\mathbb{Z}.
+\]
+
+\paragraph{Potencias (fórmula de De Moivre).}
+Si \(z=r\,e^{i\theta}\) y \(n\in\mathbb{N}\), entonces:
+\[
+z^n=r^n\,e^{in\theta}.
+\]
+
 \end{document}
