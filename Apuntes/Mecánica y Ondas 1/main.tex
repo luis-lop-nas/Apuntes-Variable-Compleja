@@ -1,29 +1,67 @@
+\documentclass[a4paper,12pt]{article}
+
 % --- Idioma y codificación ---
-\usepackage[utf8]{inputenc}   % Acentos directos
-\usepackage[T1]{fontenc}      % Codificación de salida
-\usepackage[spanish]{babel}   % Español
-\usepackage{lmodern}          % Fuente moderna
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla, shorthands=off]{babel} % <-- clave para que TikZ no falle
+\usepackage{lmodern}
 
 % --- Matemáticas ---
-\usepackage{amsmath}          % Entornos matemáticos
-\usepackage{amssymb}          % Símbolos
-\usepackage{amsthm}           % Teoremas
-\usepackage{mathtools}        % Extras de amsmath
-\usepackage{bm}               % Negrita en símbolos
-\usepackage{esint}            % Integrales de contorno (∮)
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esint}
 
 % --- Utilidades ---
-\usepackage{graphicx}         % Imágenes
-\usepackage{xcolor}           % Colores
-\usepackage{enumitem}         % Listas
-\usepackage{titlesec}         % Títulos
-\usepackage[hidelinks]{hyperref} % Enlaces (cargar al final)
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
 
 % --- Esquemas y Dibujos ---
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 
-% subsecciones más pequeñas
-\titleformat{\subsection}
-  {\normalfont\small\bfseries}   % formato más pequeño y en negrita
-  {\thesubsection}{1em}{} 
+% Formato de subtítulos
+\titleformat{\subsection}{\normalfont\small\bfseries}{\thesubsection}{1em}{}
+
+\title{Apuntes Mecánica y Ondas 1}
+\author{Luis López}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section*{Introducción}
+
+En esta asignatura abordaremos los fundamentos de la \textbf{Mecánica clásica} y la teoría de \textbf{Ondas}, organizados en seis bloques principales. Cada uno introduce nuevas herramientas conceptuales y matemáticas que permiten analizar sistemas físicos de manera más general y profunda:
+
+\begin{itemize}
+    \item \textbf{Sistemas de referencia no inerciales.} 
+    Estudiaremos qué ocurre cuando analizamos el movimiento desde un sistema que no es inercial, es decir, que está acelerado linealmente o en rotación respecto a un sistema de referencia inercial. En estos casos aparecen las llamadas \emph{fuerzas ficticias} (como la fuerza centrífuga, la de Coriolis o la fuerza de inercia), necesarias para explicar el movimiento observado desde dichos marcos. Veremos cómo se formulan y en qué fenómenos cotidianos aparecen, como en el movimiento de proyectiles, giroscopios o el comportamiento de masas en la Tierra debido a su rotación.
+
+    \item \textbf{Mecánica Lagrangiana.} 
+    Introduciremos el \emph{principio de mínima acción}, que reformula la mecánica clásica en términos de un funcional que debe extremarse. A partir de este principio surge el formalismo lagrangiano, donde el \emph{lagrangiano} se define como \(L = T - V\) (energía cinética menos energía potencial). De aquí derivan las ecuaciones de \emph{Euler-Lagrange}, que permiten describir sistemas de partículas y sistemas con restricciones de una manera mucho más general y elegante que las leyes de Newton.
+
+    \item \textbf{Mecánica Hamiltoniana.} 
+    Veremos cómo a partir del formalismo lagrangiano se puede construir el \emph{hamiltoniano}, que representa la energía total del sistema en función de coordenadas y momentos generalizados. A través del \emph{principio de Hamilton}, obtendremos las \emph{ecuaciones de Hamilton}, que constituyen un nuevo marco para describir sistemas dinámicos. Este formalismo no solo simplifica algunos problemas de la mecánica clásica, sino que es también la base conceptual de la mecánica estadística y la mecánica cuántica.
+
+    \item \textbf{Oscilaciones de un grado de libertad.} 
+    Estudiaremos primero el \emph{oscilador armónico simple}, uno de los sistemas más importantes de la física, pues modela fenómenos tan diversos como vibraciones, circuitos eléctricos o moléculas. Posteriormente veremos el \emph{oscilador amortiguado}, en el que aparece la disipación de energía, y el \emph{oscilador forzado}, donde se introduce una fuerza periódica externa. El análisis de estos sistemas nos llevará a comprender el fenómeno de la \emph{resonancia}, fundamental en física e ingeniería.
+
+    \item \textbf{Sistemas de partículas.} 
+    Abordaremos el estudio de conjuntos de partículas, introduciendo el concepto de \emph{centro de masas} y su movimiento como equivalente al de una partícula ficticia que concentra toda la masa. Además, se estudiarán las leyes de conservación del \emph{momento lineal} y del \emph{momento angular}, aplicadas a fenómenos como colisiones elásticas e inelásticas. Estos principios permiten explicar una gran variedad de problemas físicos de forma compacta.
+
+    \item \textbf{Sólido rígido.} 
+    Finalmente, se analizará la dinámica de los cuerpos rígidos, es decir, aquellos que no cambian de forma bajo la acción de fuerzas. Estudiaremos la energía cinética de rotación, el \emph{momento angular} de un sólido rígido y la importancia del \emph{tensor de inercia}, que generaliza el concepto de inercia en sistemas tridimensionales. Se verán además las ecuaciones de movimiento para la rotación de cuerpos en torno a ejes fijos o móviles, fundamentales para comprender desde el giro de una peonza hasta la estabilidad de satélites y planetas.
+\end{itemize}
+
+Este recorrido proporcionará una visión amplia y profunda de la mecánica clásica, preparando las bases para comprender fenómenos más complejos y para conectar con otras ramas de la física moderna.
