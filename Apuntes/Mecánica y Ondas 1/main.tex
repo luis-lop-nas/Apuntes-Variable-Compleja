@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{article} 
 
 % --- Idioma y codificación ---
 \usepackage[utf8]{inputenc}
@@ -24,14 +24,14 @@
 
 % --- Esquemas y Dibujos ---
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows.meta,calc}
 
 % Formato de subtítulos
 \titleformat{\subsection}{\normalfont\small\bfseries}{\thesubsection}{1em}{}
 
 \title{Apuntes Mecánica y Ondas 1}
 \author{Luis López}
-\date{September 2025}
+\date{Septiembre 2025}
 
 \begin{document}
 
@@ -65,3 +65,270 @@ En esta asignatura abordaremos los fundamentos de la \textbf{Mecánica clásica}
 \end{itemize}
 
 Este recorrido proporcionará una visión amplia y profunda de la mecánica clásica, preparando las bases para comprender fenómenos más complejos y para conectar con otras ramas de la física moderna.
+
+\newpage
+
+\section{Sistemas de referencia no inerciales}
+
+En mecánica newtoniana, un \textbf{ sistema de referencia no inercial} es aquel en el que las leyes del movimiento de Newton no se cumplen si solo se consideran las fuerzas reales.  
+Un sistema de referencia es no inercial siempre que presente un \emph{movimiento acelerado} respecto a un sistema de referencia inercial.  
+
+La aceleración de un sistema no inercial puede deberse a:
+\begin{itemize}
+    \item Un cambio en el módulo de su velocidad de traslación (aceleración lineal).
+    \item Un cambio en la dirección de su velocidad de traslación (por ejemplo, en un movimiento de giro respecto a un sistema inercial).
+    \item Un movimiento de rotación sobre sí mismo.
+    \item Una combinación de los casos anteriores.
+\end{itemize}
+
+Un ejemplo típico de sistema no inercial es el sistema de coordenadas fijo a la \textbf{Tierra}: los cuerpos son medidos respecto a puntos que, en realidad, se mueven debido a la rotación terrestre.  
+
+En estos marcos de referencia, el observador debe introducir las llamadas \textbf{fuerzas ficticias} (como la fuerza centrífuga o la de Coriolis) para explicar el movimiento según las leyes de Newton. Estas fuerzas no son interacciones reales, pero resultan necesarias para mantener la validez de las ecuaciones de Newton dentro del sistema no inercial.
+
+Por tanto, un sistema de referencia no inercial puede identificarse precisamente porque en él se violan las leyes de Newton. Un ejemplo ilustrativo es el \textbf{péndulo de Foucault}, cuyo plano de oscilación varía debido a la rotación terrestre.
+
+Finalmente, cabe señalar que, siendo estrictos, los sistemas de referencia inerciales \emph{no existen de forma absoluta}, pues incluso la Tierra se mueve alrededor del Sol y este alrededor del centro galáctico. Sin embargo, en la práctica, se consideran como inerciales aquellos sistemas en los que el error cometido es despreciable; por ejemplo, para la mayoría de problemas cotidianos resulta útil considerar la superficie terrestre como un sistema inercial.
+
+\newpage
+
+\subsection{Sistemas no inerciales}
+
+\begin{figure}[h]
+\centering
+% --- Dibujo a la izquierda ---
+\begin{minipage}{0.42\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.2, every node/.style={inner sep=1pt}]
+  % Ejes sistema S
+  \draw[->] (0,0) -- (3.2,0) node[below] {$x$};
+  \draw[->] (0,0) -- (0,2.1) node[left] {$y$};
+  \node[below left] at (0,0) {$S$};
+
+  % Origen desplazado de S' (más a la derecha y arriba)
+  \coordinate (Op) at (3.5,1.0);
+
+  % Ejes sistema S'
+  \draw[->] (Op) -- ++(2.3,0) node[right] {$x'$};
+  \draw[->] (Op) -- ++(0,1.6) node[above] {$y'$};
+  \node[below=4pt] at (Op) {$S'$};
+
+  % Vector R (S -> S')
+  \draw[->, thick, violet] (0,0) -- (Op) node[pos=0.55, below] {$\vec{R}$};
+
+  % Punto final en S' para r'
+  \coordinate (P) at ($(Op)+(1.3,0.7)$);
+
+  % Vector r' (en S')
+  \draw[->, thick] (Op) -- (P) node[pos=0.55, below right] {$\vec{r}'$};
+
+  % Vector r (en S)
+  \draw[->, thick] (0,0) -- (P) node[pos=0.55, above left] {$\vec{r}$};
+\end{tikzpicture}
+\end{minipage}
+\hspace{4cm} % <-- separación entre dibujo y fórmulas
+% --- Fórmulas a la derecha ---
+\begin{minipage}{0.28\textwidth}
+\[
+\vec{r} = \vec{R} + \vec{r}'
+\]
+\[
+\vec{v} = \vec{V} + \vec{v}'
+\]
+\end{minipage}
+
+\caption{Relaciones vectoriales en sistemas no inerciales.}
+\end{figure}
+
+\subsection{Sistemas inerciales}
+
+En un \textbf{sistema de referencia no inercial}, las leyes de Newton no se cumplen directamente, por lo que es necesario introducir fuerzas ficticias para describir correctamente el movimiento.  
+En este marco, la posición y velocidad de una partícula se relacionan con las medidas desde un sistema inercial mediante las siguientes expresiones:
+
+\begin{figure}[h]
+\centering
+% --- Dibujo a la izquierda ---
+\begin{minipage}{0.42\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.2, every node/.style={inner sep=1pt}]
+  % Ejes sistema S
+  \draw[->] (0,0) -- (3.2,0) node[below] {$x$};
+  \draw[->] (0,0) -- (0,2.1) node[left] {$y$};
+  \node[below left] at (0,0) {$S$};
+
+  % Origen desplazado de S'
+  \coordinate (Op) at (3.5,1.0);
+
+  % Ejes sistema S'
+  \draw[->] (Op) -- ++(2.3,0) node[right] {$x'$};
+  \draw[->] (Op) -- ++(0,1.6) node[above] {$y'$};
+  \node[below=4pt] at (Op) {$S'$};
+
+  % Vector R (S -> S')
+  \draw[->, thick, violet] (0,0) -- (Op) node[pos=0.55, below] {$\vec{R}$};
+
+  % Punto final en S' para r'
+  \coordinate (P) at ($(Op)+(1.3,0.7)$);
+
+  % Vector r' (en S')
+  \draw[->, thick] (Op) -- (P) node[pos=0.55, below right] {$\vec{r}'$};
+
+  % Vector r (en S)
+  \draw[->, thick] (0,0) -- (P) node[pos=0.55, above left] {$\vec{r}$};
+\end{tikzpicture}
+\end{minipage}
+\hspace{4cm} % separación entre dibujo y fórmulas
+\end{figure}
+
+Son aquellos en los que la \textbf{velocidad relativa es constante}:
+\[
+\vec{v} = \vec{V} + \vec{v}'.
+\]
+
+En el caso particular en que \(\vec{V}=0\), se cumple que:
+\[
+\vec{r} = \vec{r}', \quad \vec{v} = \vec{v}'.
+\]
+
+Además, derivando con respecto al tiempo:
+\[
+\vec{v} = \frac{d\vec{r}}{dt} = \frac{d\vec{R}}{dt} + \frac{d\vec{r}'}{dt}
+\]
+\[
+\vec{a} = \frac{d\vec{v}}{dt} = \frac{d\vec{V}}{dt} + \frac{d\vec{v}'}{dt}.
+\]
+
+De este modo, la segunda ley de Newton se transforma en:
+\[
+m \vec{a} = \vec{F} \quad \Rightarrow \quad m \vec{a}' = \vec{F}.
+\]
+
+
+\subsection{Sistemas en rotación}
+
+Para un vector unitario:
+\[
+\vec{u}_1 = \cos\theta\, \vec{i} - \sin\theta\, \vec{j}, 
+\qquad 
+\vec{u}_2 = \sin\theta\, \vec{i} + \cos\theta\, \vec{j}
+\]
+
+\[
+\frac{d\vec{u}_1}{dt} = -\dot{\theta}\sin\theta\,\vec{i} - \dot{\theta}\cos\theta\,\vec{j} 
+= -\dot{\theta}\vec{u}_2
+\]
+
+\[
+\frac{d\vec{u}_2}{dt} = \dot{\theta}\cos\theta\,\vec{i} - \dot{\theta}\sin\theta\,\vec{j} 
+= \dot{\theta}\vec{u}_1
+\]
+
+\[
+\omega = \frac{d\theta(t)}{dt}
+\]
+
+\[
+\frac{d\vec{u}_1}{dt} = -\omega \vec{u}_2, 
+\qquad 
+\frac{d\vec{u}_2}{dt} = \omega \vec{u}_1
+\]
+
+---
+
+\[
+\frac{d\vec{A}}{dt}\Big|_{S} = \frac{d\vec{A}}{dt}\Big|_{S'} + \boldsymbol{\omega} \times \vec{A}
+\]
+
+\[
+\vec{v} = \frac{d\vec{r}}{dt} = \vec{v}' + \boldsymbol{\omega}\times \vec{r}
+\]
+
+\[
+\vec{v} = \vec{v}' + \boldsymbol{\omega}\times\vec{r}
+\]
+
+\[
+\vec{v} = \vec{v}' + \boldsymbol{\omega}\times\vec{r}' 
+\]
+
+\[
+\text{Lo que nos deja } \quad \vec{v} = \vec{v}' + \boldsymbol{\omega}\times \vec{r}'
+\]
+
+---
+
+Para la aceleración:
+
+\[
+\vec{a} = \frac{d\vec{v}}{dt}\Big|_S = \frac{d\vec{v}'}{dt}\Big|_{S} + \frac{d}{dt}(\boldsymbol{\omega}\times \vec{r}')\Big|_{S}
+\]
+
+\[
+= \frac{d\vec{v}'}{dt}\Big|_{S'} + \boldsymbol{\omega}\times \vec{v}' + 
+\dot{\boldsymbol{\omega}}\times \vec{r}' + \boldsymbol{\omega}\times \vec{v}' 
+\]
+
+\[
+= \vec{a}' + \dot{\boldsymbol{\omega}}\times \vec{r}' + 2\boldsymbol{\omega}\times \vec{v}' 
++ \boldsymbol{\omega}\times (\boldsymbol{\omega}\times \vec{r}')
+\]
+
+\[
+\vec{a} = \vec{a}' + 2\boldsymbol{\omega}\times \vec{v}' + \dot{\boldsymbol{\omega}}\times \vec{r}' + \boldsymbol{\omega}\times (\boldsymbol{\omega}\times \vec{r}')
+\]
+
+\[
+\text{Teorema de Coriolis}
+\]
+
+---
+
+Para las fuerzas:
+
+\[
+m\vec{a}' = \vec{F} - m\dot{\boldsymbol{\omega}}\times \vec{r}' - m\big(\boldsymbol{\omega}\times (\boldsymbol{\omega}\times \vec{r}')\big) - 2m(\boldsymbol{\omega}\times \vec{v}')
+\]
+
+Donde:
+
+\[
+\vec{F}_{\text{Euler}} = -m\dot{\boldsymbol{\omega}}\times \vec{r}', 
+\quad \vec{F}_{\text{centrífuga}} = -m(\boldsymbol{\omega}\times (\boldsymbol{\omega}\times \vec{r}')), 
+\quad \vec{F}_{\text{Coriolis}} = -2m(\boldsymbol{\omega}\times \vec{v}')
+\]
+
+\[
+\vec{F}' = \vec{F} + \vec{F}_i
+\]
+
+---
+
+\subsection{La Tierra como sistema no inercial}
+
+\[
+R_T = 6370\, \text{km}, 
+\qquad 
+\omega = \frac{2\pi}{24h} = 7.3\cdot 10^{-5}\,\text{rad/s}
+\]
+
+\[
+\vec{F}_{\text{real}} = m\vec{g}
+\]
+
+Estudiamos la fuerza centrífuga:
+
+\[
+\vec{F}_{\text{cen}} = -m(\boldsymbol{\omega}\times (\boldsymbol{\omega}\times \vec{R}))
+\]
+
+\[
+= -m\big((\boldsymbol{\omega}\cdot \vec{R})\boldsymbol{\omega} - (\boldsymbol{\omega}\cdot \boldsymbol{\omega})\vec{R}\big)
+\]
+
+\[
+= m\omega^2 \vec{R}_\perp
+\]
+
+\[
+\text{Se desprecia ya que } |\vec{F}_{\text{cen}}|\ll |\vec{R}|
+\]
+\end{document}
