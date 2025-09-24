@@ -1,3 +1,4 @@
+\documentclass[a4paper,12pt]{article}
 % --- Idioma y codificación ---
 \usepackage[utf8]{inputenc}   % Acentos directos
 \usepackage[T1]{fontenc}      % Codificación de salida
@@ -38,112 +39,796 @@
 
 \newpage % Salto de página después de la portada
 
-\section*{Introducción a las Ecuaciones Diferenciales}
+\tableofcontents % Índice automático
+\newpage 
 
-Una \textbf{ecuación diferencial} es una ecuación matemática que relaciona una función con sus derivadas. 
-En matemáticas aplicadas, las funciones suelen representar \textit{cantidades físicas}, las derivadas 
-indican sus \textit{tasas de cambio}, y la ecuación define la relación entre ambas. 
-Debido a que estas relaciones aparecen de forma natural en múltiples contextos, 
-las ecuaciones diferenciales juegan un rol esencial en la \textit{ingeniería}, 
-la \textit{física}, la \textit{química}, la \textit{economía} y la \textit{biología}.
+\section*{Introducción a las ecuaciones diferenciales}
 
-\subsection*{Tipos principales de ecuaciones diferenciales}
+Una \textbf{ecuación diferencial} es una relación matemática en la que intervienen una función desconocida y sus derivadas. 
+Su objetivo es describir cómo varía una magnitud en función de otra, estableciendo vínculos entre la propia magnitud y su tasa de cambio.  
 
-De forma general, se distinguen dos grandes clases de ecuaciones diferenciales:
+Las ecuaciones diferenciales son fundamentales porque numerosos fenómenos naturales y tecnológicos se formulan de esta manera. 
+En física, por ejemplo, permiten estudiar el movimiento de partículas (leyes de Newton), la propagación del calor, las ondas o el comportamiento de los circuitos eléctricos. 
+En otras disciplinas también son esenciales: en biología modelan el crecimiento de poblaciones y la difusión de sustancias, 
+en economía describen la evolución de sistemas dinámicos, 
+y en ingeniería sirven para analizar vibraciones, fluidos o sistemas de control.  
 
-\begin{itemize}
-    \item \textbf{Ecuaciones Diferenciales Ordinarias (EDO):} son aquellas en las que interviene una 
-    única variable independiente. Suelen escribirse en la forma
-    \[
-        F\left(x, y, y', y'', \dots, y^{(n)}\right) = 0,
-    \]
-    donde $y = y(x)$ es la función incógnita.
-    
-    \item \textbf{Ecuaciones Diferenciales en Derivadas Parciales (EDP):} aparecen cuando la función 
-    incógnita depende de dos o más variables independientes. En ellas intervienen derivadas parciales, por ejemplo:
-    \[
-        F\left(x, y, u, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \dots \right) = 0,
-    \]
-    donde $u = u(x,y)$ es la función desconocida.
-\end{itemize}
-
-\subsection*{Usos de las ecuaciones diferenciales}
-
-Las ecuaciones diferenciales permiten modelar una gran variedad de fenómenos, tales como:
-
-\begin{itemize}
-    \item El crecimiento poblacional en biología.
-    \item La transferencia de calor y difusión en física e ingeniería.
-    \item El movimiento de partículas bajo fuerzas externas.
-    \item La dinámica de circuitos eléctricos.
-    \item Modelos económicos de inversión y consumo.
-\end{itemize}
-
-En estos apuntes estudiaremos principalmente las \textbf{Ecuaciones Diferenciales Ordinarias (EDO)}, 
-ya que constituyen la base fundamental para comprender el análisis de sistemas dinámicos.  
-Más adelante, daremos una primera aproximación a las \textbf{Ecuaciones en Derivadas Parciales (EDP)}, 
-que amplían el marco teórico y permiten describir fenómenos de mayor complejidad.
+En definitiva, las ecuaciones diferenciales constituyen una herramienta matemática clave que conecta las teorías con la realidad dinámica, 
+pues gran parte de los procesos que nos rodean se fundamentan en cambios que pueden expresarse mediante estas ecuaciones.
 
 \newpage
 
-\section*{Ecuaciones Diferenciales}
+\section{Ecuaciones diferenciales ordinarias}
 
-Se denomina \textbf{ecuación diferencial ordinaria (EDO)} a toda ecuación de la forma
+Se denomina \textbf{ecuación diferencial ordinaria (EDO)} a toda ecuación
 \[
-    F\left(x, y, y', y'', \dots, y^{(n)}\right) = 0,
+F(x,y,y',y'',\ldots,y^{(n)}) = 0
 \]
-donde $x$ es la \textit{variable independiente}, $y$ es la \textit{variable dependiente} e 
-$y', y'', \dots, y^{(n)}$ son las derivadas de $y$ respecto a $x$.  
+donde $x$ es la variable independiente, $y$ la variable dependiente y $y',y'',\ldots$ son derivadas de la variable dependiente.  
+Llamamos \textbf{orden de la ecuación} al grado de la derivada más grande que aparece en la ecuación.  
 
-El \textbf{orden de la ecuación} es el grado de la derivada de mayor orden que aparece en ella.  
+Se denomina \textbf{solución} de una EDO en $(a,b)$ a toda función definida en $(a,b)$ junto a sus derivadas de orden $n$, tal que al sustituirla en la EDO da una identidad respecto a $x$ en $(a,b)$.  
 
-\subsection*{Solución de una EDO}
-Se denomina \textbf{solución de una EDO en $(a,b)$} a toda función $y(x)$ definida en $(a,b)$, 
-junto con sus derivadas hasta el orden necesario, tal que al sustituirla en la ecuación diferencial 
-se obtiene una identidad respecto de $x$ en el intervalo $(a,b)$.  
+\subsection*{Ejemplo:}
+\[
+y' = x^5 \;\;\Rightarrow\;\; y = \tfrac{x^6}{6} + C, \quad \text{ecuación de primer orden $\Rightarrow$ 1 constante arbitraria}
+\]
+\[
+y'' = y' \;\;\Rightarrow\;\; y = C_1 e^x + C_2
+\]
 
-\subsection*{Ejemplos}
-\begin{itemize}
-    \item $y' = x \quad \Rightarrow \quad y = \tfrac{1}{2}x^2 + C$ \\
-    Ecuación de primer orden con una constante arbitraria.
-    
-    \item $y' = y \quad \Rightarrow \quad y = Ce^{x}$ \\
-    Ecuación de primer orden con solución exponencial.
-\end{itemize}
+Si una EDO involucra varias variables independientes, se denomina \textbf{ecuación en derivadas parciales (EDP)}:
+\[
+F(x_1,x_2,\ldots,x_n, \tfrac{\partial y}{\partial x_1}, \tfrac{\partial y}{\partial x_2}, \ldots, \tfrac{\partial^2 y}{\partial x_i \partial x_j}, \ldots ) = 0
+\]
 
-\subsection*{EDP vs EDO}
-Si una ecuación diferencial involucra más de una variable independiente, se denomina 
-\textbf{ecuación en derivadas parciales (EDP)}.  
+A la gráfica de una solución de una EDO también se le llama \textbf{integral}.  
 
-A la gráfica de una solución de una EDO también se le llama \textbf{integral de la ecuación}.  
+\subsection*{EDOs de primer orden}
 
-\subsection*{EDO de primer orden}
 La forma más general de una EDO de primer orden es:
 \[
-    F(x, y, y') = 0 \quad \text{(forma implícita)},
+F(x,y,y')=0 \quad \text{(forma implícita)}
 \]
-o bien,
 \[
-    y' = f(x,y) \quad \text{(forma explícita)}.
+y' = f(x,y) \quad \text{(forma explícita)}.
 \]
 
-Se dice que una EDO es \textbf{autónoma} si no depende explícitamente de la variable independiente $x$, 
-es decir:
+Se dice que una EDO es \textbf{autónoma} si no depende explícitamente de la variable independiente, es decir:
 \[
-    F(y, y') = 0 \quad \text{o bien} \quad y' = f(y).
+y' = f(y) \quad \Leftrightarrow \quad F(y,y')=0.
+\]
+\newpage
+\subsection{Problema de Cauchy}
+
+Consiste en la búsqueda de la solución de la EDO $y' = f(x,y)$ tal que $y(x_0)=y_0$,
+es decir, se añade una \textbf{condición inicial}:
+\[
+\begin{cases}
+y' = f(x,y) \\
+y(x_0) = y_0
+\end{cases}
 \]
 
-\subsection*{Problema de Cauchy}
-El problema de Cauchy (también llamado problema de valor inicial) consiste en resolver una ecuación diferencial ordinaria junto con una o más condiciones iniciales, que son valores específicos de la solución y sus derivadas en un punto dado, usualmente el instante inicial.\\
-
-Las condiciones iniciales en las ecuaciones diferenciales sirven para dar valores a las constantes que van apareciendo al resolverlas.
+\subsection*{Ejemplo:}
 \[
-    y' = f(x,y),
+y' = y \;\;\Rightarrow\;\; y = C e^x, \qquad y=e^x \text{ si } y(0)=1
 \]
-tal que 
-\[
-    y(x_0) = y_0,
-\]
-es decir, se especifica una \textit{condición inicial} en el punto $(x_0,y_0)$.
+Ya que $1 = C e^0 \Rightarrow C=1$.
 
+\subsection{Teorema de Picard–Lindelöf (existencia y unicidad)}
+El problema de Cauchy tiene una única solución si, y solo si, $f(x,y)$ y
+$\dfrac{\partial f}{\partial y}$ son continuas en $(x,y)$.
+
+Es decir, si $f(x,y)$ y $\dfrac{\partial f}{\partial y}$ son continuas en una cierta región del plano $x,y$,  
+entonces $\exists! \; y(x)$ que pasa por cada punto de dicha región.
+
+\subsection*{Ejemplo:}
+\[
+y' = \frac{y}{x} \;\;\Rightarrow\;\; \frac{dy}{y} = \frac{dx}{x}
+\;\;\Rightarrow\;\; \int \frac{dy}{y} = \int \frac{dx}{x}
+\;\;\Rightarrow\;\; \ln y = \ln x + C \;\;\Rightarrow\;\; y = Cx
+\]
+
+Si $y(x_0)=y_0$ entonces $y_0 = Cx_0 \;\;\Rightarrow\;\; C = \dfrac{y_0}{x_0}$.
+
+\medskip
+
+Por definición, la \textbf{solución general} de una EDO es la familia de curvas $y(x,C)$ que satisfacen $y'=f(x,y)$ para distintos valores admisibles de $C$.  
+
+Una \textbf{solución particular} es aquella que además cumple la condición inicial $y(x_0)=y_0$,  
+es decir, es una curva concreta dentro de la familia general.
+
+\[
+y' = y, \quad y = C e^x \;\; \Rightarrow \;\; \text{solución general}
+\]
+\[
+y_p = e^x \;\; \Rightarrow \;\; \text{solución particular}
+\]
+
+\newpage
+\section{Tipos de EDOs}
+
+\subsection{EDOs de variables separables}
+
+Una EDO de variables separables tiene la forma:
+\[
+\frac{dy}{dx} = f(x)g(y),
+\]
+que se puede reescribir como:
+\[
+\frac{1}{g(y)}\,dy = f(x)\,dx.
+\]
+
+\subsection*{Ejemplo:}
+\[
+3 e^x \tan(y)\, dx = -(2 - e^x)\sec^2(y)\, dy
+\]
+
+Integramos en ambos lados:
+\[
+\int \frac{e^x}{2-e^x}\,dx = \int -\sec^2(y)\,dy
+\]
+
+Resolviendo:
+\[
+-3 \ln|2-e^x| = -\ln|\tan y| + C
+\]
+
+\[
+\tan(y) = D (e^x-2)^3 \;\;\Rightarrow\;\; y = \arctan\!\big(D(e^x-2)^3\big).
+\]
+
+\subsection{EDOs reducibles a separables}
+
+Son del tipo:
+\[
+\frac{dy}{dx} = f(ax+by+c),
+\qquad a,b,c \;\; \text{constantes definidas}.
+\]
+
+Se resuelven mediante el cambio de variable:
+\[
+z = ax + by + c.
+\]
+
+Entonces:
+\[
+z' = a + b\,y' 
+\;\;\Rightarrow\;\; 
+y' = \frac{z'-a}{b}.
+\]
+
+Sustituyendo en la ecuación original:
+\[
+\frac{dz}{dx} = a + b\,f(z),
+\]
+que es una ecuación separable en $z$ y $x$.
+
+\bigskip
+
+\subsection*{Ejemplo}
+
+\[
+(x+y^2)\,y' = a^2, \qquad a = \text{cte}.
+\]
+
+Reordenamos:
+\[
+y' = \frac{a^2}{(x+y)^2}.
+\]
+
+Hacemos el cambio de variable:
+\[
+z = x+y \quad\Rightarrow\quad z' = 1 + y' \quad\Rightarrow\quad y' = z'-1.
+\]
+
+Sustituyendo:
+\[
+z'-1 = \frac{a^2}{z^2} \quad\Rightarrow\quad z' = 1 + \frac{a^2}{z^2}.
+\]
+
+\[
+\frac{dz}{dx} = \frac{z^2+a^2}{z^2}.
+\]
+
+Integramos:
+\[
+\int \frac{z^2}{z^2+a^2}\,dz = \int dx.
+\]
+
+Descomponemos:
+\[
+\int \frac{z^2}{z^2+a^2}\,dz 
+= \int \left(1 - \frac{a^2}{z^2+a^2}\right)\,dz
+= z - a^2\int \frac{1}{z^2+a^2}\,dz.
+\]
+
+La integral se resuelve con la identidad:
+\[
+\int \frac{1}{z^2+a^2}\,dz = \frac{1}{a}\arctan\!\left(\frac{z}{a}\right).
+\]
+
+Entonces:
+\[
+x + D = z - a\arctan\!\left(\frac{z}{a}\right).
+\]
+\subsection*{Deshacemos el cambio de variable $z = x+y$}
+
+\[
+z - \arctg\!\left(\tfrac{z}{a}\right) = x + D
+\]
+
+\[
+x+y - \arctg\!\left(\tfrac{x+y}{a}\right) = x + D
+\;\;\Rightarrow\;\; 
+Si: y(0)=0 \;\;\Rightarrow\;\; D=0
+\]
+
+\[
+y_g = \arctg\!\left(\tfrac{x+y}{a}\right) + D 
+\;\;\Rightarrow\;\;
+y_p = \arctg\!\left(\tfrac{x+y}{a}\right)
+\]
+
+\subsection{EDO’s homogéneas}
+
+Se dice que $f(x,y)$ es homogénea de grado $n$ si:
+\[
+f(tx,ty) = t^n f(x,y)
+\]
+
+Se dice que $y' = f(x,y)$ es homogénea si $f(x,y)$ es homogénea de grado 0:
+\[
+f(tx,ty) = f(x,y), 
+\qquad 
+f(x,y) = \tfrac{y}{x},
+\qquad
+f(tx,ty) = \tfrac{ty}{tx} = \tfrac{y}{x}
+\]
+
+\[
+f(x,y) = xy \;\;\Rightarrow\;\; f(tx,ty) = t^2 xy
+\]
+
+\subsection*{Ejemplo:}
+
+\[
+f(x,y) = \left(\tfrac{x}{y}\right)^2 \;\;\Rightarrow\;\; \text{grado 0}
+\]
+
+\[
+x y' = \sqrt{x^2 + y^2} + y 
+\;\;\Rightarrow\;\;
+y' = \frac{\sqrt{x^2 + y^2}}{x} + \frac{y}{x}
+\]
+
+\[
+\;\;\Rightarrow\;\; y' = \sqrt{1 + \left(\tfrac{y}{x}\right)^2} + \tfrac{y}{x}
+\]
+
+Donde $z = \tfrac{y}{x} \;\;\Rightarrow\;\; z' = \tfrac{y'x - y}{x^2} \;\;\Rightarrow\;\; y' = x z' + y$
+
+\subsection{Cambio de variable lineal}
+
+Si $c \neq 0$ y 
+\[
+\begin{vmatrix}
+a & b \\
+a_1 & b_1
+\end{vmatrix} \neq 0
+\;\;\Rightarrow\;\;
+\begin{cases}
+x = \xi + h \\
+y = \eta + k
+\end{cases}
+\]
+
+\[
+y' = \frac{dy}{dx} = \frac{d\eta}{d\xi}\cdot \frac{d\xi}{dx} 
+= \frac{d\eta}{d\xi} \;\;\Rightarrow\;\; y' = \frac{d\eta}{d\xi}
+\]
+
+\[
+\frac{d\eta}{d\xi} = 
+\frac{a\xi + b\eta + ah + bk + c}{a_1\xi + b_1\eta + a_1 h + b_1 k + c_1}
+= \frac{a + b\frac{\eta}{\xi}}{a_1 + b_1\frac{\eta}{\xi}}
+= \frac{dw}{d\xi}
+\]
+
+\subsection*{Ejemplo}
+
+\[
+(x+y-2)\,dx + (x-y+4)\,dy = 0
+\;\;\Rightarrow\;\;
+y' = \frac{x+y-2}{-x+y-4}
+\]
+
+Hacemos el cambio de variable:
+\[
+\begin{cases}
+x = \xi + h \\
+y = \eta + k
+\end{cases}
+\]
+
+\[
+\frac{d\eta}{d\xi} = \frac{\xi + h + \eta + k - 2}{-\xi - h + \eta + k - 4}
+\]
+
+Condiciones:
+\[
+h+k=2, 
+\qquad 
+-h+k=4
+\;\;\Rightarrow\;\;
+h=-1, \; k=3
+\]
+
+\[
+\frac{d\eta}{d\xi} = \frac{\xi + \eta + 2}{-\xi + \eta}
+= 1 + \frac{2\xi}{-\xi + \eta}
+\]
+
+Cambio de variable:
+\[
+z = \frac{\eta}{\xi} \;\;\Rightarrow\;\; \eta = z\xi
+\]
+
+\[
+\frac{d\eta}{d\xi} = \frac{d}{d\xi}(\xi z) = \xi \frac{dz}{d\xi} + z
+\]
+
+\[
+\frac{1+z}{-1+z} = \frac{dz}{d\xi}\,\xi
+\;\;\Rightarrow\;\;
+\frac{1+z}{-1+z} = -\frac{dz}{d\xi}\,\xi
+\]
+
+Integramos:
+\[
+\int \frac{z-1}{-z^2+2z+1}\,dz = \int \frac{d\xi}{\xi}
+\;\;\Rightarrow\;\;
+\ln|1+2z-z^2| = \ln|\xi^{-2}| + C = \ln\left|\frac{D}{\xi^2}\right|
+\]
+
+\[
+1+2z-z^2 = \frac{D}{\xi^2}
+\;\;\Rightarrow\;\;
+\xi^2 + 2z\xi^2 - z^2\xi^2 = D
+\]
+
+\[
+(x+1)^2 + 2(x+1)(y-3) - (y-3)^2 = D
+\]
+
+\subsection{EDOs exactas}
+
+Son de la forma: $f(x,y)=c \;\;\Rightarrow\;\; y'=0$
+
+\[
+df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy = 0
+\;\;\Rightarrow\;\;
+\frac{dy}{dx} = -\frac{\frac{\partial f}{\partial x}}{\frac{\partial f}{\partial y}}
+\]
+
+\[
+\underbrace{M}_{\frac{\partial f}{\partial x}}(x,y)\,dx + 
+\underbrace{N}_{\frac{\partial f}{\partial y}}(x,y)\,dy
+\;\;\Leftrightarrow\;\; 
+\exists f \;\; \text{tal que } f(x,y)=\text{constante}.
+\]
+
+\[
+\frac{\partial f}{\partial x}=M \;\;\Rightarrow\;\; 
+f(x,y) = \int M\,dx + g(y)
+\]
+
+\[
+\frac{\partial f}{\partial y}=N \;\;\Rightarrow\;\;
+\int \frac{\partial M}{\partial y}\,dx + g'(y)
+\]
+
+Por lo tanto,
+\[
+g'(y) = N - \int \frac{\partial M}{\partial y}\,dx 
+\;\;\Rightarrow\;\;
+g(y) = \int\left[N - \int \frac{\partial M}{\partial y}\,dx\right]dy + C
+\]
+
+\subsubsection*{“Demostración”}
+
+Podemos hacer esto ya que si $f(x,y)=c \;\;\Rightarrow\;\; df=0$,  
+entonces
+\[
+\frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy = 0.
+\]
+
+Entonces:
+\[
+\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}
+\;\;\Rightarrow\;\;
+\frac{\partial}{\partial x}\!\left(\frac{\partial f}{\partial y}\right)
+= \frac{\partial}{\partial y}\!\left(\frac{\partial f}{\partial x}\right)
+\;\;\Rightarrow\;\;
+\frac{\partial N}{\partial x} = \frac{\partial M}{\partial y}.
+\]
+\subsection*{Ejemplo:}
+
+\[
+(x+y-2)\,dx + (x-y+4)\,dy = 0
+\]
+
+Llamamos \(M\) a la primera parte y \(N\) a la segunda:
+\[
+M=(x+y-2)\,dx, \qquad N=(x-y+4)\,dy
+\]
+\newpage
+\textbf{Comprobamos:}
+\[
+\frac{\partial M}{\partial y}=1  
+\qquad 
+\frac{\partial N}{\partial x}=1
+\]
+
+\[
+\frac{\partial f}{\partial x}=x+y-2
+\]
+
+\[
+\Rightarrow\;
+f=\int (x+y-2)\,dx + g(y)
+= \frac{x^{2}}{2}+xy-2x+g(y)
+\]
+
+\[
+N=\frac{\partial f}{\partial y}=x+g'(y)=x-y+4
+\;\Rightarrow\;
+g(y)=\int(-y+4)\,dy=-\frac{y^{2}}{2}+4y+C
+\]
+\[
+f(x,y)=\frac{x^{2}}{2}-2x-\frac{y^{2}}{2}+4y+xy+C=0
+\]
+
+\subsection*{Ejemplo:}
+
+\[
+(\sen(xy)+xy\cos(xy))\,dx+x^{2}\cos(xy)\,dy=0
+\]
+
+\[
+\begin{cases}
+(\sen(xy)+xy\cos(xy))\,dx \;\;\longrightarrow\; M\\[2pt]
+x^{2}\cos(xy)\,dy \;\;\longrightarrow\; N
+\end{cases}
+\]
+
+Comprobamos que sea exacta.
+
+\[
+\frac{\partial M}{\partial y}
+= x\cos(xy) + x\cos(xy) + xy(-x\sen(xy)),
+\qquad
+\frac{\partial N}{\partial x}
+= 2x\cos(xy) - x^{2}y\sen(xy)
+\]
+\[
+\longrightarrow\; \text{Queda comprobado que es una EDO exacta ya que son iguales.}
+\]
+
+\textbf{Resolvemos:}
+\[
+f=\int \big[x^{2}\cos(xy)\big]\,dy + g(x) = -x\,\sen(xy) + g(x)
+\]
+
+\[
+\frac{\partial f}{\partial x}=M
+\;\Rightarrow\;
+-\sen(xy)-xy\cos(xy)+g'(x) = \sen(xy)+xy\cos(xy)
+\]
+
+\[
+g'(x)=2\sen(xy)+2xy\cos(xy)
+\]
+
+\[
+g(x)=\int \big[\,2\sen(xy)+2xy\cos(xy)\,\big]\,dx
+\]
+\subsection{EDO's cuasi-exactas}
+
+\[
+M\,dx + N\,dy = 0 \;\;\Rightarrow\;\; \frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}
+\qquad
+\mu(x,y)=\text{factor integrante.}
+\]
+
+Si $\;\exists\,\mu(x,y)$ tal que $\;\mu(x,y)M\,dx+\mu(x,y)N\,dy=0\;$ es una EDO exacta, entonces la EDO original es cuasi-exacta.
+
+\medskip
+Supongamos que $\;\exists\,f(x,y)=c,\;\; \frac{\partial f}{\partial x}=\mu M\;\; \text{y}\;\; \frac{\partial f}{\partial y}=\mu N$
+
+\[
+\frac{\partial^2 f}{\partial y\,\partial x}=\frac{\partial^2 f}{\partial x\,\partial y}
+\;\;\Rightarrow\;\;
+\frac{\partial}{\partial y}(\mu M)=\frac{\partial}{\partial x}(\mu N)
+\]
+
+\[
+N\,\frac{\partial \mu}{\partial x}+\mu\,\frac{\partial N}{\partial x}
+=
+M\,\frac{\partial \mu}{\partial y}+\mu\,\frac{\partial M}{\partial y}
+\;\;\Rightarrow\;\;
+N\,\frac{\partial \mu}{\partial x}-M\,\frac{\partial \mu}{\partial y}
+=
+\mu\!\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)
+\]
+
+\begin{itemize}
+\item Si: $\displaystyle \frac{\partial_y M-\partial_x N}{N}$ solo depende de $x$ $\Rightarrow \mu=\mu(x)$
+\end{itemize}
+
+\[
+\mu=\mu(x)
+\qquad\Rightarrow\qquad
+\frac{\partial \mu}{\partial y}=0
+\;\Rightarrow\;
+N\,\frac{\partial \mu}{\partial x}
+=
+\mu\!\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)
+\;\Rightarrow\;
+\frac{d\mu}{\mu}=
+\underbrace{\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)\!\Big/\!N}_{g(x)}
+\,dx
+\]
+
+\[
+\int \frac{d\mu}{\mu}=\int g(x)\,dx
+\;\Rightarrow\;
+\ln\mu=\int g(x)\,dx+\alpha
+\;\Rightarrow\;
+\mu(x)=c\,e^{\int g(x)\,dx}
+\]
+
+\begin{itemize}
+\item Si: $\displaystyle \frac{\partial_x N-\partial_y M}{M}$ solo depende de $y$ $\Rightarrow \mu=\mu(y)$
+\end{itemize}
+
+\[
+\mu(y)=e^{\int h(y)\,dy}
+\qquad\text{con}\qquad
+h(y)=\frac{\partial_x N-\partial_y M}{M}
+\]
+\newpage
+\subsection*{Ejemplo:}
+
+\[
+(x+y^2)\,dx - 2xy\,dy = 0
+\]
+
+\[
+\frac{\partial M}{\partial y} = 2y, 
+\qquad 
+\frac{\partial N}{\partial x} = -2y
+\;\;\Rightarrow\;\; \text{No es exacta.}
+\]
+
+\[
+\frac{\partial_y M - \partial_x N}{N} = \frac{2y - (-2y)}{-2xy} = \frac{4y}{-2xy} = -\frac{2}{x}
+\;\;\Rightarrow\;\; g(y)=0
+\;\;\Rightarrow\;\; \mu=\mu(x)
+\]
+
+\[
+\int \frac{d\mu}{\mu} = \int -\frac{2}{x}\,dx
+\;\;\Rightarrow\;\;
+\ln\mu = -2\ln x + C
+\;\;\Rightarrow\;\;
+\mu(x)=\frac{C}{x^2}
+\]
+
+\[
+\mu M\,dx + \mu N\,dy = 0
+\;\;\Rightarrow\;\;
+\frac{1}{x^2}\big[(x+y^2)\,dx - 2xy\,dy\big]=0
+\]
+
+\[
+\Big(\tfrac{1}{x}+\tfrac{y^2}{x^2}\Big)\,dx - \tfrac{2y}{x}\,dy=0
+\]
+
+\[
+\frac{\partial f}{\partial x}=\frac{1}{x}+\frac{y^2}{x^2}
+\;\;\Rightarrow\;\;
+f=\int \left(\frac{1}{x}+\frac{y^2}{x^2}\right)dx + g(y)
+= \frac{y^2}{x}+\ln x+g(y)
+\]
+
+\[
+\frac{\partial f}{\partial y}=\frac{2y}{x}+g'(y)=\frac{-2y}{x}
+\;\;\Rightarrow\;\;
+g'(y)=-\frac{2y}{x}+\frac{2y}{x}=0
+\;\;\Rightarrow\;\;
+g(y)=\ln x+C
+\]
+
+\[
+f(x,y)=\frac{-y^2}{x}+\ln x+C
+\]
+
+\subsection{EDOs lineales de primer orden}
+
+La forma general es:
+\[
+\frac{dy}{dx}+p(x)y=q(x)
+\]
+
+Una EDO es lineal si la combinación lineal de soluciones también es solución.
+
+Si $y_1,y_2$ son soluciones $\;\;\Rightarrow\;\;\alpha y_1+\beta y_2$ también es solución.
+
+\medskip
+\newpage
+Hay dos tipos:
+\[
+\text{Si } q(x)=0 \;\;\Rightarrow\;\; \text{EDO homogénea}
+\]
+\[
+\text{Si } q(x)\neq 0 \;\;\Rightarrow\;\; \text{EDO inhomogénea}
+\]
+\[
+\frac{d}{dx}(\alpha y_1 + \beta y_2) + p(x)(\alpha y_1 + \beta y_2) 
+= \alpha \frac{dy_1}{dx} + \beta \frac{dy_2}{dx} + \alpha p(x)y_1 + \beta p(x)y_2
+\]
+
+\[
+= \alpha\left(\frac{dy_1}{dx}+p(x)y_1\right)+\beta\left(\frac{dy_2}{dx}+p(x)y_2\right)
+= (\alpha+\beta)q(x)
+\]
+
+\subsection{Homogénea q(x)=0}
+
+\[
+\frac{dy}{dx}+p(x)y=0
+\;\;\Rightarrow\;\;
+\frac{dy}{y}=-p(x)\,dx
+\;\;\Rightarrow\;\;
+\ln y = -\int p(x)\,dx
+\;\;\Rightarrow\;\;
+y=Ce^{-\int p(x)\,dx}
+\]
+\subsection*{Inhomogénea $q(x)\neq 0$}
+\[
+\frac{dy}{dx}+p(x)y=g(x)
+\]
+
+\[
+y_g(x)=y_h(x)+y_p(x)
+\]
+
+\[
+\frac{d}{dx}(y_h+y_p)+p(x)(y_h+y_p)=\frac{dy}{dx}+p(x)y=q(x)
+\]
+
+Primero resuelvo la homogénea:
+\[
+y_h = C e^{-\int p(x)\,dx}
+\]
+\[
+y_p = C(x)y_h \;\;\Rightarrow\;\; y_p = C(x)e^{-\int p(x)\,dx}
+\]
+\[
+\frac{dy_p}{dx}+p(x)y_p = C'(x)y_h + C(x)\left(\frac{dy_h}{dx}+p(x)y_h\right)=q(x)
+\]
+
+\[
+C(x)\left(\frac{dy_h}{dx}+p(x)y_h\right)=0
+\]
+\[
+C'(x)y_h=q(x)
+\;\;\Rightarrow\;\;
+C(x)=\int \frac{q(x)}{y_h}\,dx
+\]
+\[
+y_p = D_1 y_h + y_h \int \frac{q(x)}{y_h}\,dx
+\]
+\subsection*{Ejemplo:}
+
+\[
+y' + 2y = e^{-x}
+\]
+
+Primero resolvemos la homogénea:
+\[
+y' + 2y = 0 \;\;\Rightarrow\;\; \int \frac{dy}{y} = \int -2dx 
+\;\;\Rightarrow\;\; \ln y = -2x
+\]
+\[
+y_h = Ce^{-2x}
+\]
+
+Ahora resolvemos la particular:
+\[
+y_p = C(x)e^{-2x} \;\;\Rightarrow\;\; 
+y_p' = C'(x)e^{-2x} - 2C(x)e^{-2x}
+\]
+\[
+C'(x)e^{-2x} - 2C(x)e^{-2x} + 2C(x)e^{-2x} = e^{-x} 
+\;\;\Rightarrow\;\; C'(x)e^{-2x} = e^{-x}
+\]
+\[
+C'(x) = e^x \;\;\Rightarrow\;\; C(x) = \int e^x dx + D = e^x + D
+\]
+
+La solución particular quedaría:
+\[
+y_p = (e^x + D)e^{-2x} = e^{-x} + De^{-2x}
+\]
+
+La solución general quedaría:
+\[
+y_g = y_h + y_p = Ce^{-2x} + e^{-x} + De^{-2x}
+= Ae^{-2x} + e^{-x}
+\]
+\subsection*{Ejemplo:}
+
+\[
+\frac{dy}{dx}=\frac{1}{x\cos y+\sen 2y}
+\;\;\Rightarrow\;\;
+\frac{dx}{dy}=x\cos y+\sen 2y
+\]
+
+\[
+\frac{dx}{dy}-x\cos y=\sen 2y
+\qquad
+\text{donde }\;
+\begin{cases}
+\cos y = p(y)\\[2pt]
+\sen 2y = q(y)
+\end{cases}
+\qquad
+\begin{aligned}
+&y'+p(x)\,y=g(x)\\
+&x'+p(y)\,x=g(y)
+\end{aligned}
+\]
+
+\[
+x_h'-x_h\cos y=0
+\;\Rightarrow\;
+\int \frac{dx_h}{x_h}=\int \cos y\,dy
+\;\Rightarrow\;
+\ln x_h=\sen y + D
+\]
+\[
+x_h=e^{\sen y}
+\]
+
+\[
+x_p=C(y)e^{\sen y}
+\;\Rightarrow\;
+x_p'=C'(y)e^{\sen y}+C(y)\cos y\,e^{\sen y}
+\]
+
+\[
+x_p'-x_p\cos y=\sen(2y)
+\]
+
+\[
+C'(y)e^{\sen y}+C(y)\cos y\,e^{\sen y}-C(y)e^{\sen y}\cos y=\sen 2y
+\]
+
+\[
+C'(y)e^{\sen y}=\sen 2y
+\;\Rightarrow\;
+C'(y)=\sen 2y\,e^{-\sen y}
+\;\Rightarrow\;
+C(y)=\int \sen 2y\,e^{-\sen y}\,dy
+=2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
+\]
+
+\text{Hacemos cambio de variable } \(z=\sen y\) \(\Rightarrow\) \(dz=\cos y\,dy\):
+\[
+2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
+=2\!\int z\,e^{-z}\,dz
+\]
 \end{document}
