@@ -3,6 +3,7 @@
 \usepackage[a4paper,margin=3.5cm]{geometry}
 \usepackage{setspace}
 \setstretch{1.3}
+\raggedbottom % Evita que LaTeX estire verticalmente el contenido entre páginas
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.8em}
 \usepackage{microtype} % Mejora la justificación y kerning
@@ -27,7 +28,7 @@
 \usepackage{titlesec}         % Títulos
 % Espaciado consistente de secciones y subsecciones
 \titlespacing*{\section}{0pt}{1.2em}{0.6em}
-\titlespacing*{\subsection}{0pt}{1.0em}{0.5em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.3em}
 \titlespacing*{\subsubsection}{0pt}{0.8em}{0.4em}
 
 % --- Esquemas y Dibujos ---
@@ -49,13 +50,12 @@
 \begin{document}
 
 \maketitle % Genera la portada
-
-\newpage % Salto de página después de la portada
+\clearpage
 
 \tableofcontents % Índice automático
-\newpage 
-
+\clearpage
 \section*{Introducción a las ecuaciones diferenciales}
+
 
 Una \textbf{ecuación diferencial} es una relación matemática en la que intervienen una función desconocida y sus derivadas. 
 Su objetivo es describir cómo varía una magnitud en función de otra, estableciendo vínculos entre la propia magnitud y su tasa de cambio.  
@@ -69,8 +69,7 @@ y en ingeniería sirven para analizar vibraciones, fluidos o sistemas de control
 En definitiva, las ecuaciones diferenciales constituyen una herramienta matemática clave que conecta las teorías con la realidad dinámica, 
 pues gran parte de los procesos que nos rodean se fundamentan en cambios que pueden expresarse mediante estas ecuaciones.
 
-\newpage
-
+\clearpage
 \section{Ecuaciones diferenciales ordinarias}
 
 Se denomina \textbf{ecuación diferencial ordinaria (EDO)} a toda ecuación
@@ -80,9 +79,9 @@ F(x,y,y',y'',\ldots,y^{(n)}) = 0
 donde $x$ es la variable independiente, $y$ la variable dependiente y $y',y'',\ldots$ son derivadas de la variable dependiente.  
 Llamamos \textbf{orden de la ecuación} al grado de la derivada más grande que aparece en la ecuación.  
 
-Se denomina \textbf{solución} de una EDO en $(a,b)$ a toda función definida en $(a,b)$ junto a sus derivadas de orden $n$, tal que al sustituirla en la EDO da una identidad respecto a $x$ en $(a,b)$.  
+Se denomina \textbf{solución} de una EDO en $(a,b)$ a toda función definida en $(a,b)$ junto a sus derivadas de orden $n$, tal que al sustituirla en la EDO da una identidad respecto a $x$ en $(a,b)$.
 
-\subsection*{Ejemplo:}
+\textbf{Ejemplo:}
 \[
 y' = x^5 \;\;\Rightarrow\;\; y = \tfrac{x^6}{6} + C, \quad \text{ecuación de primer orden $\Rightarrow$ 1 constante arbitraria}
 \]
@@ -111,7 +110,6 @@ Se dice que una EDO es \textbf{autónoma} si no depende explícitamente de la va
 \[
 y' = f(y) \quad \Leftrightarrow \quad F(y,y')=0.
 \]
-\newpage
 \subsection{Problema de Cauchy}
 
 Consiste en la búsqueda de la solución de la EDO $y' = f(x,y)$ tal que $y(x_0)=y_0$,
@@ -123,7 +121,7 @@ y(x_0) = y_0
 \end{cases}
 \]
 
-\subsection*{Ejemplo:}
+\textbf{Ejemplo:}
 \[
 y' = y \;\;\Rightarrow\;\; y = C e^x, \qquad y=e^x \text{ si } y(0)=1
 \]
@@ -136,7 +134,7 @@ $\dfrac{\partial f}{\partial y}$ son continuas en $(x,y)$.
 Es decir, si $f(x,y)$ y $\dfrac{\partial f}{\partial y}$ son continuas en una cierta región del plano $x,y$,  
 entonces $\exists! \; y(x)$ que pasa por cada punto de dicha región.
 
-\subsection*{Ejemplo:}
+\textbf{Ejemplo:}
 \[
 y' = \frac{y}{x} \;\;\Rightarrow\;\; \frac{dy}{y} = \frac{dx}{x}
 \;\;\Rightarrow\;\; \int \frac{dy}{y} = \int \frac{dx}{x}
@@ -159,7 +157,6 @@ y' = y, \quad y = C e^x \;\; \Rightarrow \;\; \text{solución general}
 y_p = e^x \;\; \Rightarrow \;\; \text{solución particular}
 \]
 
-\newpage
 \section{Tipos de EDOs}
 
 \subsection{EDOs de variables separables}
@@ -173,7 +170,7 @@ que se puede reescribir como:
 \frac{1}{g(y)}\,dy = f(x)\,dx.
 \]
 
-\subsection*{Ejemplo:}
+\textbf{Ejemplo:}
 \[
 3 e^x \tan(y)\, dx = -(2 - e^x)\sec^2(y)\, dy
 \]
@@ -220,7 +217,7 @@ que es una ecuación separable en $z$ y $x$.
 
 \bigskip
 
-\subsection*{Ejemplo}
+\textbf{Ejemplo:}
 
 \[
 (x+y^2)\,y' = a^2, \qquad a = \text{cte}.
@@ -304,7 +301,7 @@ f(tx,ty) = \tfrac{ty}{tx} = \tfrac{y}{x}
 f(x,y) = xy \;\;\Rightarrow\;\; f(tx,ty) = t^2 xy
 \]
 
-\subsection*{Ejemplo:}
+\textbf{Ejemplo:}
 
 \[
 f(x,y) = \left(\tfrac{x}{y}\right)^2 \;\;\Rightarrow\;\; \text{grado 0}
@@ -349,7 +346,7 @@ y' = \frac{dy}{dx} = \frac{d\eta}{d\xi}\cdot \frac{d\xi}{dx}
 = \frac{dw}{d\xi}
 \]
 
-\subsection*{Ejemplo}
+\textbf{Ejemplo:}
 
 \[
 (x+y-2)\,dx + (x-y+4)\,dy = 0
@@ -466,8 +463,9 @@ Entonces:
 \;\;\Rightarrow\;\;
 \frac{\partial N}{\partial x} = \frac{\partial M}{\partial y}.
 \]
-\subsection*{Ejemplo:}
 
+
+\textbf{Ejemplo:}
 \[
 (x+y-2)\,dx + (x-y+4)\,dy = 0
 \]
@@ -476,7 +474,6 @@ Llamamos \(M\) a la primera parte y \(N\) a la segunda:
 \[
 M=(x+y-2)\,dx, \qquad N=(x-y+4)\,dy
 \]
-\newpage
 \textbf{Comprobamos:}
 \[
 \frac{\partial M}{\partial y}=1  
@@ -503,7 +500,7 @@ g(y)=\int(-y+4)\,dy=-\frac{y^{2}}{2}+4y+C
 f(x,y)=\frac{x^{2}}{2}-2x-\frac{y^{2}}{2}+4y+xy+C=0
 \]
 
-\subsection*{Ejemplo:}
+\textbf{Ejemplo:}
 
 \[
 (\sen(xy)+xy\cos(xy))\,dx+x^{2}\cos(xy)\,dy=0
@@ -581,19 +578,15 @@ N\,\frac{\partial \mu}{\partial x}-M\,\frac{\partial \mu}{\partial y}
 \end{itemize}
 
 \[
-\mu=\mu(x)
-\qquad\Rightarrow\qquad
-\frac{\partial \mu}{\partial y}=0
-\;\Rightarrow\;
-N\,\frac{\partial \mu}{\partial x}
-=
-\mu\!\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)
-\;\Rightarrow\;
-\frac{d\mu}{\mu}=
-\underbrace{\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)\!\Big/\!N}_{g(x)}
-\,dx
+\begin{gathered}
+\mu = \mu(x) \Rightarrow\quad \frac{\partial \mu}{\partial y} = 0 
+\Rightarrow\quad N\,\frac{\partial \mu}{\partial x} 
+= \mu\!\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right) \\[4pt]
+\Rightarrow\quad 
+\frac{d\mu}{\mu} =
+\underbrace{\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right)\!\Big/ N}_{g(x)}\, dx
+\end{gathered}
 \]
-
 \[
 \int \frac{d\mu}{\mu}=\int g(x)\,dx
 \;\Rightarrow\;
@@ -611,8 +604,8 @@ N\,\frac{\partial \mu}{\partial x}
 \qquad\text{con}\qquad
 h(y)=\frac{\partial_x N-\partial_y M}{M}
 \]
-\newpage
-\subsection*{Ejemplo:}
+
+\textbf{Ejemplo:}
 
 \[
 (x+y^2)\,dx - 2xy\,dy = 0
@@ -680,7 +673,6 @@ Una EDO es lineal si la combinación lineal de soluciones también es solución.
 Si $y_1,y_2$ son soluciones $\;\;\Rightarrow\;\;\alpha y_1+\beta y_2$ también es solución.
 
 \medskip
-\newpage
 Hay dos tipos:
 \[
 \text{Si } q(x)=0 \;\;\Rightarrow\;\; \text{EDO homogénea}
@@ -744,7 +736,8 @@ C(x)=\int \frac{q(x)}{y_h}\,dx
 \[
 y_p = D_1 y_h + y_h \int \frac{q(x)}{y_h}\,dx
 \]
-\subsection*{Ejemplo:}
+
+\textbf{Ejemplo:}
 
 \[
 y' + 2y = e^{-x}
@@ -782,7 +775,8 @@ La solución general quedaría:
 y_g = y_h + y_p = Ce^{-2x} + e^{-x} + De^{-2x}
 = Ae^{-2x} + e^{-x}
 \]
-\subsection*{Ejemplo:}
+
+\textbf{Ejemplo:}
 
 \[
 \frac{dy}{dx}=\frac{1}{x\cos y+\sen 2y}
@@ -821,7 +815,6 @@ x_p=C(y)e^{\sen y}
 \;\Rightarrow\;
 x_p'=C'(y)e^{\sen y}+C(y)\cos y\,e^{\sen y}
 \]
-
 \[
 x_p'-x_p\cos y=\sen(2y)
 \]
@@ -829,16 +822,13 @@ x_p'-x_p\cos y=\sen(2y)
 \[
 C'(y)e^{\sen y}+C(y)\cos y\,e^{\sen y}-C(y)e^{\sen y}\cos y=\sen 2y
 \]
-
 \[
-C'(y)e^{\sen y}=\sen 2y
-\;\Rightarrow\;
-C'(y)=\sen 2y\,e^{-\sen y}
-\;\Rightarrow\;
-C(y)=\int \sen 2y\,e^{-\sen y}\,dy
-=2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
+\begin{gathered}
+ C'(y)e^{\sen y} = \sen 2y \\[4pt]
+ C'(y) = \sen 2y\,e^{-\sen y} \\[4pt]
+ C(y) = \int \sen 2y\,e^{-\sen y}\,dy  = 2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
+\end{gathered}
 \]
-
 \text{Hacemos cambio de variable } \(z=\sen y\) \(\Rightarrow\) \(dz=\cos y\,dy\):
 \[
 2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
