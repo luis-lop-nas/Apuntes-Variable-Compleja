@@ -575,5 +575,452 @@ f(z)=z^2=(x+iy)^2 &= (x^2-y^2)+i(2xy)
 &&\Rightarrow&& u(x,y)=x^2-y^2,\;\; v(x,y)=2xy,\\
 f(z)=\overline{z}=x-iy &&&\Rightarrow&& u(x,y)=x,\;\; v(x,y)=-y.
 \end{align*}
+\subsection{Límites y continuidad de funciones complejas}
 
+\textbf{Definición.} Sea $f$ definida en un conjunto $A\subset\mathbb{C}$, $f:A\subset\mathbb{C}\to\mathbb{C}$. Diremos que el límite de $f$ cuando $z$ tiende a $z_0$ es $w\in\mathbb{C}$ si
+\[
+\forall\,\varepsilon>0\ \exists\,\delta>0\ \text{tal que}\ \ 0<|z-z_0|<\delta \ \Rightarrow\ |f(z)-w|<\varepsilon.
+\]
+Se denota por \(\displaystyle \lim_{z\to z_0} f(z)=w\).
+
+\medskip
+
+\textbf{Proposición.} Sean $f,g$ dos funciones tales que $f,g:A\subset\mathbb{C}\to\mathbb{C}$ y existen
+\(\displaystyle \lim_{z\to z_0} f(z)=w\) y \(\displaystyle \lim_{z\to z_0} g(z)=\ell\). Entonces:
+\begin{enumerate}
+  \item \(\displaystyle \lim_{z\to z_0} \big(f(z)+g(z)\big)
+  = \lim_{z\to z_0} f(z) + \lim_{z\to z_0} g(z) = w+\ell.\)
+  \item \(\displaystyle \lim_{z\to z_0} \big(f(z)\,g(z)\big)
+  = \lim_{z\to z_0} f(z)\ \cdot\ \lim_{z\to z_0} g(z) = w\,\ell.\)
+  \item Si \(\ell\neq 0\), entonces \(\displaystyle
+  \lim_{z\to z_0} \frac{f(z)}{g(z)} = \frac{w}{\ell}.\)
+\end{enumerate}
+\newpage
+\paragraph{Proposición.}
+\[
+\exists \lim_{z\to z_0} f(z)=w \quad\Longleftrightarrow\quad
+\exists \lim_{(x,y)\to(x_0,y_0)} \bigl(u(x,y)+i\,v(x,y)\bigr)=a+ib
+\]
+equivalentemente
+\[
+\begin{cases}
+\displaystyle \exists \lim_{(x,y)\to(x_0,y_0)} u(x,y)=a,\\[4pt]
+\displaystyle \exists \lim_{(x,y)\to(x_0,y_0)} v(x,y)=b.
+\end{cases}
+\]
+
+\paragraph{Demostración.}
+\[
+\exists \lim_{z\to z_0} f(z)=a+bi=w
+\ \Longleftrightarrow\
+\forall \varepsilon>0\ \exists \delta>0:\ 0<|z-z_0|<\delta \ \Rightarrow\ |f(z)-(a+bi)|<\varepsilon .
+\]
+Analicemos lo siguiente:
+\[
+\lim_{(x,y)\to(x_0,y_0)} u(x,y)=a
+\ \Longleftrightarrow\
+\forall \varepsilon>0\ \exists \delta>0:\ 0<\| (x,y)-(x_0,y_0)\|<\delta \Rightarrow |u(x,y)-a|<\varepsilon .
+\]
+En efecto,
+\[
+|u(x,y)-a|
+=\bigl|\,u(x,y)-a+i(v(x,y)-b)\,-\,i(v(x,y)-b)\,\bigr|
+\le |f(z)-(a+bi)|
+<\varepsilon,
+\]
+y análogamente para la parte imaginaria \(v(x,y)\).
+Además,
+\[
+0<|z-z_0|<\delta
+\ \Longleftrightarrow\
+0<|x+iy-(x_0+iy_0)|<\delta
+\ \Longleftrightarrow\
+0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta .
+\]
+La parte imaginaria es análoga. \(\square\)
+
+\paragraph{Ejemplo.} Analicemos \(\displaystyle \lim_{z\to 2i} z^2\).
+Como
+\[
+(x+iy)^2=(x^2-y^2)+i(2xy),
+\]
+se tiene
+\[
+\lim_{(x,y)\to(0,2)}(x^2-y^2)=-4,
+\qquad
+\lim_{(x,y)\to(0,2)}2xy=0,
+\]
+luego \(\displaystyle \lim_{z\to 2i} z^2=-4\).
+
+\paragraph{Ejemplo (analítico por definición).}
+Probemos por \(\varepsilon\)-\(\delta\) que \(\displaystyle \lim_{z\to 2i} z^2=-4\).
+Sea \(\varepsilon>0\). Observamos
+\[
+|z^2-(2i)^2|=|z-2i|\,|z+2i|
+\le |z-2i|\bigl(|z-2i|+|4i|\bigr)
+=|z-2i|\,(|z-2i|+4).
+\]
+Si imponemos \(0<|z-2i|<\delta\) y además \(\delta\le 1\), entonces
+\[
+|z^2-(2i)^2|
+< \delta(\delta+4)\le 5\delta.
+\]
+Eligiendo
+\[
+\delta=\min\!\left\{1,\ \frac{\varepsilon}{5}\right\}
+\]
+se obtiene \(0<|z-2i|<\delta \Rightarrow |z^2+4|<\varepsilon\). Por lo tanto,
+\[
+\lim_{z\to 2i} z^2=-4.
+\]
+\subsection{Continuidad}
+
+\textbf{Definición.}
+Sea \(f:A\subset\mathbb{C}\to\mathbb{C}\).
+Decimos que \(f\) es continua en \(z_0\in A\) si
+\[
+\lim_{z\to z_0} f(z)=f(z_0).
+\]
+
+El ejercicio anterior muestra que:
+
+\textbf{Proposición.}
+Sean \(f,g:A\subset\mathbb{C}\to\mathbb{C}\) continuas en \(z_0\).
+Entonces
+\begin{enumerate}[label=(\arabic*)]
+  \item \(f+g\) es continua en \(z_0\).
+  \item \(f\cdot g\) es continua en \(z_0\).
+  \item \(\displaystyle \frac{f}{g}\) es continua en \(z_0\) si \(g(z_0)\neq 0\).
+\end{enumerate}
+
+\textbf{Proposición.}
+Si \(f:A\subset\mathbb{C}\to\mathbb{C}\) es continua en \(z_0\) y
+\(g:\mathbb{C}\to\mathbb{C}\) es continua en \(f(z_0)\), entonces \(g\circ f\)
+es continua en \(z_0\).
+
+\textbf{Ejercicio.}
+Veamos que \(f(z)\equiv k\in\mathbb{C}\) es continua en todo \(z\in\mathbb{C}\).
+En efecto,
+\[
+|f(z)-k|=|k-k|=0<\varepsilon \qquad (\forall\,\varepsilon>0).
+\]
+
+(2) \textit{Estudiemos} \(f(z)=|z|\):
+dado \(\varepsilon>0\), si \(0<|z-z_0|<\delta\) con \(\delta=\varepsilon\), entonces
+\[
+\big||z|-|z_0|\big|\le |z-z_0|<\varepsilon.
+\]
+
+(3) Todo polinomio \(p(z)=a_0+a_1z+\cdots+a_nz^n\) es continuo (suma y
+producto de continuas).
+
+(4) Para \(f(z)=|z|\): usando \(\big||z|-|w|\big|\le |z-w|\), se obtiene continuidad.
+
+(5) Para \(f(z)=|z|^2\): \(|\,|z|^2-|w|^2|=|z\overline{z}-w\overline{w}|
+\le (|z|+|w|)\,|z-w|\), y eligiendo \(\delta\) conveniente resulta continua.
+
+\subsection{Derivación de funciones complejas}
+
+\textbf{Definición.}
+Sea \(f:A\subset\mathbb{C}\to\mathbb{C}\). Se dice que \(f\) es
+\emph{holomorfa} en \(z_0\in A\) si existe el límite
+\[
+f'(z_0)=\lim_{h\to 0}\frac{f(z_0+h)-f(z_0)}{h}.
+\]
+Se dirá que \(f\) es holomorfa en \(A\) si lo es en todo punto de \(A\); se
+denota \(f\in H(A)\).
+Si \(f\) es holomorfa en \(\mathbb{C}\) se dice \emph{entera}, esto es,
+\(f\in H(\mathbb{C})\).
+
+\textbf{Ejemplo.}
+Veamos que \(f(z)=z\) es entera:
+\[
+\lim_{h\to 0}\frac{f(z_0+h)-f(z_0)}{h}
+=\lim_{h\to 0}\frac{(z_0+h)-z_0}{h}=1=f'(z_0).
+\]
+
+\textbf{Proposición.}
+Si \(f:A\to\mathbb{C}\) es holomorfa en \(z_0\), entonces \(f\) es continua en \(z_0\).
+
+\textit{Demostración.}
+\[
+\lim_{h\to 0}\bigl(f(z_0+h)-f(z_0)\bigr)
+=\lim_{h\to 0}h\,\frac{f(z_0+h)-f(z_0)}{h}=0.
+\qquad\square
+\]
+
+Observamos que se cumplen todas las reglas de derivación en \(\mathbb{C}\)
+de la misma forma que en \(\mathbb{R}\).
+\section*{Ejercicios}
+
+\subsection*{1.1} Dado \(z\neq 0\in\mathbb{C}\ \Rightarrow\ z^{-1}\in\mathbb{C}\).
+
+Sabemos que \(z\,\overline z=|z|^{2}\ \Rightarrow\ z^{-1}=\dfrac{\overline z}{|z|^{2}}\).
+
+Además, si \(z=x+iy\), entonces
+\[
+z^{-1}=\frac{1}{x^{2}+y^{2}}(x-iy)
+= \frac{x}{x^{2}+y^{2}}-\frac{y}{x^{2}+y^{2}}\,i .
+\]
+
+Así, por ejemplo,
+\[
+(1+i)^{-1}=\frac{1-i}{1^{2}+1^{2}}=\frac12-\frac12\,i .
+\]
+
+Por lo tanto,
+\[
+1=(1+i)\Bigl(\tfrac12-\tfrac12\,i\Bigr).
+\]
+
+\subsection*{1.2} Calcula el módulo y argumento principal de los siguientes números.\\[2pt]
+\textbf{(b)} \(\displaystyle \frac{i}{2-2i}\).
+
+\[
+\frac{i}{2-2i}
+=\frac{i}{2-2i}\cdot\frac{2+2i}{2+2i}
+=\frac{i(2+2i)}{(2)^{2}+(2)^{2}}
+=\frac{2i-2}{8}
+=-\frac{1}{4}+\frac{1}{4}\,i .
+\]
+
+Una vez hecho esto, calculamos su módulo y argumento:
+\[
+\left|-\frac14+\frac14\,i\right|
+=\sqrt{\left(\frac14\right)^{2}+\left(\frac14\right)^{2}}
+=\frac{\sqrt2}{4}.
+\]
+\[
+\arg\!\left(-\tfrac14+\tfrac14\,i\right)
+=\arctan\!\left(\frac{\,\tfrac14\,}{-\tfrac14}\right)+\pi
+=\arctan(-1)+\pi=\frac{3\pi}{4}.
+\]
+\emph{*Le sumamos \(\pi\) porque estamos en el segundo cuadrante (según la convención del \(\arctan\)).*}
+
+\subsection*{1.3} \(\displaystyle (\sqrt{3}-i)^{6}\).
+
+Pasamos a forma exponencial:
+\[
+\sqrt{3}-i=2\,e^{-i\pi/6}
+\quad\Longrightarrow\quad
+(\sqrt{3}-i)^{6}=(2e^{-i\pi/6})^{6}=2^{6}e^{-i\pi}=64\,e^{-i\pi}.
+\]
+
+\subsection*{1.4} Representa los siguientes subconjuntos del plano complejo \(\mathbb{C}\).
+
+\textbf{(a)} \(\displaystyle \Omega=\{\,z\in\mathbb{C}:\ |z-2+i|\le 1\,\}\).
+
+\[
+|z-2+i|\le 1\ \Longleftrightarrow\ |z-(2-i)|\le 1
+\ \Longrightarrow\ 
+\Omega=\overline{D}(2-i,1),
+\]
+lo que quedaría como un disco centrado en \(2-i\) y de radio \(1\).
+c) $\Omega = \{ z \in \mathbb{C} : |2 - 4| \geq |2i| \}$  
+Para analizarlo, nos fijamos en que $z - 2i$ tiene la misma distancia a $0$ que a $4$.
+
+Así, $\Omega = \{ z \in \mathbb{C} : \Re(z) \leq 2 \}$
+
+\subsection*{1.8 - Calcula:}
+
+c) 
+\[
+\sqrt[5]{-1 - i} = \sqrt[5]{w} \left[ \cos\left( \frac{\arg w + 2k\pi}{5} \right) + i \sin\left( \frac{\arg w + 2k\pi}{5} \right) \right], \quad k = 0, 1, 2, 3, 4
+\]
+
+Aplicamos la fórmula a nuestro caso, para ello calculamos el módulo y argumento:
+\[
+|-1 - i| = \sqrt{2}
+\]
+\[
+\arg(-1 - i) = -\frac{3\pi}{4}
+\]
+
+\[
+= \sqrt[5]{\sqrt{2}} \left[ \cos\left( \frac{-3\pi}{20} \right) + i \sin\left( \frac{-3\pi}{20} \right) \right] \ldots
+\]
+
+\textbf{Teorema:} Sea $f: \Omega \rightarrow \mathbb{C}$. Entonces, denotando $f(z) = u(x, y) + iv(x, y)$:  
+Si $f$ es holomorfa en $z_0$, es decir, existe la derivada en $z_0$, entonces existen las derivadas parciales de $u$ y $v$ verificando las llamadas \textit{ecuaciones de Cauchy-Riemann (C-R)} dadas por:
+
+\[
+\begin{cases}
+u_x(x_0, y_0) = v_y(x_0, y_0) \\
+u_y(x_0, y_0) = -v_x(x_0, y_0)
+\end{cases}
+\]
+
+donde $u_x(x_0, y_0) = \dfrac{\partial u}{\partial x}(x_0, y_0)$, $v_x(x_0, y_0) = \dfrac{\partial v}{\partial x}(x_0, y_0)$
+
+Además
+\[
+f'(z_0) = u_x(x_0, y_0) + i v_x(x_0, y_0)
+\]
+
+\textbf{Demostración:}
+
+\[
+\exists f'(z_0) = \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}
+\]
+
+\[
+= \lim_{t \to 0} \frac{u(x_0 + t, y_0) + i v(x_0 + t, y_0) - u(x_0, y_0) - i v(x_0, y_0)}{t}
+\]
+
+\[
+= u_x(x_0, y_0) + i v_x(x_0, y_0)
+\]
+
+\[
+\lim_{t \to 0} \frac{i \big( v(x_0, y_0 + t) - v(x_0, y_0) \big) - \big( u(x_0, y_0 + t) - u(x_0, y_0) \big)}{it} = -i v_y(x_0, y_0) + u_y(x_0, y_0)
+\]
+\newpage
+\textbf{Ejemplo.} Analicemos que $f(z) = z$ cumple las ecuaciones de Cauchy-Riemann
+
+\[
+f(x + iy) = x + iy \Rightarrow
+\begin{cases}
+u(x, y) = x \\
+v(x, y) = y
+\end{cases}
+\]
+
+Recordando las ecuaciones de Cauchy-Riemann
+
+\[
+\text{(CR)} \quad
+\begin{cases}
+u_x(x_0, y_0) = v_y(x_0, y_0) \\
+u_y(x_0, y_0) = -v_x(x_0, y_0)
+\end{cases}
+\Rightarrow
+\begin{cases}
+1 = 1 \\
+0 = 0
+\end{cases}
+\]
+
+Además:
+\[
+f'(z) = u_x(x + iy) + i v_x(x, y) = v_y(x, y) + i u_x(x, y) = 1
+\]
+
+\textbf{Observación:} Ya sabíamos que $f(z) = z$ es holomorfa por definición.
+
+\textbf{Ejemplo.} Analiza si $f(z) = z^2$ cumple las ecuaciones de Cauchy-Riemann
+
+\[
+f(x + iy) = (x + iy)(x + iy) = (x^2 - y^2) + i (2xy) \Rightarrow
+\begin{cases}
+u(x, y) = x^2 - y^2 \\
+v(x, y) = 2xy
+\end{cases}
+\]
+
+\[
+\text{(C-R)} \quad
+\begin{cases}
+u_x(x, y) = 2x = v_y(x, y) \\
+u_y(x, y) = -2y = -v_x(x, y)
+\end{cases}
+\]
+
+Además:
+\[
+f'(z) = u_x(x, y) + i v_x(x, y) = 2x + i 2y = 2(x + iy) = 2z
+\]
+
+\textbf{Ejemplo.} Analicemos si $f(z) = \bar{z}$ es holomorfa usando las ecuaciones de Cauchy-Riemann
+
+\[
+f(x + iy) = x - iy \Rightarrow
+\begin{cases}
+u(x, y) = x \\
+v(x, y) = -y
+\end{cases}
+\]
+
+\[
+f(z) = \bar{z} \quad \text{no es holomorfa.}
+\]
+\newpage
+\textbf{Ejemplo:} Analicemos si $f(z) = |z|^2$ es holomorfa usando las ecuaciones de Cauchy-Riemann
+
+\[
+f(x + iy) = x^2 + y^2 \Rightarrow 
+\begin{cases}
+u(x, y) = x^2 + y^2 \\
+v(x, y) = 0
+\end{cases}
+\]
+
+Aplicamos las ecuaciones de Cauchy-Riemann
+
+\[
+\text{(C-R)} \quad 
+\begin{cases}
+2x = 0 \\
+2y = 0
+\end{cases}
+\Rightarrow \text{Si } z \neq 0 \Rightarrow f(z) = |z|^2 \text{ no es holomorfa}
+\]
+
+No obstante, en $z = 0$ se cumplen las ecuaciones de Cauchy-Riemann $\nRightarrow f$ sea holomorfa en $z = 0$
+
+Analicemos por definición si $f(z) = |z|^2$ es holomorfa en $z = 0$
+
+\[
+\lim_{h \to 0} \frac{f(0 + h) - f(0)}{h} = \lim_{h \to 0} \frac{|h|^2 - 0}{h} = \lim_{h \to 0} \frac{|h|^2}{h} = \lim_{h \to 0} \bar{h} = 0
+\]
+
+Por lo tanto $f(z) = |z|^2$ es holomorfa en $z = 0$
+
+\textbf{Proposición:} Sea $f: \Omega \subset \mathbb{C} \rightarrow \mathbb{C}$, $f(x + iy) = u(x, y) + i v(x, y)$. Entonces
+
+\[
+\begin{aligned}
+& f \text{ es holomorfa en } z_0 \Rightarrow u, v : \Omega \subset \mathbb{R}^2 \to \mathbb{R} \text{ son diferenciables en } (x_0, y_0) \\
+& \text{y se cumplen las ecuaciones de Cauchy-Riemann}
+\end{aligned}
+\]
+\[
+\begin{cases}
+u_x(x_0, y_0) = v_y(x_0, y_0) \\
+u_y(x_0, y_0) = -v_x(x_0, y_0)
+\end{cases}
+\]
+
+\textbf{Ejemplo:} Analicemos por definición si $f(z) = |z|$ es holomorfa en $z_0 \in \mathbb{C}$
+
+\[
+\lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h} = \lim_{h \to 0} \frac{|z_0 + h| - |z_0|}{h} = \lim_{h \to 0} \frac{|h|}{h}
+\]
+
+Vamos a acercarnos a $0$ de varias formas diferentes:
+
+\[
+\bullet \ \lim_{h \to 0^+} \frac{h}{h} = 1
+\]
+\[
+\bullet \ \lim_{h \to 0^-} \frac{-h}{h} = -1
+\]
+
+Como 
+\[
+\lim_{h \to 0^+} \neq \lim_{h \to 0^-}
+\]
+entonces concluimos que $f$ no es holomorfa en $z_0$.\\
+
+Acercarme de formas distintas y que dé diferente garantiza que no es holomorfa.  
+Pero si da lo mismo no me garantiza que sea holomorfa.
+
+\textbf{Proposición:} Sean $f, g : \Omega \rightarrow \mathbb{C}$ y $\alpha \in \mathbb{C}$. Entonces:
+
+\begin{itemize}
+    \item $f + g$ es holomorfa y cumple $(f + g)'(z) = f'(z) + g'(z)$
+    \item $\alpha f$ es holomorfa y cumple $(\alpha f)'(z) = \alpha f'(z)$
+    \item $f \cdot g$ es holomorfa y cumple $(f \cdot g)' = f' g + f g'$
+    \item $\dfrac{f}{g}$ es holomorfa y cumple $\left(\dfrac{f}{g}\right)' = \dfrac{f' g - f g'}{g^2}$
+    \item $f(g(z))$ es holomorfa y cumple $(f \circ g)'(z) = f'(g(z)) \cdot g'(z)$
+\end{itemize}
 \end{document}
