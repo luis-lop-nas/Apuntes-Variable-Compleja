@@ -1,5 +1,14 @@
 \documentclass[a4paper,12pt]{article}
 
+% --- Márgenes y espaciado global (igual que en EDO) ---
+\usepackage[a4paper,margin=3.5cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.3}
+\raggedbottom % Evita estirado vertical entre páginas
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+\usepackage{microtype} % Mejor justificación y kerning
+
 % --- Idioma y codificación ---
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -18,16 +27,32 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{enumitem}
+\setlist{itemsep=0.2em, topsep=0.3em} % listas compactas (opcional, como en EDO)
 \usepackage{titlesec}
-\usepackage[hidelinks]{hyperref}
+% Espaciado consistente de secciones y subsecciones (igual que en EDO)
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.3em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.4em}
 \usepackage{caption}
+\usepackage{float} % Permite usar [H] para figuras
 
 % --- Esquemas y Dibujos ---
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 
-% Formato de subtítulos
+% Formato de subtítulos (respetamos tu jerarquía)
 \titleformat{\subsection}{\normalfont\small\bfseries}{\thesubsection}{1em}{}
+
+% --- Enlaces (al final del preámbulo, como en EDO) ---
+\usepackage[hidelinks]{hyperref}
+
+% --- Espaciado entre texto y ecuaciones (igual que en EDO afinado) ---
+\AtBeginDocument{%
+  \abovedisplayskip=0.8em
+  \belowdisplayskip=1.0em
+  \abovedisplayshortskip=0.5em
+  \belowdisplayshortskip=0.7em
+}
 
 \title{Apuntes de Variable Compleja}
 \author{Luis López}
@@ -36,9 +61,10 @@
 \begin{document}
 
 \maketitle
-\newpage
+\clearpage
+
 \tableofcontents
-\newpage
+\clearpage
 
 \section*{Introducción}
 
@@ -55,7 +81,8 @@ También pueden representarse en \textit{forma polar}, mediante su módulo y arg
 El conjunto $\mathbb{C}$ no solo es fundamental en álgebra y análisis, sino que resulta indispensable en múltiples áreas de las matemáticas aplicadas y la física.
 Asimismo, los números complejos son herramientas habituales en ingeniería.
 
-\newpage
+\clearpage
+
 \section{Números complejos}
 
 \subsection{Teoría y estructura elemental}
@@ -81,7 +108,7 @@ Dado $z = a+bi \in \mathbb{C}$, se definen:
     \item Conjugado: $\overline{z} = a - bi$.
 \end{itemize}
 
-\noindent\textbf{Ejemplo.} Sea \( z = 1 - 2i \). Entonces:
+\noindent\textbf{Ejemplo:} Sea \( z = 1 - 2i \). Entonces:
 \[
 \Re(1-2i) = 1, \; \Im(1-2i) = -2, \; \overline{1-2i} = 1 + 2i, \; |1-2i| = \sqrt{1^2 + (-2)^2} = \sqrt{5}.
 \]
@@ -127,8 +154,8 @@ El conjunto $\mathbb{C}$ se puede representar como $\mathbb{R}^2$ mediante la as
 z = a + bi \;\longmapsto\; (a, b) \in \mathbb{R}^2.
 \]
 De esta forma obtenemos el denominado \textbf{plano complejo}; por lo tanto, la interpretación geométrica de \emph{todo lo visto} sería:
-
-\begin{figure}[h]
+\begin{figure}[H]
+\centering
 \centering
 
 % ---- Figura 1: puntos 1 e i ----
@@ -183,8 +210,6 @@ De esta forma obtenemos el denominado \textbf{plano complejo}; por lo tanto, la 
 
 \end{figure}
 
-\newpage
-
 Si $z = \dfrac{|z|}{|z|}z = |z|\dfrac{z}{|z|} = |z|(\cos\theta + i\sin\theta)$,  
 decimos que $z$ está en \textbf{forma polar}.\\
 
@@ -197,7 +222,7 @@ Es decir, $\dfrac{z}{|z|}$ es un número complejo de módulo 1, luego existe $\t
 \frac{z}{|z|} = \cos\theta + i\sin\theta.
 \]
 
-\noindent\textbf{Ejemplo.} El número complejo $1+i$ en forma polar es:
+\noindent\textbf{Ejemplo:} El número complejo $1+i$ en forma polar es:
 \[
 1+i = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right).
 \]
@@ -316,7 +341,7 @@ d(z,w) = |z-w|.
 D(z_0,\varepsilon) = \{ z \in \mathbb{C} : |z - z_0| < \varepsilon \}.
 \]
 
-\noindent\textbf{Ejemplo.} 
+\noindent\textbf{Ejemplo:} 
 \[
 D(1+i,1) = \{ z \in \mathbb{C} : |z-(1+i)| < 1 \}.
 \]
@@ -496,7 +521,7 @@ z^n=r^n\,e^{in\theta}.
 \]
 
 \subsection{Ejemplo: cálculo en forma exponencial}
-\noindent\textbf{Ejemplo.} Calcular \((1+i)^4\).
+\noindent\textbf{Ejemplo:} Calcular \((1+i)^4\).
 \[
 1+i=\sqrt{2}\,e^{i\pi/4}\;\;\Rightarrow\;\;(1+i)^4=(\sqrt{2})^4e^{i\pi}=4\cdot(-1)=-4,
 \]
@@ -557,8 +582,6 @@ La raíz cúbica \emph{principal} es \(2e^{-i\pi/6}\).
   \item \(\sqrt[n]{w}\) denota un \emph{conjunto}; la notación de raíz \emph{principal} usa \(\arg(w)\).
 \end{itemize}
 
-\newpage
-
 \section{Teoría de las funciones de variable compleja}
 Estudiaremos funciones de la forma \(f:A\subset\mathbb{C}\to\mathbb{C}\).
 
@@ -595,7 +618,7 @@ Se denota por \(\displaystyle \lim_{z\to z_0} f(z)=w\).
   \item Si \(\ell\neq 0\), entonces \(\displaystyle
   \lim_{z\to z_0} \frac{f(z)}{g(z)} = \frac{w}{\ell}.\)
 \end{enumerate}
-\newpage
+
 \paragraph{Proposición.}
 \[
 \exists \lim_{z\to z_0} f(z)=w \quad\Longleftrightarrow\quad
@@ -639,7 +662,7 @@ Además,
 \]
 La parte imaginaria es análoga. \(\square\)
 
-\paragraph{Ejemplo.} Analicemos \(\displaystyle \lim_{z\to 2i} z^2\).
+\noindent\textbf{Ejemplo:} Analicemos \(\displaystyle \lim_{z\to 2i} z^2\).
 Como
 \[
 (x+iy)^2=(x^2-y^2)+i(2xy),
@@ -652,7 +675,7 @@ se tiene
 \]
 luego \(\displaystyle \lim_{z\to 2i} z^2=-4\).
 
-\paragraph{Ejemplo (analítico por definición).}
+\noindent\textbf{Ejemplo (analítico por definición):}
 Probemos por \(\varepsilon\)-\(\delta\) que \(\displaystyle \lim_{z\to 2i} z^2=-4\).
 Sea \(\varepsilon>0\). Observamos
 \[
@@ -673,6 +696,7 @@ se obtiene \(0<|z-2i|<\delta \Rightarrow |z^2+4|<\varepsilon\). Por lo tanto,
 \[
 \lim_{z\to 2i} z^2=-4.
 \]
+
 \subsection{Continuidad}
 
 \textbf{Definición.}
@@ -732,7 +756,7 @@ denota \(f\in H(A)\).
 Si \(f\) es holomorfa en \(\mathbb{C}\) se dice \emph{entera}, esto es,
 \(f\in H(\mathbb{C})\).
 
-\textbf{Ejemplo.}
+\noindent\textbf{Ejemplo:}
 Veamos que \(f(z)=z\) es entera:
 \[
 \lim_{h\to 0}\frac{f(z_0+h)-f(z_0)}{h}
@@ -751,6 +775,7 @@ Si \(f:A\to\mathbb{C}\) es holomorfa en \(z_0\), entonces \(f\) es continua en \
 
 Observamos que se cumplen todas las reglas de derivación en \(\mathbb{C}\)
 de la misma forma que en \(\mathbb{R}\).
+
 \section*{Ejercicios}
 
 \subsection*{1.1} Dado \(z\neq 0\in\mathbb{C}\ \Rightarrow\ z^{-1}\in\mathbb{C}\).
@@ -774,7 +799,7 @@ Por lo tanto,
 \]
 
 \subsection*{1.2} Calcula el módulo y argumento principal de los siguientes números.\\[2pt]
-\textbf{(b)} \(\displaystyle \frac{i}{2-2i}\).
+\noindent\textbf{(b)} \(\displaystyle \frac{i}{2-2i}\).
 
 \[
 \frac{i}{2-2i}
@@ -808,7 +833,7 @@ Pasamos a forma exponencial:
 
 \subsection*{1.4} Representa los siguientes subconjuntos del plano complejo \(\mathbb{C}\).
 
-\textbf{(a)} \(\displaystyle \Omega=\{\,z\in\mathbb{C}:\ |z-2+i|\le 1\,\}\).
+\noindent\textbf{(a)} \(\displaystyle \Omega=\{\,z\in\mathbb{C}:\ |z-2+i|\le 1\,\}\).
 
 \[
 |z-2+i|\le 1\ \Longleftrightarrow\ |z-(2-i)|\le 1
@@ -816,14 +841,15 @@ Pasamos a forma exponencial:
 \Omega=\overline{D}(2-i,1),
 \]
 lo que quedaría como un disco centrado en \(2-i\) y de radio \(1\).
-c) $\Omega = \{ z \in \mathbb{C} : |2 - 4| \geq |2i| \}$  
+
+\noindent c) $\Omega = \{ z \in \mathbb{C} : |2 - 4| \geq |2i| \}$  
 Para analizarlo, nos fijamos en que $z - 2i$ tiene la misma distancia a $0$ que a $4$.
 
 Así, $\Omega = \{ z \in \mathbb{C} : \Re(z) \leq 2 \}$
 
 \subsection*{1.8 - Calcula:}
 
-c) 
+\noindent c) 
 \[
 \sqrt[5]{-1 - i} = \sqrt[5]{w} \left[ \cos\left( \frac{\arg w + 2k\pi}{5} \right) + i \sin\left( \frac{\arg w + 2k\pi}{5} \right) \right], \quad k = 0, 1, 2, 3, 4
 \]
@@ -874,8 +900,8 @@ f'(z_0) = u_x(x_0, y_0) + i v_x(x_0, y_0)
 \[
 \lim_{t \to 0} \frac{i \big( v(x_0, y_0 + t) - v(x_0, y_0) \big) - \big( u(x_0, y_0 + t) - u(x_0, y_0) \big)}{it} = -i v_y(x_0, y_0) + u_y(x_0, y_0)
 \]
-\newpage
-\textbf{Ejemplo.} Analicemos que $f(z) = z$ cumple las ecuaciones de Cauchy-Riemann
+
+\noindent\textbf{Ejemplo:} Analicemos que $f(z) = z$ cumple las ecuaciones de Cauchy-Riemann
 
 \[
 f(x + iy) = x + iy \Rightarrow
@@ -907,7 +933,7 @@ f'(z) = u_x(x + iy) + i v_x(x, y) = v_y(x, y) + i u_x(x, y) = 1
 
 \textbf{Observación:} Ya sabíamos que $f(z) = z$ es holomorfa por definición.
 
-\textbf{Ejemplo.} Analiza si $f(z) = z^2$ cumple las ecuaciones de Cauchy-Riemann
+\noindent\textbf{Ejemplo:} Analiza si $f(z) = z^2$ cumple las ecuaciones de Cauchy-Riemann
 
 \[
 f(x + iy) = (x + iy)(x + iy) = (x^2 - y^2) + i (2xy) \Rightarrow
@@ -930,7 +956,7 @@ Además:
 f'(z) = u_x(x, y) + i v_x(x, y) = 2x + i 2y = 2(x + iy) = 2z
 \]
 
-\textbf{Ejemplo.} Analicemos si $f(z) = \bar{z}$ es holomorfa usando las ecuaciones de Cauchy-Riemann
+\noindent\textbf{Ejemplo:} Analicemos si $f(z) = \bar{z}$ es holomorfa usando las ecuaciones de Cauchy-Riemann
 
 \[
 f(x + iy) = x - iy \Rightarrow
@@ -943,8 +969,8 @@ v(x, y) = -y
 \[
 f(z) = \bar{z} \quad \text{no es holomorfa.}
 \]
-\newpage
-\textbf{Ejemplo:} Analicemos si $f(z) = |z|^2$ es holomorfa usando las ecuaciones de Cauchy-Riemann
+
+\noindent\textbf{Ejemplo:} Analicemos si $f(z) = |z|^2$ es holomorfa usando las ecuaciones de Cauchy-Riemann
 
 \[
 f(x + iy) = x^2 + y^2 \Rightarrow 
@@ -990,7 +1016,7 @@ u_y(x_0, y_0) = -v_x(x_0, y_0)
 \end{cases}
 \]
 
-\textbf{Ejemplo:} Analicemos por definición si $f(z) = |z|$ es holomorfa en $z_0 \in \mathbb{C}$
+\noindent\textbf{Ejemplo:} Analicemos por definición si $f(z) = |z|$ es holomorfa en $z_0 \in \mathbb{C}$
 
 \[
 \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h} = \lim_{h \to 0} \frac{|z_0 + h| - |z_0|}{h} = \lim_{h \to 0} \frac{|h|}{h}
@@ -1023,4 +1049,5 @@ Pero si da lo mismo no me garantiza que sea holomorfa.
     \item $\dfrac{f}{g}$ es holomorfa y cumple $\left(\dfrac{f}{g}\right)' = \dfrac{f' g - f g'}{g^2}$
     \item $f(g(z))$ es holomorfa y cumple $(f \circ g)'(z) = f'(g(z)) \cdot g'(z)$
 \end{itemize}
+
 \end{document}
