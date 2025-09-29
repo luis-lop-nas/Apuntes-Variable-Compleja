@@ -1,4 +1,11 @@
 \documentclass[a4paper,12pt]{article}
+% --- Márgenes y espaciado global ---
+\usepackage[a4paper,margin=3.5cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.3}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+\usepackage{microtype} % Mejora la justificación y kerning
 % --- Idioma y codificación ---
 \usepackage[utf8]{inputenc}   % Acentos directos
 \usepackage[T1]{fontenc}      % Codificación de salida
@@ -18,7 +25,10 @@
 \usepackage{xcolor}           % Colores
 \usepackage{enumitem}         % Listas
 \usepackage{titlesec}         % Títulos
-\usepackage[hidelinks]{hyperref} % Enlaces (cargar al final)
+% Espaciado consistente de secciones y subsecciones
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.5em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.4em}
 
 % --- Esquemas y Dibujos ---
 \usepackage{tikz}
@@ -32,6 +42,9 @@
 \title{Apuntes Ecuaciones Diferenciales}
 \author{Luis López}
 \date{September 2025}
+
+% --- Enlaces (cargar al final del preámbulo) ---
+\usepackage[hidelinks]{hyperref}
 
 \begin{document}
 
