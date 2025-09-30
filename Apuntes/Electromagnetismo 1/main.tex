@@ -67,8 +67,7 @@ La base teórica de toda la asignatura se encuentra en las \textbf{Ecuaciones de
 
 \section{Ley de Coulomb}
 
-\subsection*{Explicación de la ley de Coulomb}
-
+\noindent
 La \textbf{ley de Coulomb} describe la interacción eléctrica entre dos cargas puntuales en reposo. 
 Establece que la fuerza es proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia que las separa, 
 actuando a lo largo de la línea que une ambas cargas.
@@ -76,13 +75,11 @@ actuando a lo largo de la línea que une ambas cargas.
 \[
 \vec{F}_e = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2} \, \hat{r}_{12}
 \]
-
 Siendo $\varepsilon_0$ la \textit{permeabilidad eléctrica en el vacío}.
 
 \[
 k = \frac{1}{4\pi\varepsilon_0}
 \]
-
 Hay que poner claramente el sistema de referencia que usamos en cada caso de forma explícita.  
 
 \subsection*{Ejemplo:}
@@ -103,7 +100,6 @@ Hay que poner claramente el sistema de referencia que usamos en cada caso de for
   \draw[purple] (0,2) -- (2,2) node[midway,above] {$a$};
 \end{tikzpicture}
 \end{center}
-
 Determinar la $\vec{F}_e$ sobre $q_3$. \\
 Atendiendo al principio de superposición tenemos:
 \[
@@ -122,28 +118,23 @@ calculamos el vector unitario $\hat{r}_{13}$:
 \hat{r}_{13} = \frac{\vec{r}_{13}}{|\vec{r}_{13}|} = \frac{2a\,\hat{\imath} + 2a\,\hat{\jmath}}{2\sqrt{2}\,a} 
 = \frac{\sqrt{2}}{2} (\hat{\imath} + \hat{\jmath})
 \]
-
-Entonces:
+Entonces:\\
 \[
 \vec{F}_{q_1 q_3} = \frac{1}{4\pi \varepsilon_0} \frac{q_1 q_3}{(2\sqrt{2}\,a)^2} \, \hat{r}_{13}
 = \frac{1}{4\pi \varepsilon_0} \frac{q_1 q_3}{8a^2} \, \frac{\sqrt{2}}{2} (\hat{\imath} + \hat{\jmath})
 \]
-
-Vemos ahora $q_2 \to q_3$:
+Vemos ahora $q_2 \to q_3$:\\
 \[
 \vec{F}_{q_2 q_3} = \frac{1}{4\pi \varepsilon_0} \frac{q_2 q_3}{r_{23}^2} \, \hat{r}_{23}, \\
 \]
-
-calculamos el vector unitario $\hat{r}_{23}$:
+Calculamos el vector unitario $\hat{r}_{23}$:
 \[
 \vec{r}_{23} = (a,0), \qquad r_{23}=a, \qquad \hat{r}_{23} = \frac{\vec{r}_{23}}{|\vec{r}_{23}|} = \hat{\imath}
 \]
-
 Entonces:
 \[
-\vec{F}_{q_2 q_3} = \frac{1}{4\pi \varepsilon_0} \frac{q_2 q_3}{a^2} \, \hat{\imath}
+\vec{F}_{q_2 q_3} = \frac{1}{4\pi \varepsilon_0} \frac{q_2 q_3}{a^2} \, \hat{\imath}\\
 \]
-
 Por último calculamos la fuerza total en $q_3$ con el principio de superposición:
 \[
 \vec{F}_e = \vec{F}_{13} + \vec{F}_{23}
@@ -163,13 +154,14 @@ Por último calculamos la fuerza total en $q_3$ con el principio de superposici�
 \newpage
 
 \section{Campos eléctricos}
-
+\noindent
 El \textbf{campo eléctrico} en un punto se define como la fuerza eléctrica por unidad de carga de prueba positiva colocada en ese punto:
 \[
 \vec E(\vec r) \;=\; \lim_{q_0 \to 0}\,\frac{\vec F_e(\vec r)}{q_0}.
 \]
 
 \subsection*{Derivación desde la ley de Coulomb}
+\noindent
 Para una carga puntual $q$ situada en $\vec r'$, la fuerza sobre una carga de prueba $q_0$ en $\vec r$ es
 \[
 \vec F_e \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q\,q_0}{|\vec r-\vec r'|^2}\,\hat{\mathbf R},
@@ -384,7 +376,7 @@ Al tratarse de una integral vectorial, se integra cada componente por separado:
 
 
 \newpage
-\subsection*{Coordenadas cilíndricas}
+\subsection{Coordenadas cilíndricas}
 
 \noindent Las \textbf{coordenadas cilíndricas} representan un punto en el espacio mediante la tripleta
  $(r,\theta,z)$, donde $r$ es la distancia desde el punto al eje $z$ (coordenada radial),
@@ -424,9 +416,7 @@ x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
   \node at (1.05,0.25) {$\theta$};
 \end{tikzpicture}
 \end{center}
-
 Donde $\theta$ va siempre desde el eje positivo de $x$ al eje positivo de $y$.
-
 Al igual que en coordenadas cartesianas, las coordenadas cilíndricas también tienen \textit{vectores unitarios}:
 \[
 \hat{\mathbf e}_r = \cos\theta\,\hat{\imath} + \sin\theta\,\hat{\jmath},\qquad
@@ -454,7 +444,7 @@ Al igual que en coordenadas cartesianas, las coordenadas cilíndricas también t
 
 \newpage
 
-\subsection*{Diferenciales de longitud, área y volumen (cartesianas)}
+\subsection{Diferenciales de longitud, área y volumen (cartesianas)}
 
 De longitud:
 \[
@@ -478,7 +468,7 @@ dV = dx\,dy\,dz
 \textit{Hacer esquemas visuales.}
 
 
-\subsection*{Diferenciales de longitud, área y volumen (cilíndricas)}
+\subsection{Diferenciales de longitud, área y volumen (cilíndricas)}
 
 De longitud:
 \[
@@ -517,10 +507,10 @@ dV = r\,dr\,d\theta\,dz
 \end{center}
 
 \subsection*{Ejemplo:}
-Un anillo cargado con densidad de carga lineal variable $\lambda=\cos^{2}\theta$ y radio $a$.
+\noindent Un anillo cargado con densidad de carga lineal variable $\lambda=\cos^{2}\theta$ y radio $a$.
 Determinar la carga total.
 
-Densidad lineal, por tanto la carga vendrá dada como:
+La densidad lineal, por tanto la carga vendrá dada como:
 \[
 q_T \;=\; \oint \lambda\, dl
  \;=\; \int_{0}^{2\pi} \lambda\, a\, d\theta
@@ -535,7 +525,7 @@ En nuestro caso $r=a$ y $\theta\in[0,2\pi]$.}
 \subsection*{Ejemplo:}
 
 \noindent
-\textit{Ejemplo:} Un disco cargado con densidad de carga superficial $\sigma=\rho\,\sin^{2}\theta$ y radio $R$.  
+Un disco cargado con densidad de carga superficial $\sigma=\rho\,\sin^{2}\theta$ y radio $R$.  
 Determina la \textbf{carga total} del disco.
 
 \[
@@ -543,14 +533,10 @@ q_T \;=\; \iint_{S} \sigma\, dA
    \;=\; \int_{0}^{2\pi}\!\left(\int_{0}^{R} \rho\,\sin^{2}\theta \; r\,dr\right)\! d\theta .
 \]
 
-\bigskip
-
-\subsection*{Ejemplo: anillo con densidad lineal constante}
-
+\subsection*{Ejemplo:}
 \noindent
-\textit{Ejemplo:} Un anillo cargado con densidad de carga lineal constante $\lambda$ y radio $a$.  
+Un anillo cargado con densidad de carga lineal constante $\lambda$ y radio $a$.  
 Determine el valor del \textbf{campo eléctrico} en el punto $P$ (sobre el eje del anillo, a altura $z$).
-
 \[
 \vec E
 = \frac{1}{4\pi\varepsilon_0}\oint \frac{dq}{r^2}\,\hat r
@@ -559,7 +545,6 @@ Determine el valor del \textbf{campo eléctrico} en el punto $P$ (sobre el eje d
    \frac{-a\cos\theta\,\hat{\imath}\;-\;a\sin\theta\,\hat{\jmath}\;+\;z\,\hat{\mathbf k}}
         {\sqrt{a^{2}+z^{2}}}.
 \]
-
 Como integral vectorial, se integran las componentes por separado:
 \[
 \int_{0}^{2\pi} \frac{-a\cos\theta}{(a^{2}+z^{2})^{3/2}}\, d\theta = 0, \qquad
@@ -569,13 +554,22 @@ Como integral vectorial, se integran las componentes por separado:
 \int_{0}^{2\pi} \frac{z}{(a^{2}+z^{2})^{3/2}}\, d\theta
 = \frac{2\pi z}{(a^{2}+z^{2})^{3/2}}.
 \]
-
 Por tanto,
 \[
 \boxed{\;
 \vec E(P) \;=\; \frac{\lambda a z}{2\,\varepsilon_0\,(a^{2}+z^{2})^{3/2}}\;\hat{\mathbf k}
 \;}
 \]
-(dirección del eje del anillo).
+\subsection{Coordenadas esféricas}
+\noindent Las \textbf{coordenadas cilíndricas} representan un punto en el espacio mediante la tripleta
+ $(r,\theta,\phi)$, donde $r$ es la distancia desde el punto al origen (coordenada radial),
+  $\theta$ es el ángulo que forma el radio con el eje $x$ (coordenada acimutal) y $\phi$ es el
+   ángulo que forma el radio con el eje $z$ (coordenada polar). Este sistema es una generalización
+    de las coordenadas polares al espacio tridimensional y es útil en problemas con simetría esférica.\\
+
+\noindent Siendo las nuevas coordenadas:
+\[
+x = r\sin\theta\cos\phi, \quad y = r\sin\theta\sin\phi, \quad z = r\cos\theta
+\]
 
 \end{document}
