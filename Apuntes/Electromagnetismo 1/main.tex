@@ -85,9 +85,7 @@ k = \frac{1}{4\pi\varepsilon_0}
 
 Hay que poner claramente el sistema de referencia que usamos en cada caso de forma explícita.  
 
-Ejemplo:
-
-\subsection*{Ejemplo}
+\subsection*{Ejemplo:}
 
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
@@ -106,18 +104,16 @@ Ejemplo:
 \end{tikzpicture}
 \end{center}
 
-Determinar la $\vec{F}_e$ sobre $q_3$.
-
+Determinar la $\vec{F}_e$ sobre $q_3$. \\
 Atendiendo al principio de superposición tenemos:
 \[
 \vec{F}_e = \vec{F}_{q_2 q_3} + \vec{F}_{q_1 q_3}
 \]
-
 Aplicamos la ley de Coulomb:
 \[
 \vec{F}_{q_1 q_3} = \frac{1}{4\pi \varepsilon_0} \frac{q_1 q_3}{r_{13}^2} \, \hat{r}_{13}, 
-\qquad \text{calculamos el vector unitario } \hat{r}_{13} :
 \]
+calculamos el vector unitario $\hat{r}_{13}$:
 \[
 \vec{r}_{13} = (2a,2a), 
 \qquad r_{13} = \sqrt{(2a)^2+(2a)^2} = \sqrt{8a^2} = 2\sqrt{2}\,a
@@ -136,8 +132,9 @@ Entonces:
 Vemos ahora $q_2 \to q_3$:
 \[
 \vec{F}_{q_2 q_3} = \frac{1}{4\pi \varepsilon_0} \frac{q_2 q_3}{r_{23}^2} \, \hat{r}_{23}, \\
-\qquad \text{calculamos el vector unitario } \hat{r}_{23} :
 \]
+
+calculamos el vector unitario $\hat{r}_{23}$:
 \[
 \vec{r}_{23} = (a,0), \qquad r_{23}=a, \qquad \hat{r}_{23} = \frac{\vec{r}_{23}}{|\vec{r}_{23}|} = \hat{\imath}
 \]
@@ -146,12 +143,11 @@ Entonces:
 \[
 \vec{F}_{q_2 q_3} = \frac{1}{4\pi \varepsilon_0} \frac{q_2 q_3}{a^2} \, \hat{\imath}
 \]
-Por último calculamos la fuerza total en $q_3$ con el principio de superposición:
 
+Por último calculamos la fuerza total en $q_3$ con el principio de superposición:
 \[
 \vec{F}_e = \vec{F}_{13} + \vec{F}_{23}
 \]
-
 \[
 \vec{F}_e =
 \frac{1}{4\pi\varepsilon_0}\,\frac{q_1 q_3}{2a^2}\,\frac{\sqrt{2}}{2}\,(\hat{\imath}+\hat{\jmath})
@@ -179,7 +175,7 @@ Para una carga puntual $q$ situada en $\vec r'$, la fuerza sobre una carga de pr
 \vec F_e \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q\,q_0}{|\vec r-\vec r'|^2}\,\hat{\mathbf R},
 \qquad \hat{\mathbf R}=\frac{\vec r-\vec r'}{|\vec r-\vec r'|}.
 \]
-Dividiendo por $q_0$ (campo $=$ fuerza por unidad de carga), queda
+Dividiendo por $q_0$, queda:
 \[
 \boxed{\;\vec E(\vec r)\;=\;\frac{1}{4\pi\varepsilon_0}\,\frac{q}{|\vec r-\vec r'|^2}\,\hat{\mathbf R}\;}
 \]
@@ -259,7 +255,7 @@ Pueden ser:
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Ejemplo}
+\subsection*{Ejemplo:}
 
 Tenemos una barra de longitud $l$ con una distribución de carga lineal homogénea $\lambda$.
 Determine el campo eléctrico generado por la barra a una distancia $d$ de uno de sus extremos.
@@ -286,23 +282,24 @@ Determine el campo eléctrico generado por la barra a una distancia $d$ de uno d
   \node[below] at (2,0) {\small $x$};
 \end{tikzpicture}
 \end{center}
-
 Planteamos la solución del campo eléctrico
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\int \frac{dq}{r^2}\,\hat r_{qP},
 \qquad
+\]
+Siendo el vector unitario $\hat{r}_{qP}$:
+\[
 \hat r_{qP} \;=\; \frac{\vec r_P-\vec r_q}{\lvert \vec r_P-\vec r_q\rvert}
 \;=\; \frac{(l+d)\,\hat{\imath}-x\,\hat{\imath}}{\lvert (l+d)-x\rvert}
 \; \hat{\imath}
 \]
-Donde
+Donde:
 \[
 r^2 = \bigl((l+d)-x\bigr)^2,
 \qquad
 dq = \lambda\,dl = \lambda\,dx.
 \]
-
-Entonces
+Entonces:
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\int_{0}^{l}
 \frac{\lambda\,dx}{\bigl((l+d)-x\bigr)^2}\,\hat{\imath}
@@ -323,7 +320,7 @@ Llegamos a la expresión del campo eléctrico de una carga puntual $Q$. ya que a
 
 \newpage
 
-\subsection*{Ejemplo}
+\subsection*{Ejemplo:}
 
 Calcular $\vec E$ en el punto $P$.  
 ¿Qué ocurre si $P \gg L$?
@@ -349,18 +346,18 @@ Calcular $\vec E$ en el punto $P$.
 \end{center}
 
 \noindent Pista: 
+
 \[
 \int \frac{y}{(x^2+y^2)^{3/2}}\,dx \;=\; \frac{x}{y\sqrt{x^2+y^2}}
 \]
-
 La solución del campo será:
+
 \[
 \vec E = \frac{1}{4\pi\varepsilon_0} \int \frac{dq}{r^2}\,\hat r_{qP},
 \qquad
 \hat r_{qP} = \frac{\vec r_P-\vec r_q}{|\vec r_P-\vec r_q|}
 = \frac{-x}{\sqrt{x^2+y^2}}\,\hat{\imath} + \frac{y}{\sqrt{x^2+y^2}}\,\hat{\jmath}.
 \]
-
 Sustituyendo:
 \[
 \vec E = \frac{1}{4\pi\varepsilon_0} \int_{-L/2}^{L/2}
@@ -368,7 +365,6 @@ Sustituyendo:
 \left( -\frac{x}{\sqrt{x^2+y^2}}\,\hat{\imath}
 + \frac{y}{\sqrt{x^2+y^2}}\,\hat{\jmath} \right)
 \]
-
 Al tratarse de una integral vectorial, se integra cada componente por separado:
 
 \[
@@ -390,13 +386,13 @@ Al tratarse de una integral vectorial, se integra cada componente por separado:
 \newpage
 \subsection*{Coordenadas cilíndricas}
 
-Las \textbf{coordenadas cilíndricas} representan un punto en el espacio mediante la tripleta
+\noindent Las \textbf{coordenadas cilíndricas} representan un punto en el espacio mediante la tripleta
  $(r,\theta,z)$, donde $r$ es la distancia desde el punto al eje $z$ (coordenada radial),
   $\theta$ es el ángulo que forma el radio con el eje $x$ (coordenada acimutal) y $z$ es la
    altura del punto sobre el plano $xy$ (coordenada vertical). Este sistema es una generalización
-    de las coordenadas polares al espacio tridimensional y es útil en problemas con simetría cilíndrica.
+    de las coordenadas polares al espacio tridimensional y es útil en problemas con simetría cilíndrica.\\
 
-Siendo las nuevas coordenadas:
+\noindent Siendo las nuevas coordenadas:
 \[
 x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
 \]
