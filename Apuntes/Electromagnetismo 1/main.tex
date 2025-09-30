@@ -14,8 +14,10 @@
 \usepackage{bm}               % Negrita en símbolos
 \usepackage{esint}            % Integrales de contorno (∮)
 
-% --- Utilidades ---
 \usepackage{graphicx}         % Imágenes
+% Rutas de búsqueda para imágenes
+\graphicspath{{./}{imagenes/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
 \usepackage{xcolor}           % Colores
 \usepackage{enumitem}         % Listas
 \usepackage{titlesec}         % Títulos
@@ -58,9 +60,10 @@ Se estructura en los siguientes bloques temáticos principales:
 \end{itemize}
 
 \medskip
+\noindent
+El \textbf{electromagnetismo} constituye una rama esencial de la física, ya que explica las interacciones entre las cargas eléctricas y los campos magnéticos. Dichas interacciones son responsables de una gran variedad de fenómenos naturales y tecnológicos, desde la luz visible hasta las ondas de radio, y desde el funcionamiento de los motores eléctricos hasta la transmisión y transformación de la energía eléctrica.\\ 
 
-El \textbf{electromagnetismo} constituye una rama esencial de la física, ya que explica las interacciones entre las cargas eléctricas y los campos magnéticos. Dichas interacciones son responsables de una gran variedad de fenómenos naturales y tecnológicos, desde la luz visible hasta las ondas de radio, y desde el funcionamiento de los motores eléctricos hasta la transmisión y transformación de la energía eléctrica.  
-
+\noindent
 La base teórica de toda la asignatura se encuentra en las \textbf{Ecuaciones de Maxwell}, que veremos en el tramo final del curso y que condensan de forma unificada cómo los campos eléctricos y magnéticos se generan, interactúan y se propagan.
 
 \newpage
@@ -83,23 +86,13 @@ k = \frac{1}{4\pi\varepsilon_0}
 Hay que poner claramente el sistema de referencia que usamos en cada caso de forma explícita.  
 
 \subsection*{Ejemplo:}
-
-\begin{center}
-\begin{tikzpicture}[scale=1.2]
-  % Ejes
-  \draw[-{Latex}] (0,0) -- (3,0) node[right] {$x$};
-  \draw[-{Latex}] (0,0) -- (0,3) node[above] {$y$};
-
-  % Cargas
-  \filldraw[purple] (0,0) circle (2pt) node[below left] {$q_1$};
-  \filldraw[purple] (0,2) circle (2pt) node[left] {$q_2$};
-  \filldraw[purple] (2,2) circle (2pt) node[right] {$q_3$};
-
-  % Distancias
-  \draw[purple] (0,0) -- (0,2) node[midway,left] {$a$};
-  \draw[purple] (0,2) -- (2,2) node[midway,above] {$a$};
-\end{tikzpicture}
-\end{center}
+%%% Figura 1 %%%
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.35\textwidth]{imagen_1.jpeg}
+  \caption{Descripción breve de la imagen.}
+  \label{fig:imagen1}
+\end{figure}
 Determinar la $\vec{F}_e$ sobre $q_3$. \\
 Atendiendo al principio de superposición tenemos:
 \[
@@ -175,7 +168,7 @@ y, en el caso de tomar el origen en la carga y $r=|\vec r|$,
 \[
 \vec E_q \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r^2}\,\hat r .
 \]
-
+%%% Figura 2 %%%
 \begin{center}
 \begin{tikzpicture}[scale=1]
 % Carga positiva (sale)
@@ -184,7 +177,6 @@ y, en el caso de tomar el origen en la carga y $r=|\vec r|$,
   \foreach \a in {0,30,...,330}{
     \draw[-{Latex}] (0,0) -- ({1.6*cos(\a)},{1.6*sin(\a)});
   }
-  \node[below=6pt] at (0,0) {$+$};
   \node[below] at (0,-1.9) {\small \textit{Diverge}};
 \end{scope}
 % Carga negativa (entra)
@@ -193,7 +185,6 @@ y, en el caso de tomar el origen en la carga y $r=|\vec r|$,
   \foreach \a in {0,30,...,330}{
     \draw[-{Latex}] ({1.6*cos(\a)},{1.6*sin(\a)}) -- (0,0);
   }
-  \node[below=6pt] at (0,0) {$-$};
   \node[below] at (0,-1.9) {\small \textit{Lo succiona}};
 \end{scope}
 \end{tikzpicture}
@@ -214,66 +205,28 @@ Pueden ser:
 \qquad
 \text{Volumétrica} \;\Rightarrow\; \rho \;=\; \frac{dq}{dV}.
 \]
-
-\begin{center}
-\begin{tikzpicture}[scale=1]
-% Lineal
-\begin{scope}
-  \draw (0,0) -- (2.6,0);
-  \draw (0,-0.25) -- (2.6,-0.25);
-  \node at (1.3,0.2) {$\lambda$};
-  \draw (1.3,-0.25) rectangle +(0.5,0.5);
-  \node at (1.55,0.6) {\small $dq$};
-\end{scope}
-% Superficial
-\begin{scope}[xshift=4cm]
-  \draw (0,0) rectangle (1.6,1.0);
-  \node at (0.8,1.25) {$\sigma$};
-  \draw (0.55,0.35) rectangle +(0.5,0.3);
-  \node at (0.8,0.9) {\small $dq$};
-\end{scope}
-% Volumétrica
-\begin{scope}[xshift=8cm]
-  \draw (0,0,0) -- (1.4,0,0) -- (1.8,0.4,0) -- (0.4,0.4,0) -- cycle;
-  \draw (0,0,1) -- (1.4,0,1) -- (1.8,0.4,1) -- (0.4,0.4,1) -- cycle;
-  \draw (0,0,0) -- (0,0,1);
-  \draw (1.4,0,0) -- (1.4,0,1);
-  \draw (1.8,0.4,0) -- (1.8,0.4,1);
-  \draw (0.4,0.4,0) -- (0.4,0.4,1);
-  \node at (0.9,1.3) {$\rho$};
-  \draw (0.9,0.2) rectangle +(0.35,0.35);
-  \node at (1.07,0.75) {\small $dq$};
-\end{scope}
-\end{tikzpicture}
-\end{center}
+%%% Figura 3 %%%
+\vspace{-2.0em}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{imagen_2.jpeg}
+  \caption{Descripción breve de la imagen.}
+  \label{fig:imagen2}
+\end{figure}
 
 \subsection*{Ejemplo:}
-
+\noindent
 Tenemos una barra de longitud $l$ con una distribución de carga lineal homogénea $\lambda$.
 Determine el campo eléctrico generado por la barra a una distancia $d$ de uno de sus extremos.
 ¿Qué ocurre cuando $d \gg l$?
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  % Eje x
-  \draw[-{Latex}] (-0.5,0) -- (6.2,0) node[right] {$x$};
-  % Barra de longitud l desde x=0 hasta x=l
-  \draw[thick] (0,0.3) -- (4,0.3);
-  \draw (0,0.15) -- (4,0.15);
-  \node[above] at (2,0.35) {$\lambda$};
-  \draw[-{Latex}] (0,0.55) -- node[above] {$l$} (4,0.55);
-  % Punto P a distancia d del extremo derecho
-  \draw[dashed] (4,0.3) -- (5.6,0.3);
-  \fill (5.6,0.3) circle (1.6pt) node[above] {$P$};
-  \draw[-{Latex}] (4,-0.25) -- node[below] {$d$} (5.6,-0.25);
-  % Origen
-  \fill (0,0) circle (1.3pt);
-  \node[below] at (0,0) {\small $0$};
-  % x genérico en la barra
-  \draw[gray] (2,0.3) -- (2,0);
-  \node[below] at (2,0) {\small $x$};
-\end{tikzpicture}
-\end{center}
+%%% Figura 4 %%%
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{imagen_3.jpeg}
+  \caption{Descripción breve de la imagen.}
+  \label{fig:imagen3}
+\end{figure}
 Planteamos la solución del campo eléctrico
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\int \frac{dq}{r^2}\,\hat r_{qP},
@@ -301,7 +254,7 @@ Entonces:
 \frac{\lambda}{4\pi\varepsilon_0}\!\left(\frac{1}{d}-\frac{1}{l+d}\right)\hat{\imath}.
 \]
 
-\paragraph*{b) $d\gg l$}
+\paragraph*{(b) $d\gg l$}
 \[
 \vec E \;\approx\; \frac{\lambda}{4\pi\varepsilon_0}\left(\frac{l}{d(l+d)}\right)\hat{\imath}
 \;\approx\; \frac{\lambda\,l}{4\pi\varepsilon_0\,d^{2}}\,\hat{\imath}
@@ -317,25 +270,13 @@ Llegamos a la expresión del campo eléctrico de una carga puntual $Q$. ya que a
 Calcular $\vec E$ en el punto $P$.  
 ¿Qué ocurre si $P \gg L$?
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  % Ejes
-  \draw[-{Latex}] (0,0) -- (6,0) node[right] {$x$};
-  \draw[-{Latex}] (0,0) -- (0,3) node[above] {$y$};
-  
-  % Barra
-  \draw[thick] (1,0) -- (5,0);
-  \node[below] at (3,0) {$\lambda$};
-  \draw (1,-0.15) -- (1,0.15);
-  \draw (5,-0.15) -- (5,0.15);
-  \draw[-{Latex}] (1,-0.5) -- node[below] {$L$} (5,-0.5);
-  
-  % Punto P
-  \draw[dashed] (3,0) -- (3,2);
-  \fill (3,2) circle (2pt) node[above] {$P$};
-  \node[right] at (3,1) {$y$};
-\end{tikzpicture}
-\end{center}
+%%% Figura 5 %%%
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{imagen_4.jpeg}
+  \caption{Descripción breve de la imagen.}
+  \label{fig:imagen4}
+\end{figure}
 
 \noindent Pista: 
 
@@ -560,6 +501,7 @@ Por tanto,
 \vec E(P) \;=\; \frac{\lambda a z}{2\,\varepsilon_0\,(a^{2}+z^{2})^{3/2}}\;\hat{\mathbf k}
 \;}
 \]
+\newpage
 \subsection{Coordenadas esféricas}
 \noindent Las \textbf{coordenadas cilíndricas} representan un punto en el espacio mediante la tripleta
  $(r,\theta,\phi)$, donde $r$ es la distancia desde el punto al origen (coordenada radial),
@@ -571,5 +513,390 @@ Por tanto,
 \[
 x = r\sin\theta\cos\phi, \quad y = r\sin\theta\sin\phi, \quad z = r\cos\theta
 \]
+\vspace{-2.0em}
+\begin{figure}[htbp]
+  \centering
+  % Si renombraste el archivo:
+  \includegraphics[width=0.40\textwidth]{esfericas.jpg}
+  % O si mantienes el nombre con espacios:
+  % \includegraphics[width=0.82\textwidth]{Esquemas\ Y\ Dibujos.jpeg}
+  \caption{Coordenadas esféricas: $r$, $\theta$, $\varphi$.}
+  \label{fig:esfericas}
+\end{figure}
 
+\subsection*{Diferenciales de longitud, área y volumen (esféricas)}
+
+De longitud:
+\[
+d\vec{\ell} = dr\,\hat{\mathbf e}_r + r\,d\theta\,\hat{\mathbf e}_\theta + r\sin\theta\,d\phi\,\hat{\mathbf e}_\phi
+\]
+
+De área:
+\[
+\begin{aligned}
+d\vec{S}_r      &= r^{2}\sin\theta\,d\theta\,d\phi\,\hat{\mathbf e}_r, \\
+d\vec{S}_\theta &= r\sin\theta\,dr\,d\phi\,\hat{\mathbf e}_\theta, \\
+d\vec{S}_\phi   &= r\,dr\,d\theta\,\hat{\mathbf e}_\phi.
+\end{aligned}
+\]
+
+De volumen:
+\[
+dV = r^{2}\sin\theta\,dr\,d\theta\,d\phi
+\]
+
+\subsection*{Ejemplo:}
+\noindent
+Una esfera de radio $r$ tiene una densidad superficial dada como:
+\[
+\sigma = x^{2} + y^{2} + z^{2}
+\]
+Determina su carga total:
+
+\[
+Q_T = \int_{A} \sigma\, dA
+\]
+donde:
+
+\[
+dA = r^{2}\sin\theta\, d\theta\, d\phi
+\]
+
+\[
+Q_T = \int_{0}^{2\pi}\int_{0}^{\pi} r^{2}\sin\theta\, d\theta\, d\phi = 4\pi r^{4}
+\]
+\subsection*{Ejemplo:}
+\[
+V = \int_{V} dV = \int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{r} r^{2}\sin\theta\, d\phi\, d\theta\, dr
+\]\\
+Una esfera de radio $R$ tiene una densidad de carga volumétrica de 
+\[
+\rho = e^{(x^{2}+y^{2}+z^{2})^{1/2}} = e^{r}
+\]
+Determina la carga total:
+
+\[
+Q_T = \int_{V} \rho\, dV = \int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{R} e^{r} r^{2}\sin\theta\, dr\, d\theta\, d\phi
+\]\\
+\[
+Q_T = 4\pi \int_{0}^{R} e^{r} r^{2}\, dr = \frac{4\pi}{3}\left(e^{R} - 1\right)
+\]
+\newpage
+\noindent
+\subsection*{Ejemplo:}
+\noindent 
+Determina el campo eléctrico que genera una carga puntual en cualquier punto del espacio.
+
+\textbf{a) Con coordenadas cartesianas}
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_q^{\,2}}\;\hat r_q
+\]
+
+Calculamos el vector unitario $\hat r_q$:
+\[
+\hat r_q \;=\; \frac{\vec r_P-\vec r_q}{\lvert \vec r_P-\vec r_q\rvert}
+= \frac{x\,\hat{\imath}+y\,\hat{\jmath}+z\,\hat{\mathbf k}-0}{\sqrt{x^{2}+y^{2}+z^{2}}}
+\]
+
+La añadimos a la expresión del campo:
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\;
+\frac{q}{x^{2}+y^{2}+z^{2}}\;
+\frac{x\,\hat{\imath}+y\,\hat{\jmath}+z\,\hat{\mathbf k}}{\sqrt{x^{2}+y^{2}+z^{2}}}
+= \frac{1}{4\pi\varepsilon_0}\;
+\frac{q\,(x\,\hat{\imath}+y\,\hat{\jmath}+z\,\hat{\mathbf k})}{(x^{2}+y^{2}+z^{2})^{3/2}}.
+\]\\
+
+\textbf{b) Con coordenadas cilíndricas}
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_q^{\,2}}\;\hat r_q
+\]
+
+Calculamos el vector unitario $\hat r_q$:
+\[
+\hat r_q \;=\; \frac{\vec r_P-\vec r_q}{\lvert \vec r_P-\vec r_q\rvert}
+= \frac{\rho\,\hat{\mathbf e}_\rho + z\,\hat{\mathbf k}-0}{\sqrt{\rho^{2}+z^{2}}}
+\]
+
+La añadimos a la expresión del campo:
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\;
+\frac{q}{\rho^{2}+z^{2}}\;
+\frac{\rho\,\hat{\mathbf e}_\rho + z\,\hat{\mathbf k}}{\sqrt{\rho^{2}+z^{2}}}
+= \frac{1}{4\pi\varepsilon_0}\;
+\frac{q\left(\rho\,\hat{\mathbf e}_\rho + z\,\hat{\mathbf k}\right)}{(\rho^{2}+z^{2})^{3/2}}.
+\]\\
+
+\textbf{c) Con coordenadas esféricas}
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_q^{\,2}}\;\hat r_q
+\]
+
+Calculamos el vector unitario $\hat r_q$:
+\[
+\hat r_q \;=\; \frac{\vec r_P-\vec r_q}{\lvert \vec r_P-\vec r_q\rvert}
+= \frac{r\,\hat{\mathbf e}_r - 0}{r} \;=\; \hat{\mathbf e}_r
+\]
+
+La añadimos a la expresión del campo:
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r^{2}}\;\hat{\mathbf e}_r .
+\]
+\newpage
+\noindent
+\textbf{Ejercicio 2:} Un cilindro de radio \(R\) tiene su superficie circular cargada con una densidad de carga constante.
+Determina el campo eléctrico generado a una distancia \(d\) de su eje como muestra la figura.
+
+\medskip
+\noindent
+El campo eléctrico generado por el cilindro vendrá dado como:
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\iint \frac{dq}{r^{2}}\;\hat r_{qP}.
+\]
+Con elemento de carga superficial
+\[
+dq=\sigma\,dA=\sigma\,R\,d\theta\,dz;
+\qquad
+\theta\in[0,2\pi],\;\; z\in[0,h].
+\]
+Calculamos el vector
+\[
+\vec r_{qP}=\vec r_P-\vec r_q
+= (h+d)\,\hat{\mathbf k} - \big(R\,\hat{\mathbf e}_r + z\,\hat{\mathbf k}\big),
+\]
+\[
+|\vec r_{qP}|=\sqrt{R^{2}+(h+d-z)^{2}}.
+\]
+Sustituyendo:
+\[
+\vec E
+=\frac{\sigma R}{4\pi\varepsilon_0}
+\int_{0}^{h}\!\!\int_{0}^{2\pi}
+\left[
+\frac{-\,R\,\hat{\mathbf e}_r}{\big(R^{2}+(h+d-z)^{2}\big)^{3/2}}
++\frac{(h+d-z)\,\hat{\mathbf k}}{\big(R^{2}+(h+d-z)^{2}\big)^{3/2}}
+\right] d\theta\,dz .
+\]
+
+\textit{Nota:} hay que cambiar \(\hat{\mathbf e}_r\) por \(\cos\theta\,\hat{\imath}+\sin\theta\,\hat{\jmath}\) ya que \(\hat{\mathbf e}_r\) depende de \(\theta\).
+
+\bigskip
+\noindent
+\textbf{Ejercicio 3.}
+Un recipiente hemisférico de radio \(a\) tiene una carga total \(q\) repartida uniformemente en su superficie.
+Encuentre el campo eléctrico en el centro de curvatura (véase la figura).
+
+\medskip
+\noindent
+El campo eléctrico viene dado como
+\[
+\vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\int \frac{dq}{r^{2}}\;\hat r .
+\]
+\textbf{Sustituimos.} Como por simetría sólo queda la componente sobre el eje,
+\[
+E_z \;=\; \frac{1}{4\pi\varepsilon_0}
+\int_{0}^{2\pi}\!\!\int_{0}^{\pi/2}
+\frac{dq}{a^{2}}\;\cos\theta ,
+\quad
+dq=\sigma\,dA,\quad
+dA=a^{2}\sin\theta\,d\theta\,d\varphi,
+\quad
+\sigma=\frac{q}{2\pi a^{2}} .
+\]
+Por tanto:
+\[
+E_z \;=\; \frac{1}{4\pi\varepsilon_0}
+\int_{0}^{2\pi}\!\!\int_{0}^{\pi/2}
+\frac{\sigma a^{2}\sin\theta\,d\theta\,d\varphi}{a^{2}}\;\cos\theta .
+\]
+Además,
+\[
+\hat r_{qP}\;=\;\frac{\vec r_{P}-\vec r_{q}}{\lvert \vec r_{P}-\vec r_{q}\rvert},
+\qquad
+\lvert \vec r_{P}-\vec r_{q}\rvert = a .
+\]
+
+\bigskip
+\subsection{Ley de Gauss}
+\noindent
+La ley de Gauss en electrostática relaciona el flujo de campo eléctrico a través de una
+superficie cerrada con la carga neta encerrada en ella, afirmando que el flujo es igual
+a la carga neta dividida por la permitividad del vacío. Matemáticamente, se expresa como:
+\[
+\oint_{\partial V}\vec E\cdot d\vec A \;=\; \frac{q_{\text{enc}}}{\varepsilon_0}.
+\]\\
+La ley de Gauss proviene de la primera ley de Maxwell; para llegar a ella partimos del
+\emph{teorema de la divergencia}:
+\[
+\oint_{\partial V}\vec E\cdot d\vec A
+\;=\;
+\iiint_{V} (\nabla\!\cdot\!\vec E)\,dV,
+\]
+\[
+\frac{q_{\text{enc}}}{\varepsilon_0}
+=
+\iiint_{V} \frac{\rho}{\varepsilon_0}\,dV
+\]
+\[
+\nabla\!\cdot\!\vec E \;=\; \frac{\rho}{\varepsilon_0}
+\quad\text{(primera ley de Maxwell en el vacío).}
+\]
+Si hay divergencia en el campo, es decir, \(\nabla\!\cdot\!\vec E>0\), el campo \emph{diverge} (fuente).
+Si por el contrario \(\nabla\!\cdot\!\vec E<0\), tenemos un \emph{sumidero}, es decir, el campo \emph{converge}.\\
+
+\noindent
+Para usar la \textbf{ley de Gauss} tengo que crear una \textbf{superficie imaginaria} a mi conveniencia para poder integrar sobre ella.
+\subsection*{Ejemplo:}
+\noindent 
+Se tiene una esfera aislante con una distribución de carga homogénea repartida uniformemente en su volumen.  
+La esfera tiene radio \(R\). Determina el campo eléctrico producido por la esfera en todo el espacio.
+
+\medskip
+\noindent
+Primero calculamos el campo \textbf{fuera de la esfera} (\(r > R\)).  
+Para ello, mi \textbf{superficie gaussiana} será una esfera concéntrica de radio \(r\).
+
+\[
+\oint_{\partial V}\vec E\cdot d\vec A = \frac{q_{\text{enc}}}{\varepsilon_0}
+\]
+
+\[
+\oint_{\partial V}\vec E\cdot d\vec A = \int_0^{2\pi}\int_0^{\pi} |\vec E|\, r^{2}\sin\theta\, d\theta\, d\phi = |\vec E|\,r^{2}\,4\pi
+\]
+
+\[
+\frac{q_{\text{enc}}}{\varepsilon_0} = \frac{1}{\varepsilon_0}\iiint \rho\, dV = \frac{1}{\varepsilon_0}\int_0^{2\pi}\int_0^{\pi}\int_0^{R} \rho\, r^{2}\sin\theta\, dr\, d\theta\, d\phi = \frac{4\pi}{3\varepsilon_0}\rho R^{3}
+\]
+Igualando ambas ecuaciones:
+\[
+|\vec E|\,4\pi r^{2} = \frac{4\pi}{3\varepsilon_0}\rho R^{3}
+\]
+
+\[
+|\vec E| = \frac{\rho R^{3}}{3\varepsilon_0 r^{2}}
+\]
+Por lo tanto, el campo eléctrico para \(r > R\) es:
+\[
+\boxed{\vec E = \frac{\rho R^{3}}{3\varepsilon_0 r^{2}}\,\hat r }
+\]
+
+\bigskip
+\noindent
+Veamos lo que pasa ahora para \(r < R\) (\textbf{dentro de la esfera}).  
+En este caso, la superficie gaussiana será una esfera concéntrica menor que la esfera original.
+
+\[
+\oint_{\partial V}\vec E\cdot d\vec A = \frac{q_{\text{enc}}}{\varepsilon_0}
+\]
+
+\[
+\oint_{\partial V}\vec E\cdot d\vec A = \int_0^{2\pi}\int_0^{\pi} |\vec E|\, r^{2}\sin\theta\, d\theta\, d\phi = |\vec E|\,r^{2}\,4\pi
+\]
+
+\[
+\frac{q_{\text{enc}}}{\varepsilon_0} = \frac{1}{\varepsilon_0}\iiint \rho\, dV = \frac{1}{\varepsilon_0}\int_0^{2\pi}\int_0^{\pi}\int_0^{r} \rho\, r^{2}\sin\theta\, dr\, d\theta\, d\phi = \frac{4\pi}{3\varepsilon_0}\rho r^{3}
+\]
+Igualando ambas ecuaciones:
+\[
+|\vec E|\,4\pi r^{2} = \frac{4\pi}{3\varepsilon_0}\rho r^{3}
+\]
+
+\[
+\boxed{\vec E = \frac{\rho r}{3\varepsilon_0}\,\hat r }
+\]
+
+\bigskip
+\noindent
+Resultado final:
+\[
+\vec E(r) =
+\begin{cases}
+\dfrac{\rho r}{3\varepsilon_0}\,\hat r, & r < R \\
+\dfrac{\rho R^{3}}{3\varepsilon_0 r^{2}}\,\hat r, & r > R
+\end{cases}
+\]
+\newpage
+\noindent
+Ahora sustituimos en la ley de Gauss:
+\[
+|\vec E|\,4\pi r^{2} \;=\; \frac{1}{\varepsilon_{0}}\;\frac{4\pi}{3}\,\rho\,r^{3}
+\]
+\[
+|\vec E| \;=\; \frac{\rho\,r}{3\,\varepsilon_{0}}
+\]
+Por tanto, en forma vectorial quedaría:
+\[
+\vec E \;=\; \frac{\rho\,r}{3\,\varepsilon_{0}}\;\hat r
+\]
+Entonces el campo eléctrico será:
+\[
+\vec E \;=\; \frac{\rho\,r}{3\,\varepsilon_{0}}\;\hat r \quad \text{si } r<R,
+\qquad
+\vec E \;=\; \frac{\rho\,R^{3}}{3\,\varepsilon_{0}\,r^{2}}\;\hat r \quad \text{si } r>R.
+\]
+\subsection*{Ejemplo:}
+\noindent
+Tenemos una línea de carga de densidad lineal \(\lambda\) y longitud infinita.
+Determine el campo eléctrico producido en un punto a una distancia \(r\) del cable. Para conocer el campo eléctrico aplicaremos la \textbf{ley de Gauss} sobre la superficie gaussiana mostrada en la figura:
+\[
+\Phi_{E} \;=\; \iint_{\partial V} \vec E\cdot d\vec A
+\;=\; \frac{q_{\text{enc}}}{\varepsilon_{0}}.
+\]
+% Línea infinita con carga lineal λ: flujo sobre un cilindro de Gauss
+\[
+\iint_{S}\vec E\!\cdot d\vec A
+=\iint_{\text{tapa sup}}\vec E\!\cdot d\vec A
++\iint_{\text{tapa inf}}\vec E\!\cdot d\vec A
++\iint_{\text{pared}}\vec E\!\cdot d\vec A .
+\]
+Sabemos que \(\vec E=|\!E|\;\hat{\mathbf e}_\rho\) (radial) y es tangencial a las tapas \(\Rightarrow\)
+las contribuciones de las tapas son nulas; sólo aporta la pared cilíndrica:
+\[
+\Phi_E=\iint_{\text{pared}} \vec E\!\cdot d\vec A
+=\int_{0}^{h}\!\!\int_{0}^{2\pi} |\!E|\,(\rho\,d\theta)\,dz
+=|\!E|\,(2\pi\rho h).
+\]
+Por otro lado,
+\[
+\frac{q_{\text{enc}}}{\varepsilon_0}
+=\frac{1}{\varepsilon_0}\int \lambda\,dl
+=\frac{1}{\varepsilon_0}\int_{0}^{h}\lambda\,dz
+=\frac{\lambda h}{\varepsilon_0}.
+\]
+Igualando términos:
+\[
+|\!E|\,(2\pi\rho h)=\frac{\lambda h}{\varepsilon_0}
+\;\;\Longrightarrow\;\;
+|\!E|=\frac{\lambda}{2\pi\varepsilon_0\,\rho},
+\qquad
+\boxed{\;\vec E=\dfrac{\lambda}{2\pi\varepsilon_0\,\rho}\,\hat{\mathbf e}_\rho\;}
+\]
+
+% Plano infinito con densidad superficial σ: “pastilla” gaussiana
+\subsection*{Ejemplo:}
+\noindent
+Caso de un plano cargado con densidad superficial constante \(\sigma\). Determinar el campo eléctrico a una distancia \(d\) del plano. Aplicamos la ley de Gauss con una superficie cilíndrica (“pastilla”) que corta el plano:
+\[
+\Phi_E=\iint_{S}\vec E\!\cdot d\vec A=\frac{q_{\text{enc}}}{\varepsilon_0},
+\qquad
+d\vec A=\hat{\mathbf n}\,dA,\quad \vec E=|\!E|\,\hat{\mathbf n}.
+\]
+La contribución de la pared lateral es nula (\(\vec E\perp d\vec A\) allí). Aportan sólo las tapas:
+\[
+\Phi_E=|\!E|A_{\text{sup}}+|\!E|A_{\text{inf}}
+=2|\!E|\,(\pi R^{2}).
+\]
+La carga encerrada es
+\[
+\frac{q_{\text{enc}}}{\varepsilon_0}
+=\frac{1}{\varepsilon_0}\iint \sigma\,dA
+=\frac{\sigma}{\varepsilon_0}\,\pi R^{2}.
+\]
+Por tanto,
+\[
+2|\!E|\,\pi R^{2}=\frac{\sigma}{\varepsilon_0}\,\pi R^{2}
+\;\;\Longrightarrow\;\;
+\boxed{\;|\!E|=\dfrac{\sigma}{2\varepsilon_0}\;}
+\quad\text{(constante, independiente de \(d\)).}
+\]
 \end{document}
