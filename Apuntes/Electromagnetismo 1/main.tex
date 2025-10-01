@@ -329,34 +329,16 @@ Al tratarse de una integral vectorial, se integra cada componente por separado:
 \[
 x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
 \]
+%%% Figura 6 %%%
+\vspace{-2.0em}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.65\textwidth]{imagen_5.jpeg}
+  \caption{Descripción breve de la imagen.}
+  \label{fig:imagen5}
+\end{figure}
 
-% --- Medida de \theta y croquis ---
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  % Ejes "3D" esquemáticos
-  \draw[-{Latex}] (0,0) -- (2.2,0) node[right] {$x$};
-  \draw[-{Latex}] (0,0) -- (-1.2,-0.7);
-  \node at (-1.4,-0.85) {$y$};
-  \draw[-{Latex}] (0,0) -- (0,2.2) node[above] {$z$};
-
-  % Punto y proyección al plano xy
-  \fill (1.1,1.6) circle (1.2pt);
-  \draw[dashed] (1.1,1.6) -- (1.1,0);
-  \draw (0,0) -- (1.1,0);
-
-  % Arco y ángulo theta en el plano xy
-  \draw (0.6,0) arc[start angle=0,end angle=330,radius=0.6];
-  \node at (0.75,-0.28) {$\theta$};
-\end{tikzpicture}
-\hspace{2cm}
-\begin{tikzpicture}[scale=1]
-  \draw[-{Latex}] (0,0) -- (2,0) node[right] {$x$};
-  \draw[-{Latex}] (0,0) -- (0,2) node[above] {$y$};
-  \draw[-{Latex}] (0,0) -- (1.5,1.0);
-  \draw (0.8,0) arc[start angle=0,end angle=33.7,radius=0.8];
-  \node at (1.05,0.25) {$\theta$};
-\end{tikzpicture}
-\end{center}
+  % tus fórmulas...
 Donde $\theta$ va siempre desde el eje positivo de $x$ al eje positivo de $y$.
 Al igual que en coordenadas cartesianas, las coordenadas cilíndricas también tienen \textit{vectores unitarios}:
 \[
@@ -364,25 +346,14 @@ Al igual que en coordenadas cartesianas, las coordenadas cilíndricas también t
 \hat{\mathbf e}_\theta = -\sin\theta\,\hat{\imath} + \cos\theta\,\hat{\jmath},\qquad
 \hat{\mathbf e}_z = \hat{\mathbf k}.
 \]
-
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  % Ejes "3D" esquemáticos
-  \draw[-{Latex}] (0,0) -- (2.2,0) node[right] {$x$};
-  \draw[-{Latex}] (0,0) -- (-1.2,-0.7);
-  \node at (-1.4,-0.85) {$y$};
-  \draw[-{Latex}] (0,0) -- (0,2.2) node[above] {$z$};
-
-  % Arco y versores en el plano xy
-  \draw (0.9,0) arc[start angle=0,end angle=330,radius=0.9];
-  \node at (0.7,-0.2) {$\theta$};
-
-  % e_r y e_theta en el plano xy
-  \draw[-{Latex}] (0,0) -- (1.4,0.5) node[right] {$\hat{\mathbf e}_r$};
-  \draw[-{Latex}] (0.9,0.32) -- (0.6,0.95) node[above] {$\hat{\mathbf e}_\theta$};
-\end{tikzpicture}
-\end{center}
-
+%%% figura 7 %%%
+\vspace{-2.0em}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.3\textwidth]{imagen_6.jpeg}
+  \caption{Descripción breve de la imagen.}
+  \label{fig:imagen6}
+\end{figure}
 \newpage
 
 \subsection{Diferenciales de longitud, área y volumen (cartesianas)}
@@ -429,23 +400,15 @@ De volumen:
 \[
 dV = r\,dr\,d\theta\,dz
 \]
+%%% Figura 8 %%%
+\vspace{-2.0em}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.25\textwidth]{imagen_7.jpeg}
+  \caption{Descripción breve de la imagen.}
+  \label{fig:imagen7}
+\end{figure}
 
-\begin{center}
-\begin{tikzpicture}[scale=1]
-  % Bloque cilíndrico elemental (croquis)
-  \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
-  \draw (2,0) -- (3.2,0.6) -- (3.2,2.6) -- (2,2);
-  \draw (0,2) -- (1.2,2.6) -- (3.2,2.6);
-  % Arco y ángulo d\theta
-  \draw (0,0) -- (2,0);
-  \draw (0,0) -- (1.8,0.6);
-  \draw (1,0) arc[start angle=0,end angle=17,radius=1];
-  \node at (1.25,0.22) {\small $d\theta$};
-  % Radios r y dr (indicativos)
-  \draw[-{Latex}] (0,0) -- (1.2,0) node[below] {\small $r$};
-\draw[-{Latex}] (1.2,0) -- (1.8,0) node[below] {\small $dr$};
-\end{tikzpicture}
-\end{center}
 
 \subsection*{Ejemplo:}
 \noindent Un anillo cargado con densidad de carga lineal variable $\lambda=\cos^{2}\theta$ y radio $a$.
@@ -461,7 +424,6 @@ q_T \;=\; \oint \lambda\, dl
 \textit{* Los límites de integración varían dependiendo de nuestro sistema de referencia.  
 En nuestro caso $r=a$ y $\theta\in[0,2\pi]$.}
 
-\bigskip
 
 \subsection*{Ejemplo:}
 
