@@ -1438,26 +1438,242 @@ Sustituyendo:
 \[
 \sigma = - \frac{\rho_e a^2}{2b}
 \]
-
+\newpage
+\noindent
 \section{Potencial eléctrico}
-
+\noindent
 La fuerza eléctrica es conservativa, por lo tanto tiene asociada una energía potencial.  
 La diferencia de energía potencial eléctrica viene dada como el trabajo realizado por la fuerza al desplazar una carga:
 
 \[
 \Delta U = - q_0 \int_{a}^{b} \vec{E} \, ds
 \]
-
 Donde el potencial eléctrico es el trabajo por unidad de carga:
 
 \[
 \Delta V = \frac{\Delta U}{q_0} = - \int_{a}^{b} \vec{E} \, ds
 \]
-
 Un campo vectorial $\vec{F}$ se llama conservativo si existe una función diferenciable $f$ tal que $\vec{F} = \nabla f$.  
 La función $f$ se llama función potencial para $\vec{F}$, y podemos calcular el campo eléctrico a partir del potencial:
 
 \[
 \vec{E} = - \nabla V
 \]
+Cada coordenada tiene su gradiente asociado:
+
+\begin{itemize}
+    \item Coordenadas cilíndricas: 
+    \[
+    \nabla F = \frac{\partial F}{\partial \rho}\hat{\rho} + \frac{1}{\rho}\frac{\partial F}{\partial \phi}\hat{\phi} + \frac{\partial F}{\partial z}\hat{k}
+    \]
+    \item Coordenadas esféricas:
+    \[
+    \nabla F = \frac{\partial F}{\partial r}\hat{r} + \frac{1}{r}\frac{\partial F}{\partial \theta}\hat{\theta} + \frac{1}{r\sin\theta}\frac{\partial F}{\partial \phi}\hat{\phi}
+    \]
+\end{itemize}
+
+Para calcular el potencial entre dos puntos:
+
+\[
+\Delta V = V_B - V_A = - \int_{A}^{B} \vec{E}\, ds
+\]
+
+Potencial eléctrico creado por distribuciones de carga:
+
+\[
+V = k_e \int \frac{dq}{r}
+\]
+
+\subsection*{Ejemplo:}
+\noindent
+Encuentre una expresión para el potencial eléctrico en un punto $P$ ubicado sobre el eje central perpendicular de un anillo con carga uniforme de radio $a$ y carga total $Q$. Calcule el campo eléctrico a partir del potencial.
+
+\[
+\lambda = \frac{Q}{2\pi a}
+\]
+Calculamos el potencial eléctrico:
+\begin{align*}
+V = \frac{1}{4\pi \varepsilon_0} \int \frac{dq}{r}
+& \qquad ; \qquad
+\textit{Siendo $dq = \lambda dl = \lambda a d\theta$, \quad $\forall \theta \in [0,2\pi]$} 
+\end{align*}
+Calculamos la distancia $r$:
+
+\[
+r = \sqrt{z^2 + a^2}
+\]
+Sustituyendo en la expresión del potencial:
+
+\[
+V = \frac{1}{4\pi \varepsilon_0} \int_{0}^{2\pi} \frac{\lambda a\, d\theta}{\sqrt{z^2 + a^2}}
+\]
+Sustituyendo:
+
+\[
+V = \frac{Q}{4\pi \varepsilon_0 \sqrt{z^2 + a^2}}
+\]
+A partir de esta expresión calculamos el campo eléctrico, sabiendo:
+
+\[
+\vec{E} = - \nabla V = - \nabla \left( \frac{Q}{4\pi \varepsilon_0 \sqrt{z^2 + a^2}} \right)
+\]
+Como calculamos el potencial en coordenadas cilíndricas, usamos el gradiente en coordenadas cilíndricas:
+
+\[
+\vec{E} = - \nabla V = - \left( \frac{\partial V}{\partial \rho} \hat{\rho} + \frac{1}{\rho}\frac{\partial V}{\partial \phi}\hat{\phi} + \frac{\partial V}{\partial z}\hat{k} \right) =
+\]
+
+\[
+\ = - \frac{Q}{4\pi \varepsilon_0} \frac{\partial}{\partial z} (z^2 + a^2)^{-3/2} \hat{k} = \frac{Q}{4\pi \varepsilon_0} \frac{z}{(z^2 + a^2)^{3/2}} \hat{k}
+\]
+\newpage
+\noindent
+Si el campo eléctrico es conservativo, entonces su rotacional es nulo:
+
+\[
+\nabla \times \vec{E} = 0
+\quad \rightarrow \quad
+\text{3ª Ley de Maxwell en electrostática.}
+\]
+Como habíamos visto anteriormente:
+
+\[
+\Delta V = - \oint_{L} \vec{E}\, d\vec{l} = 0
+\]
+Aplicando el teorema de Stokes, llegamos a que la integral de línea de un campo vectorial sobre una trayectoria cerrada es:
+
+\[
+\oint_{L} \vec{E}\, d\vec{l} = \iint_{A} (\nabla \times \vec{E})\, d\vec{A} = 0
+\]
+Por lo tanto, sí o sí:
+\[
+\nabla \times \vec{E} = 0
+\]
+
+\subsection*{Ejercicio 2 (parcial):} 
+\noindent
+Una esfera conductora de radio $a$ tiene una carga total $Q$.  
+Alrededor de la esfera se encuentra un casquete esférico de radios $b$ y $c$, con una distribución de carga volumétrica dada en coordenadas esféricas como:
+
+\[
+\rho_\rho = \frac{\rho_0 r}{\sin\theta}
+\]
+donde $\rho_0$ es una constante positiva. Determine:
+
+\begin{enumerate}
+    \item[a)] La densidad superficial en la esfera conductora y la carga total del casquete.
+\end{enumerate}
+\noindent
+Calculamos la densidad de carga:
+
+\[
+\sigma = \frac{Q}{A} = \frac{Q}{4\pi a^2}
+\]
+Carga total del casquete:
+
+\[
+Q = \iiint \rho_q\, dv = \iiint \frac{\rho_0 r}{\sin\theta} r^2 \sin\theta\, d\theta\, d\phi\, dr 
+= \rho_0 2\pi \int_{b}^{c} r^3 dr = \rho_0 2\pi \frac{r^4}{4} \Big|_{b}^{c} =
+\]
+
+\[
+ = \rho_0 2\pi \frac{c^4 - b^4}{4}
+\]
+\newpage
+\noindent
+b) Campo eléctrico en todo el espacio
+
+\medskip
+\noindent
+Estudiamos las regiones que tenemos:
+\[
+\begin{cases}
+r < a \quad \Rightarrow \quad \text{Dentro de la esfera conductora} \\[10pt]
+a < r < b \quad \Rightarrow \quad \text{En el vacío entre la esfera y el casquete} \\[10pt]
+b < r < c \quad \Rightarrow \quad \text{Dentro del casquete conductor} \\[10pt]
+r > c \quad \Rightarrow \quad \text{Fuera del casquete}
+\end{cases}
+\]
+\noindent
+Estudiando la region $r > a$ sacamos automaticamente que el campo es nulo, ya que las cargas se apantallan de tal forma que anulan el campo en el interior del mismo:
+\[
+\vec{E} = 0
+\]
+Para calcular el campo aplicamos Gauss, siendo nuestra superficie gaussiana una esfera concéntrica de radio $a < r < b$:
+
+\[
+\oint_{S} \vec{E} \cdot d\vec{A} = \frac{q_{\text{enc}}}{\varepsilon_0}
+\]
+donde mi diferencial de área es:
+
+\[
+d\vec{A} = r^2 \sin\theta\, d\theta\, d\phi
+\]
+Y mi campo me queda:
+
+\[
+\vec{E} = |\vec{E}|\, \hat{r}
+\]
+Sustituyendo en la Ley de Gauss:
+
+\[
+\oint_{S} |\vec{E}|\, r^2 \sin\theta\, d\theta\, d\phi = \frac{q_{\text{enc}}}{\varepsilon_0}
+\]
+Sabiendo que mi $q_{\text{enc}} = Q$, tenemos:
+
+\[
+|\vec{E}|\, 4\pi r^2 = \frac{Q}{\varepsilon_0}
+\]
+Por lo tanto:
+
+\[
+|\vec{E}| = \frac{Q}{4\pi \varepsilon_0 r^2}
+\]
+
+\newpage
+\noindent
+Estudiamos ahora la región $b < r < c$, dentro del casquete.  
+Aplicamos Gauss sobre mi superficie gaussiana:
+
+\[
+\oint_{S} \vec{E} \cdot d\vec{A} = \frac{q_{\text{enc}}}{\varepsilon_0}
+\]
+donde mi diferencial de área es:
+
+\[
+d\vec{A} = r^2 \sin\theta\, d\theta\, d\phi
+\]
+Y mi campo me queda:
+
+\[
+\vec{E} = |\vec{E}|\, \hat{r}
+\]
+Calculando la parte de la Ley de Gauss:
+
+\[
+\oint_{S} d\vec{A} = |\vec{E}|\, 4\pi r^2 = \frac{q_{\text{enc}}}{\varepsilon_0}
+\]
+En este caso mi carga encerrada sería:
+
+\[
+q_{\text{enc}} = Q_{\text{esfera}} + Q_{\text{parte encerrada}}
+\]
+Despejando e integrando:
+\[
+\begin{aligned}
+Q_{\text{parte encerrada}} &= \iiint \rho_q\, dv = \iiint \frac{\rho_0 r}{\sin\theta} r^2 \sin\theta\, d\theta\, d\phi\, dr = \\[6pt]
+&= 2\pi \rho_0 \int_{b}^{r} \frac{r^4}{4}\, dr = 2\pi \rho_0 \left[ \frac{r^4}{4} - \frac{b^4}{4} \right]
+\end{aligned}
+\]
+Una vez tenemos todo esto, sustituimos y calculamos el campo eléctrico:
+
+\[
+|\vec{E}|\, 4\pi r^2 = \frac{Q + 2\pi^2 \rho_0 \left( \dfrac{r^4}{4} - \dfrac{b^4}{4} \right)}{\varepsilon_0}
+\]
+Y despejando:
+
+\[
+\vec{E} = \frac{Q + 2\pi^2 \rho_0 \left( \dfrac{r^4}{4} - \dfrac{b^4}{4} \right)}{4\pi r^2 \varepsilon_0}
+\]
+Por último, estudiamos la última región $r > c$ fuera del casquete:
 \end{document}
