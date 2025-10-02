@@ -45,9 +45,11 @@
 \newpage 
 
 \section*{Introducción.}
-
+\noindent
 La asignatura \textbf{Electromagnetismo I}, perteneciente al \textit{Grado en Física}, aborda el estudio sistemático de los fenómenos eléctricos y magnéticos en el vacío y en medios materiales.  
 
+\medskip
+\noindent
 Se estructura en los siguientes bloques temáticos principales:
 
 \begin{itemize}
@@ -93,7 +95,11 @@ Hay que poner claramente el sistema de referencia que usamos en cada caso de for
   \caption{Descripción breve de la imagen.}
   \label{fig:imagen1}
 \end{figure}
-Determinar la $\vec{F}_e$ sobre $q_3$. \\
+\noindent
+Determinar la $\vec{F}_e$ sobre $q_3$. 
+
+\medskip
+\noindent
 Atendiendo al principio de superposición tenemos:
 \[
 \vec{F}_e = \vec{F}_{q_2 q_3} + \vec{F}_{q_1 q_3}
@@ -197,6 +203,7 @@ y, en el caso de tomar el origen en la carga y $r=|\vec r|$,
 \newpage
 
 \subsection*{Distribuciones de carga}
+\noindent
 Pueden ser:
 \[
 \text{Lineales} \;\Rightarrow\; \lambda \;=\; \frac{dq}{dl},
@@ -227,6 +234,7 @@ Determine el campo eléctrico generado por la barra a una distancia $d$ de uno d
   \caption{Descripción breve de la imagen.}
   \label{fig:imagen3}
 \end{figure}
+\noindent
 Planteamos la solución del campo eléctrico
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\int \frac{dq}{r^2}\,\hat r_{qP},
@@ -266,7 +274,7 @@ Llegamos a la expresión del campo eléctrico de una carga puntual $Q$. ya que a
 \newpage
 
 \subsection*{Ejemplo:}
-
+\noindent
 Calcular $\vec E$ en el punto $P$.  
 ¿Qué ocurre si $P \gg L$?
 
@@ -338,7 +346,7 @@ x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
   \label{fig:imagen5}
 \end{figure}
 
-  % tus fórmulas...
+\noindent
 Donde $\theta$ va siempre desde el eje positivo de $x$ al eje positivo de $y$.
 Al igual que en coordenadas cartesianas, las coordenadas cilíndricas también tienen \textit{vectores unitarios}:
 \[
@@ -411,9 +419,12 @@ dV = r\,dr\,d\theta\,dz
 
 
 \subsection*{Ejemplo:}
-\noindent Un anillo cargado con densidad de carga lineal variable $\lambda=\cos^{2}\theta$ y radio $a$.
+\noindent
+Un anillo cargado con densidad de carga lineal variable $\lambda=\cos^{2}\theta$ y radio $a$.
 Determinar la carga total.
 
+\medskip
+\noindent
 La densidad lineal, por tanto la carga vendrá dada como:
 \[
 q_T \;=\; \oint \lambda\, dl
@@ -465,7 +476,8 @@ Por tanto,
 \]
 \newpage
 \subsection{Coordenadas esféricas}
-\noindent Las \textbf{coordenadas cilíndricas} representan un punto en el espacio mediante la tripleta
+\noindent
+Las \textbf{coordenadas cilíndricas} representan un punto en el espacio mediante la tripleta
  $(r,\theta,\phi)$, donde $r$ es la distancia desde el punto al origen (coordenada radial),
   $\theta$ es el ángulo que forma el radio con el eje $x$ (coordenada acimutal) y $\phi$ es el
    ángulo que forma el radio con el eje $z$ (coordenada polar). Este sistema es una generalización
@@ -549,18 +561,16 @@ Q_T = 4\pi \int_{0}^{R} e^{r} r^{2}\, dr = \frac{4\pi}{3}\left(e^{R} - 1\right)
 \subsection*{Ejemplo:}
 \noindent 
 Determina el campo eléctrico que genera una carga puntual en cualquier punto del espacio.
-
+\noindent
 \textbf{a) Con coordenadas cartesianas}
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_q^{\,2}}\;\hat r_q
 \]
-
 Calculamos el vector unitario $\hat r_q$:
 \[
 \hat r_q \;=\; \frac{\vec r_P-\vec r_q}{\lvert \vec r_P-\vec r_q\rvert}
 = \frac{x\,\hat{\imath}+y\,\hat{\jmath}+z\,\hat{\mathbf k}-0}{\sqrt{x^{2}+y^{2}+z^{2}}}
 \]
-
 La añadimos a la expresión del campo:
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\;
@@ -569,18 +579,16 @@ La añadimos a la expresión del campo:
 = \frac{1}{4\pi\varepsilon_0}\;
 \frac{q\,(x\,\hat{\imath}+y\,\hat{\jmath}+z\,\hat{\mathbf k})}{(x^{2}+y^{2}+z^{2})^{3/2}}.
 \]\\
-
+\noindent
 \textbf{b) Con coordenadas cilíndricas}
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_q^{\,2}}\;\hat r_q
 \]
-
 Calculamos el vector unitario $\hat r_q$:
 \[
 \hat r_q \;=\; \frac{\vec r_P-\vec r_q}{\lvert \vec r_P-\vec r_q\rvert}
 = \frac{\rho\,\hat{\mathbf e}_\rho + z\,\hat{\mathbf k}-0}{\sqrt{\rho^{2}+z^{2}}}
 \]
-
 La añadimos a la expresión del campo:
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\;
@@ -589,18 +597,16 @@ La añadimos a la expresión del campo:
 = \frac{1}{4\pi\varepsilon_0}\;
 \frac{q\left(\rho\,\hat{\mathbf e}_\rho + z\,\hat{\mathbf k}\right)}{(\rho^{2}+z^{2})^{3/2}}.
 \]\\
-
+\noindent
 \textbf{c) Con coordenadas esféricas}
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r_q^{\,2}}\;\hat r_q
 \]
-
 Calculamos el vector unitario $\hat r_q$:
 \[
 \hat r_q \;=\; \frac{\vec r_P-\vec r_q}{\lvert \vec r_P-\vec r_q\rvert}
 = \frac{r\,\hat{\mathbf e}_r - 0}{r} \;=\; \hat{\mathbf e}_r
 \]
-
 La añadimos a la expresión del campo:
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{q}{r^{2}}\;\hat{\mathbf e}_r .
@@ -645,7 +651,7 @@ Sustituyendo:
 
 \bigskip
 \noindent
-\textbf{Ejercicio 3.}
+\textbf{Ejercicio 3:}
 Un recipiente hemisférico de radio \(a\) tiene una carga total \(q\) repartida uniformemente en su superficie.
 Encuentre el campo eléctrico en el centro de curvatura (véase la figura).
 
@@ -655,7 +661,11 @@ El campo eléctrico viene dado como
 \[
 \vec E \;=\; \frac{1}{4\pi\varepsilon_0}\,\int \frac{dq}{r^{2}}\;\hat r .
 \]
-\textbf{Sustituimos.} Como por simetría sólo queda la componente sobre el eje,
+Sustituimos:
+
+\medskip
+\noindent
+Como por simetría sólo queda la componente sobre el eje,
 \[
 E_z \;=\; \frac{1}{4\pi\varepsilon_0}
 \int_{0}^{2\pi}\!\!\int_{0}^{\pi/2}
@@ -931,10 +941,13 @@ Calculamos ahora el campo en la segunda región: \( a < r < b \)
 \]
 Nuestro diferencial de área sigue siendo el mismo (coordenadas esféricas):
 \[
-dA=r^{2}\sin\theta\,d\theta\,d\phi,
+dA=r^{2}\sin\theta\,d\theta\,d\phi
+\]
+\[
+\vec{E} = |\vec{E}|\, \hat{r} 
+\hfill
 \qquad
-\vec E=|\vec E|\,\hat r
-\ \ (\text{el campo es perpendicular a la superficie gaussiana}).
+\textit{(el campo es perpendicular a la superficie gaussiana.)}
 \]
 La carga encerrada es la de toda la esfera maciza:
 \[
@@ -1107,7 +1120,7 @@ Finalmente, despejando \(\sigma\):
 \noindent
 Un conductor en equilibrio se comporta de manera peculiar: toda la carga se apantalla en la superficie y, en su centro, el campo eléctrico es \(0\). Nunca vamos a poder tener una densidad volumétrica de carga. Si, en su defecto, se pone un conductor en un campo eléctrico, las cargas positivas y negativas se apantallan opuestamente y la suma neta de carga es \(0\).
 
-\subsection*{Ejemplo}
+\subsection*{Ejemplo:}
 \noindent
 Una esfera aislante sólida, de radio \(a\), tiene una carga positiva neta \(Q\) distribuida de manera uniforme por todo su volumen.
 Un cascarón esférico conductor, con radio interior \(b\) y radio exterior \(c\), es concéntrico con la esfera sólida y tiene una carga neta \(-2Q\).
@@ -1210,7 +1223,7 @@ q_{\text{enc}} = \int_{0}^{2\pi}\!\!\int_{0}^{\pi}\!\!\int_{0}^{r} \rho\, dV = Q
 \newpage
 \medskip
 \noindent
-Igualamos las ecuaciones
+Igualamos las ecuaciones:
 \[
 4\pi r^{2}\,|\vec E| \;=\; \frac{Q}{\varepsilon_{0}}
 \qquad\Longrightarrow\qquad
