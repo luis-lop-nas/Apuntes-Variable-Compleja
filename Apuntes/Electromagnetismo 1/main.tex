@@ -1102,4 +1102,362 @@ Finalmente, despejando \(\sigma\):
 \[
 \sigma = -\frac{\rho_e\, a^{2}}{2b}
 \]
+
+\subsection{Conductores en equilibrio}
+\noindent
+Un conductor en equilibrio se comporta de manera peculiar: toda la carga se apantalla en la superficie y, en su centro, el campo eléctrico es \(0\). Nunca vamos a poder tener una densidad volumétrica de carga. Si, en su defecto, se pone un conductor en un campo eléctrico, las cargas positivas y negativas se apantallan opuestamente y la suma neta de carga es \(0\).
+
+\subsection*{Ejemplo}
+\noindent
+Una esfera aislante sólida, de radio \(a\), tiene una carga positiva neta \(Q\) distribuida de manera uniforme por todo su volumen.
+Un cascarón esférico conductor, con radio interior \(b\) y radio exterior \(c\), es concéntrico con la esfera sólida y tiene una carga neta \(-2Q\).
+Encuentre el campo eléctrico en todo el espacio y la distribución de carga en el cascarón, cuando todo el sistema se encuentra en equilibrio electrostático.
+
+\medskip
+\noindent
+Lo primero es identificar las regiones en las que vamos a calcular el campo:
+\[
+\left\{
+\begin{array}{l}
+r<a \;\rightarrow\; \text{Dentro de la esfera},\\
+a<r<b \;\rightarrow\; \text{Entre la esfera y el cascarón},\\
+b<r<c \;\rightarrow\; \text{Dentro del cascarón},\\
+r>c \;\rightarrow\; \text{Fuera del cascarón}.
+\end{array}
+\right.
+\]
+
+\medskip
+\noindent
+Observamos que existe simetría; por lo tanto vamos a aplicar la \textbf{ley de Gauss} sobre una superficie esférica:
+\[
+\Phi=\oint_{A}\vec E\cdot d\vec A=\frac{q_{\text{int}}}{\varepsilon_0}.
+\]
+
+\noindent
+Establecemos nuestro diferencial de área (coordenadas esféricas):
+\[
+dA=r^{2}\sin\theta\, d\theta\, d\phi .
+\]
+
+\medskip
+\noindent
+Ahora empezamos a calcular. Supondremos:
+\[
+\vec E=|\vec E|\,\hat r .
+\]
+
+\noindent
+Calculamos la carga encerrada:
+\[
+q_{\text{enc}}=\iiint \rho\, dV,
+\qquad
+\rho=\frac{Q}{V_{\text{esf}}}=\frac{Q}{\frac{4}{3}\pi a^{3}}.
+\]
+
+\[
+q_{\text{enc}}
+=\int_{0}^{2\pi}\!\!\int_{0}^{\pi}\!\!\int_{0}^{r}
+\frac{3Q}{4\pi a^{3}}\,r'^{\,2}\sin\theta \, dr'\, d\theta\, d\phi
+=\frac{Q r^{3}}{a^{3}}.
+\]
+
+\medskip
+\noindent
+Sustituyendo esto en la ley de Gauss:
+\[
+4\pi r^{2} |\vec E| = \frac{Q r^{3}}{\varepsilon_0 a^{3}} 
+\quad \Rightarrow \quad 
+|\vec E| = \frac{Q}{4\pi \varepsilon_0 a^{3}}\, r
+\]
+\[
+\vec E = \frac{Q}{4\pi \varepsilon_0 a^{3}}\, r\, \hat r
+\]
+
+\medskip
+\noindent
+Calculamos el campo en la segunda región: \( a < r < b \)
+
+\medskip
+\noindent
+Aplicamos Gauss:
+\[
+\Phi = \oint_{A} \vec E \cdot d\vec A = \frac{q_{\text{enc}}}{\varepsilon_0}
+\]
+
+\noindent
+Nuestro diferencial de área sigue siendo el mismo:
+\[
+dA = r^{2} \sin\theta\, d\theta\, d\phi
+\]
+\[
+\vec E = |\vec E| \, \hat r 
+\quad \rightarrow \quad \text{Indica que el campo es perpendicular a la superficie gaussiana.}
+\]
+
+\medskip
+\noindent
+Calculamos la carga encerrada:
+\[
+q_{\text{enc}} = \iiint \rho\, dV
+\]
+\[
+\rho = \frac{Q}{V_{\text{esf}}} = \frac{Q}{\frac{4}{3}\pi a^{3}}
+\]
+\[
+q_{\text{enc}} = \int_{0}^{2\pi}\!\!\int_{0}^{\pi}\!\!\int_{0}^{r} \rho\, dV = Q
+\]
+\newpage
+\medskip
+\noindent
+Igualamos las ecuaciones
+\[
+4\pi r^{2}\,|\vec E| \;=\; \frac{Q}{\varepsilon_{0}}
+\qquad\Longrightarrow\qquad
+\boxed{\; \vec E \;=\; \frac{Q}{4\pi \varepsilon_{0}\,r^{2}}\,\hat r \;}
+\]
+
+\medskip
+\noindent
+Por lo que llegamos a la ley de Coulomb.
+
+\medskip
+\noindent
+Calculamos el campo en la tercera región: \(b<r<c\).
+Dentro del conductor el campo es nulo, ya que las cargas se apantallan de tal forma
+que anulan el campo en el interior del mismo:
+\[
+\boxed{\; \vec E = \vec 0 \;}
+\]
+
+\medskip
+\noindent
+Por último calculamos el campo en \(r>c\).\\
+Aplicamos Gauss:
+\[
+\Phi_E \;=\; \iint_{A} \vec E\!\cdot d\vec A
+\;=\; \frac{q_{\text{enc}}}{\varepsilon_{0}}
+\;=\; 4\pi r^{2}\,|\vec E|
+\]
+Donde la carga encerrada es:
+\[
+q_{\text{enc}} \;=\; Q + (-2Q) \;=\; -\,Q .
+\]
+Sustituyendo,
+\[
+4\pi r^{2}\,|\vec E| \;=\; \frac{-Q}{\varepsilon_{0}}
+\qquad\Longrightarrow\qquad
+\boxed{\; \vec E \;=\; -\,\frac{Q}{4\pi \varepsilon_{0}\,r^{2}}\,\hat r \;}
+\]
+\subsection*{(b) Distribución de carga en el cascarón}
+\noindent
+El campo eléctrico dentro del conductor (cascarón) es \(0\). Aplicamos Gauss:
+\[
+\oint_{A} \vec E\cdot d\vec A \;=\; \frac{q_{\text{enc}}}{\varepsilon_0}\,.
+\]
+Como dentro del conductor \( \vec E=\vec 0 \), se tiene \( q_{\text{enc}}=0 \). Por tanto,
+\[
+q_a + q_{b_{\text{int}}} = 0 \;\;\Longrightarrow\;\; q_{b_{\text{int}}}=-q_a=-Q,
+\]
+\[
+\sigma_{\text{int}}=\frac{q_{b_{\text{int}}}}{A_{\text{int}}} \;=\; -\,\frac{Q}{4\pi b^{2}}.
+\]
+La carga total del conductor es \(-2Q\):
+\[
+q_{\text{total}} = q_{b_{\text{int}}}+q_{b_{\text{ext}}}=-2Q
+\;\;\Longrightarrow\;\;
+q_{b_{\text{ext}}}=-Q,
+\qquad
+\sigma_{\text{ext}}=\frac{q_{b_{\text{ext}}}}{A_{\text{ext}}}=-\,\frac{Q}{4\pi c^{2}}.
+\]
+
+\subsection*{Ejemplo: Cable coaxial largo y neutro.}
+\noindent
+Considere un cable coaxial muy largo, compuesto por:
+\begin{itemize}[leftmargin=1.2em]
+  \item Un cilindro sólido interior de radio \(a\) con densidad de carga volumétrica constante \(\rho\),
+  \item Un cilindro exterior hueco de radio \(b\,(>a)\) que lleva una densidad de carga superficial \(\sigma\),
+\end{itemize}
+de modo que el conjunto es eléctricamente neutro. Encuentre el campo eléctrico en todo el espacio.
+
+\medskip
+\noindent
+Definimos las regiones:
+\[
+\left\{
+\begin{aligned}
+\rho < a      &\;\rightarrow\; \text{Dentro del cilindro} \\
+a < \rho < b  &\;\rightarrow\; \text{Vacío entre cilindros} \\
+\rho > b      &\;\rightarrow\; \text{Fuera del cable}
+\end{aligned}
+\right.
+\]
+Calculamos el campo en la primera región (\(\rho<a\)).  
+Superficie gaussiana: cilindro coaxial de radio \(\rho\) y altura \(h\).
+\[
+\Phi_E=\oint_{A}\vec E\cdot d\vec A=\frac{q_{\text{enc}}}{\varepsilon_0},\qquad
+d\vec A=\rho\,d\varphi\,dz\,\hat{\boldsymbol \rho},\qquad
+\vec E=|\!E|\;\hat{\boldsymbol \rho}.
+\]
+Calculamos en la ley de Gauss:
+\[
+\oint_{A}\vec E\cdot d\vec A = |\!E|\,(2\pi \rho h).
+\]
+La carga encerrada es:
+\[
+q_{\text{enc}}=\iiint \rho\, dV
+=\int_{0}^{h}\!\!\int_{0}^{2\pi}\!\!\int_{0}^{\rho}\rho\,\rho'\,d\rho'\,d\varphi\,dz
+=\rho\,\pi \rho^{2} h.
+\]
+Sustituyendo todo e igualando:
+\[
+|\!E|\,(2\pi \rho h)=\frac{\rho\,\pi \rho^{2} h}{\varepsilon_0}
+\;\;\Longrightarrow\;\;
+\boxed{\;\vec E(\rho<a)=\dfrac{\rho\,\rho}{2\varepsilon_0}\,\hat{\boldsymbol \rho}\;}
+\]
+\newpage
+\noindent
+Si sustituimos nos queda:
+\[
+\iint_{A} \vec{E}\cdot d\vec{A}
+=\int_{0}^{h}\!\!\int_{0}^{2\pi} |E|\,\rho\, d\phi\, dz
+=|E|\,\rho\,2\pi h
+\]
+
+\noindent
+Calculamos la carga:
+\[
+Q_{\text{enc}}
+=\iiint \rho_{e}\,dv
+=\int_{0}^{h}\!\!\int_{0}^{2\pi}\!\!\int_{0}^{\rho}
+\rho_{e}\,\rho'\, d\rho'\, d\phi\, dz
+=h\,2\pi\,\frac{\rho^{2}}{2}\,\rho_{e}
+\]
+
+\noindent
+Sustituimos:
+\[
+|E|\,2\pi\rho h
+=\frac{h\,2\pi\,\dfrac{\rho^{2}}{2}\,\rho_{e}}{\varepsilon_{0}}
+\qquad\Longrightarrow\qquad
+\vec{E}=\frac{\rho_{e}}{2\varepsilon_{0}}\;\rho\,\hat{\rho}
+\]
+
+\bigskip
+\noindent
+Vemos lo que sucede en la segunda región.\quad $a<\rho<b$
+
+\medskip
+\noindent
+Aplicamos Gauss:
+\[
+\phi=\iint_{A} \vec{E}\cdot d\vec{A}
+=\frac{Q_{\text{enc}}}{A}
+\]
+
+\noindent
+Donde mi diferencial de área será:
+\[
+d\vec{A}=\rho\, d\phi\, dz\;\hat{\rho}
+\qquad\text{donde}\qquad
+\vec{E}=|E|\,\hat{\rho}
+\]
+
+\noindent
+Si: sustituimos nos queda:
+\[
+\iint_{A} \vec{E}\cdot d\vec{A}
+=\int_{0}^{h}\!\!\int_{0}^{2\pi} |E|\,\rho\, d\phi\, dz
+=|E|\,\rho\,2\pi h
+\]
+
+\noindent
+Calculamos la carga:
+\[
+Q_{\text{enc}}
+=\iiint \rho_{e}\,dv
+=\int_{0}^{h}\!\!\int_{0}^{2\pi}\!\!\int_{0}^{a}
+\rho_{e}\,\rho'\, d\rho'\, d\phi\, dz
+=\rho_{e}\,2\pi h\,\frac{a^{2}}{2}
+\]
+
+\noindent
+Sustituyendo en la ley de Gauss nos queda:
+\[
+|E|\,2\pi\rho h=\frac{\rho_{e}\,2\pi h\,\dfrac{a^{2}}{2}}{\varepsilon_{0}}
+\qquad\Longrightarrow\qquad
+\vec{E}=\frac{\rho_{e}\,a^{2}}{2\varepsilon_{0}\,\rho}\;\hat{\rho}
+\]
+
+\bigskip
+\noindent
+Por último lo calculamos en la tercera región\quad $\rho>b$
+
+\noindent
+Aplicamos Gauss
+\[
+\phi=\iint_{A}\vec{E}\cdot d\vec{A}
+=|E|\,2\pi \rho h
+=\frac{Q_{\text{enc}}}{\varepsilon_{0}}
+\]
+
+
+\newpage
+\noindent
+Donde nuestra:
+\[
+Q_{\text{enc}}=0
+\qquad\text{es neutro}
+\]
+
+\noindent
+Entonces\quad $|E|=0$ y por lo tanto\quad $\vec{E}=0$.
+
+\medskip
+\noindent
+Vemos la relación que existe entre $\rho_e$ y $\sigma$:
+
+\[
+Q_T = Q_\rho + Q_\sigma = 0 = \iiint \rho_e \, dv + \iint \sigma \, dA
+\]
+De aquí obtenemos:
+
+\[
+\iiint \rho_e \, dv = \iiint_{0}^{h} \iiint_{0}^{2\pi} \iiint_{0}^{a} \rho_e \, \rho \, d\rho \, d\theta \, dz = \rho_e \, 2\pi h \frac{a^2}{2}
+\]
+
+\[
+\iint \sigma \, dA = \int_{0}^{h} \int_{0}^{2\pi} \sigma \, b \, d\theta \, dz = \sigma \, 2\pi b h
+\]
+Sustituyendo:
+
+\[
+\rho_e \pi a^2 h + \sigma 2\pi b h = 0
+\]
+
+\[
+\sigma = - \frac{\rho_e a^2}{2b}
+\]
+
+\section{Potencial eléctrico}
+
+La fuerza eléctrica es conservativa, por lo tanto tiene asociada una energía potencial.  
+La diferencia de energía potencial eléctrica viene dada como el trabajo realizado por la fuerza al desplazar una carga:
+
+\[
+\Delta U = - q_0 \int_{a}^{b} \vec{E} \, ds
+\]
+
+Donde el potencial eléctrico es el trabajo por unidad de carga:
+
+\[
+\Delta V = \frac{\Delta U}{q_0} = - \int_{a}^{b} \vec{E} \, ds
+\]
+
+Un campo vectorial $\vec{F}$ se llama conservativo si existe una función diferenciable $f$ tal que $\vec{F} = \nabla f$.  
+La función $f$ se llama función potencial para $\vec{F}$, y podemos calcular el campo eléctrico a partir del potencial:
+
+\[
+\vec{E} = - \nabla V
+\]
 \end{document}
