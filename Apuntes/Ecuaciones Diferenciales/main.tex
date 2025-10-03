@@ -1,17 +1,11 @@
 \documentclass[a4paper,12pt]{article}
-% --- Márgenes y espaciado global ---
-\usepackage[a4paper,margin=3.5cm]{geometry}
-\usepackage{setspace}
-\setstretch{1.3}
-\raggedbottom % Evita que LaTeX estire verticalmente el contenido entre páginas
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.8em}
-\usepackage{microtype} % Mejora la justificación y kerning
+
 % --- Idioma y codificación ---
 \usepackage[utf8]{inputenc}   % Acentos directos
 \usepackage[T1]{fontenc}      % Codificación de salida
 \usepackage[spanish]{babel}   % Español
 \usepackage{lmodern}          % Fuente moderna
+\usepackage{ragged2e}         % en el preámbulo
 
 % --- Matemáticas ---
 \usepackage{amsmath}          % Entornos matemáticos
@@ -21,15 +15,14 @@
 \usepackage{bm}               % Negrita en símbolos
 \usepackage{esint}            % Integrales de contorno (∮)
 
-% --- Utilidades ---
 \usepackage{graphicx}         % Imágenes
+% Rutas de búsqueda para imágenes
+\graphicspath{{./}{imagenes/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
 \usepackage{xcolor}           % Colores
 \usepackage{enumitem}         % Listas
 \usepackage{titlesec}         % Títulos
-% Espaciado consistente de secciones y subsecciones
-\titlespacing*{\section}{0pt}{1.2em}{0.6em}
-\titlespacing*{\subsection}{0pt}{1.0em}{0.3em}
-\titlespacing*{\subsubsection}{0pt}{0.8em}{0.4em}
+\usepackage[hidelinks]{hyperref} % Enlaces (cargar al final)
 
 % --- Esquemas y Dibujos ---
 \usepackage{tikz}
@@ -44,34 +37,34 @@
 \author{Luis López}
 \date{September 2025}
 
-% --- Enlaces (cargar al final del preámbulo) ---
-\usepackage[hidelinks]{hyperref}
-
 \begin{document}
-
 \maketitle % Genera la portada
-\clearpage
+
+\newpage 
 
 \tableofcontents % Índice automático
-\clearpage
-\section*{Introducción a las ecuaciones diferenciales}
-
-
+\newpage 
+\section*{Introducción a las ecuaciones diferenciales.}
+\noindent
 Una \textbf{ecuación diferencial} es una relación matemática en la que intervienen una función desconocida y sus derivadas. 
 Su objetivo es describir cómo varía una magnitud en función de otra, estableciendo vínculos entre la propia magnitud y su tasa de cambio.  
 
+\medskip
+\noindent
 Las ecuaciones diferenciales son fundamentales porque numerosos fenómenos naturales y tecnológicos se formulan de esta manera. 
 En física, por ejemplo, permiten estudiar el movimiento de partículas (leyes de Newton), la propagación del calor, las ondas o el comportamiento de los circuitos eléctricos. 
 En otras disciplinas también son esenciales: en biología modelan el crecimiento de poblaciones y la difusión de sustancias, 
 en economía describen la evolución de sistemas dinámicos, 
 y en ingeniería sirven para analizar vibraciones, fluidos o sistemas de control.  
 
+\medskip
+\noindent
 En definitiva, las ecuaciones diferenciales constituyen una herramienta matemática clave que conecta las teorías con la realidad dinámica, 
 pues gran parte de los procesos que nos rodean se fundamentan en cambios que pueden expresarse mediante estas ecuaciones.
 
 \clearpage
 \section{Ecuaciones diferenciales ordinarias}
-
+\noindent
 Se denomina \textbf{ecuación diferencial ordinaria (EDO)} a toda ecuación
 \[
 F(x,y,y',y'',\ldots,y^{(n)}) = 0
@@ -79,25 +72,29 @@ F(x,y,y',y'',\ldots,y^{(n)}) = 0
 donde $x$ es la variable independiente, $y$ la variable dependiente y $y',y'',\ldots$ son derivadas de la variable dependiente.  
 Llamamos \textbf{orden de la ecuación} al grado de la derivada más grande que aparece en la ecuación.  
 
+\medskip
+\noindent
 Se denomina \textbf{solución} de una EDO en $(a,b)$ a toda función definida en $(a,b)$ junto a sus derivadas de orden $n$, tal que al sustituirla en la EDO da una identidad respecto a $x$ en $(a,b)$.
 
+\medskip
+\noindent
 \textbf{Ejemplo:}
 \[
-y' = x^5 \;\;\Rightarrow\;\; y = \tfrac{x^6}{6} + C, \quad \text{ecuación de primer orden $\Rightarrow$ 1 constante arbitraria}
+y' = x^5 \;\;\Rightarrow\;\; y = \tfrac{x^6}{6} + C
 \]
+Ecuación de primer orden $\Rightarrow$ 1 constante arbitraria.
 \[
 y'' = y' \;\;\Rightarrow\;\; y = C_1 e^x + C_2
 \]
-
+\noindent
 Si una EDO involucra varias variables independientes, se denomina \textbf{ecuación en derivadas parciales (EDP)}:
 \[
 F(x_1,x_2,\ldots,x_n, \tfrac{\partial y}{\partial x_1}, \tfrac{\partial y}{\partial x_2}, \ldots, \tfrac{\partial^2 y}{\partial x_i \partial x_j}, \ldots ) = 0
 \]
-
 A la gráfica de una solución de una EDO también se le llama \textbf{integral}.  
 
 \subsection*{EDOs de primer orden}
-
+\noindent
 La forma más general de una EDO de primer orden es:
 \[
 F(x,y,y')=0 \quad \text{(forma implícita)}
@@ -105,14 +102,17 @@ F(x,y,y')=0 \quad \text{(forma implícita)}
 \[
 y' = f(x,y) \quad \text{(forma explícita)}.
 \]
-
+\noindent
 Se dice que una EDO es \textbf{autónoma} si no depende explícitamente de la variable independiente, es decir:
 \[
 y' = f(y) \quad \Leftrightarrow \quad F(y,y')=0.
 \]
 \subsection{Problema de Cauchy}
-
-Consiste en la búsqueda de la solución de la EDO $y' = f(x,y)$ tal que $y(x_0)=y_0$,
+\noindent
+Consiste en la búsqueda de la solución de la EDO
+\[ 
+y' = f(x,y) \quad \text{tal que} \quad\; y(x_0) = y_0
+\]
 es decir, se añade una \textbf{condición inicial}:
 \[
 \begin{cases}
@@ -120,33 +120,41 @@ y' = f(x,y) \\
 y(x_0) = y_0
 \end{cases}
 \]
-
+\noindent
 \textbf{Ejemplo:}
 \[
 y' = y \;\;\Rightarrow\;\; y = C e^x, \qquad y=e^x \text{ si } y(0)=1
 \]
+
+\medskip
+\noindent
 Ya que $1 = C e^0 \Rightarrow C=1$.
 
 \subsection{Teorema de Picard–Lindelöf (existencia y unicidad)}
+\noindent
 El problema de Cauchy tiene una única solución si, y solo si, $f(x,y)$ y
 $\dfrac{\partial f}{\partial y}$ son continuas en $(x,y)$.
-
+\noindent
 Es decir, si $f(x,y)$ y $\dfrac{\partial f}{\partial y}$ son continuas en una cierta región del plano $x,y$,  
 entonces $\exists! \; y(x)$ que pasa por cada punto de dicha región.
 
+\medskip
+\noindent
 \textbf{Ejemplo:}
 \[
 y' = \frac{y}{x} \;\;\Rightarrow\;\; \frac{dy}{y} = \frac{dx}{x}
 \;\;\Rightarrow\;\; \int \frac{dy}{y} = \int \frac{dx}{x}
 \;\;\Rightarrow\;\; \ln y = \ln x + C \;\;\Rightarrow\;\; y = Cx
 \]
-
+\noindent
 Si $y(x_0)=y_0$ entonces $y_0 = Cx_0 \;\;\Rightarrow\;\; C = \dfrac{y_0}{x_0}$.
 
 \medskip
-
+\noindent
 Por definición, la \textbf{solución general} de una EDO es la familia de curvas $y(x,C)$ que satisfacen $y'=f(x,y)$ para distintos valores admisibles de $C$.  
 
+\medskip
+\noindent
 Una \textbf{solución particular} es aquella que además cumple la condición inicial $y(x_0)=y_0$,  
 es decir, es una curva concreta dentro de la familia general.
 
@@ -160,119 +168,116 @@ y_p = e^x \;\; \Rightarrow \;\; \text{solución particular}
 \section{Tipos de EDOs}
 
 \subsection{EDOs de variables separables}
+\noindent
+Las EDOs de variables separadas son aquellas en las que se puede reescribir la ecuación diferencial 
+de forma que cada variable quede en un lado distinto de la igualdad. Esto permite integrar ambas 
+partes por separado para encontrar la solución. Suelen ser sencillas de resolver y aparecen con 
+frecuencia en problemas físicos y de crecimiento poblacional. Además, siempre requieren una condición 
+inicial para determinar la constante de integración y obtener la solución particular.
 
+\medskip
+\noindent
 Una EDO de variables separables tiene la forma:
 \[
 \frac{dy}{dx} = f(x)g(y),
 \]
-que se puede reescribir como:
+Que se puede reescribir como:
 \[
 \frac{1}{g(y)}\,dy = f(x)\,dx.
 \]
-
+\noindent
 \textbf{Ejemplo:}
 \[
 3 e^x \tan(y)\, dx = -(2 - e^x)\sec^2(y)\, dy
 \]
 
+\medskip
+\noindent
 Integramos en ambos lados:
 \[
-\int \frac{e^x}{2-e^x}\,dx = \int -\sec^2(y)\,dy
+\int \frac{3e^x}{2-e^x}\,dx = \int \frac{-\sec^2(y)}{\tan y}\,dy
 \]
-
 Resolviendo:
 \[
 -3 \ln|2-e^x| = -\ln|\tan y| + C
 \]
-
+Despejando:
 \[
 \tan(y) = D (e^x-2)^3 \;\;\Rightarrow\;\; y = \arctan\!\big(D(e^x-2)^3\big).
 \]
-
+\newpage
 \subsection{EDOs reducibles a separables}
+\noindent
+Las EDOs reducibles a variables separadas son aquellas que inicialmente no están 
+en forma separable, pero pueden transformarse mediante un cambio de variable o 
+manipulación algebraica para lograrlo. Una vez separadas, se resuelven igual que 
+las de variables separadas, integrando cada lado por separado.
 
+\medskip
+\noindent
 Son del tipo:
 \[
 \frac{dy}{dx} = f(ax+by+c),
-\qquad a,b,c \;\; \text{constantes definidas}.
+\qquad a,b,c \;\; \text{son constantes definidas}.
 \]
-
 Se resuelven mediante el cambio de variable:
 \[
 z = ax + by + c.
 \]
-
 Entonces:
 \[
 z' = a + b\,y' 
 \;\;\Rightarrow\;\; 
 y' = \frac{z'-a}{b}.
 \]
-
 Sustituyendo en la ecuación original:
 \[
-\frac{dz}{dx} = a + b\,f(z),
+z' = \frac{dz}{dx} = a + b\,f(z),
 \]
-que es una ecuación separable en $z$ y $x$.
+Integrando:
+\[
+\int \frac{dz}{a + b\,f(z)} = x + D.
+\]
 
-\bigskip
-
+\medskip
+\noindent
 \textbf{Ejemplo:}
 
 \[
-(x+y^2)\,y' = a^2, \qquad a = \text{cte}.
+(x+y)^2\,y' = a^2, \qquad a = \text{cte}.
 \]
-
 Reordenamos:
 \[
 y' = \frac{a^2}{(x+y)^2}.
 \]
-
 Hacemos el cambio de variable:
 \[
 z = x+y \quad\Rightarrow\quad z' = 1 + y' \quad\Rightarrow\quad y' = z'-1.
 \]
-
 Sustituyendo:
 \[
-z'-1 = \frac{a^2}{z^2} \quad\Rightarrow\quad z' = 1 + \frac{a^2}{z^2}.
+z'-1 = \frac{a^2}{z^2} \quad\Rightarrow\quad z' = 1 + \frac{a^2}{z^2}
+\quad\Rightarrow\quad \int \frac{dz}{1 + \frac{a^2}{z^2}} = x + D.
 \]
-
+Integramos y operamos:
 \[
-\frac{dz}{dx} = \frac{z^2+a^2}{z^2}.
+\int \frac{dz}{1 + \frac{a^2}{z^2}} = \int \frac{z^2}{z^2+a^2}\,dz = \int \frac{z^2+a^2-a^2}{z^2+a^2}\ dz.
 \]
-
-Integramos:
 \[
-\int \frac{z^2}{z^2+a^2}\,dz = \int dx.
+\int \frac{z^2+a^2}{z^2+a^2}\,dz - \int \frac{a^2}{z^2+a^2}\,dz
+= z-a^2 \int \frac{1}{1+ (\frac{z}{a})^2}\,dz = z - a\arctan\!\left(\frac{z}{a}\right).
 \]
 
-Descomponemos:
-\[
-\int \frac{z^2}{z^2+a^2}\,dz 
-= \int \left(1 - \frac{a^2}{z^2+a^2}\right)\,dz
-= z - a^2\int \frac{1}{z^2+a^2}\,dz.
-\]
-
-La integral se resuelve con la identidad:
-\[
-\int \frac{1}{z^2+a^2}\,dz = \frac{1}{a}\arctan\!\left(\frac{z}{a}\right).
-\]
-
-Entonces:
-\[
-x + D = z - a\arctan\!\left(\frac{z}{a}\right).
-\]
-\subsection*{Deshacemos el cambio de variable $z = x+y$}
-
+\medskip
+\noindent
+Deshacemos el cambio de variable $z = x+y$
 \[
 z - \arctg\!\left(\tfrac{z}{a}\right) = x + D
 \]
-
 \[
 x+y - \arctg\!\left(\tfrac{x+y}{a}\right) = x + D
 \;\;\Rightarrow\;\; 
-Si: y(0)=0 \;\;\Rightarrow\;\; D=0
+\text{Si} \quad y(0)=0 \;\;\Rightarrow\;\; D=0
 \]
 
 \[
@@ -282,12 +287,18 @@ y_p = \arctg\!\left(\tfrac{x+y}{a}\right)
 \]
 
 \subsection{EDO’s homogéneas}
+\noindent
+Las EDOs homogéneas son aquellas en las que la función y su 
+derivada dependen de la relación entre las variables y no de 
+ellas por separado. Se suelen resolver mediante un cambio de 
+variable que simplifica la ecuación y permite separarla.
 
+\medskip
+\noindent
 Se dice que $f(x,y)$ es homogénea de grado $n$ si:
 \[
 f(tx,ty) = t^n f(x,y)
 \]
-
 Se dice que $y' = f(x,y)$ es homogénea si $f(x,y)$ es homogénea de grado 0:
 \[
 f(tx,ty) = f(x,y), 
@@ -296,11 +307,10 @@ f(x,y) = \tfrac{y}{x},
 \qquad
 f(tx,ty) = \tfrac{ty}{tx} = \tfrac{y}{x}
 \]
-
 \[
 f(x,y) = xy \;\;\Rightarrow\;\; f(tx,ty) = t^2 xy
 \]
-
+\noindent
 \textbf{Ejemplo:}
 
 \[
@@ -308,16 +318,38 @@ f(x,y) = \left(\tfrac{x}{y}\right)^2 \;\;\Rightarrow\;\; \text{grado 0}
 \]
 
 \[
-x y' = \sqrt{x^2 + y^2} + y 
+x y' = \sqrt{x^2 - y^2} + y 
 \;\;\Rightarrow\;\;
-y' = \frac{\sqrt{x^2 + y^2}}{x} + \frac{y}{x}
+y' = \frac{\sqrt{x^2 - y^2}}{\sqrt{x^2}} + \frac{y}{x}
 \]
 
 \[
-\;\;\Rightarrow\;\; y' = \sqrt{1 + \left(\tfrac{y}{x}\right)^2} + \tfrac{y}{x}
+\;\;\Rightarrow\;\; y' = \sqrt{1 - \left(\tfrac{y}{x}\right)^2} + \frac{y}{x}
 \]
 
-Donde $z = \tfrac{y}{x} \;\;\Rightarrow\;\; z' = \tfrac{y'x - y}{x^2} \;\;\Rightarrow\;\; y' = x z' + y$
+\newpage
+\noindent
+Hacemos el cambio de variable $z = \frac{y}{x}$
+\[
+z' = \frac{y'x - y}{x^2} \quad \Rightarrow \quad y' = x z' + y
+\]
+Operando:
+\[
+y' = \sqrt{1 - z^2} + z 
+\quad \Rightarrow \quad 
+z + z'x = \sqrt{1 - z^2} + z
+\]
+\[
+\Rightarrow \quad z' = \frac{\sqrt{1-z^2}}{x} = \frac{dz}{dx}
+\]
+Integrando:
+\[
+\int \frac{dz}{\sqrt{1-z^2}} = \int \frac{dx}{x} \;\Rightarrow\; \arcsin(z) = \ln|x| + C \;\Rightarrow\; z = \sin(\ln|x| + C)
+\]
+Desacemos el cambio de variable $z = \frac{y}{x}$
+\[
+y = x \sin(\ln|x| + C)
+\]
 
 \subsection{Cambio de variable lineal}
 
@@ -834,4 +866,993 @@ C'(y)e^{\sen y}+C(y)\cos y\,e^{\sen y}-C(y)e^{\sen y}\cos y=\sen 2y
 2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
 =2\!\int z\,e^{-z}\,dz
 \]
+\subsection*{Ejercicios hoja 1}
+
+\subsection*{1.)}
+\[
+\begin{aligned}
+y' \sin x - y \cos x &= 0 
+\quad ;\quad 
+y'\!\left( \frac{\pi}{2} \right) = 1 \quad \rightarrow \quad \text{condición}
+\end{aligned}
+\]
+
+\[
+y' = y \frac{\cos x}{\sin x}
+\]
+
+\[
+\int \frac{dy}{y} = \int \frac{\cos x}{\sin x}\, dx
+\]
+
+\medskip
+\noindent
+Hacemos el cambio de variable u = sin x:
+\[
+\ln |y| = \int \frac{du}{u} = \ln |u| + C
+\]
+\[
+u = \sin x
+\]
+\[
+du = \cos x\, dx
+\]
+\[
+y = C \sin x \quad \rightarrow \quad y = \sin x
+\]
+
+\subsection*{11.)}
+\[
+x + y - 2 + (1 - x) y' = 0 \quad ; \quad \forall x \neq 0
+\]
+
+\[
+y' + \frac{y}{1 - x} = \frac{2 - x}{1 - x}
+\]
+
+Ecuación homogénea:
+
+\[
+y_h' + \frac{y}{1 - x} = 0
+\]
+
+\[
+\frac{dy}{dx} = \frac{-y}{1 - x}
+\]
+\newpage
+\noindent
+Integrando:
+
+\[
+\int \frac{dy}{y} = \int \frac{dx}{-1 + x}
+\]
+
+\[
+\ln y = \ln(x - 1) + \ln C
+\]
+
+\[
+y_h = C (x - 1)
+\]
+Sacamos una solución particular:
+
+\[
+y_p = C(x)(x - 1) \quad \Rightarrow \quad y_p' = C'(x)(x - 1) + C(x)
+\]
+
+\[
+C'(x)(x - 1) + C(x) = \frac{2 - x}{1 - x}
+\]
+
+\[
+C'(x)(x - 1)^2 = \frac{2 - x}{1 - x} (1 - x)^2
+\]
+
+\[
+C'(x) = \frac{2 - x}{(1 - x)^2}
+\]
+
+\[
+C(x) = \int \frac{2 - x}{(1 - x)^2}\, dx
+\]
+Hacemos el cambio de variable \(u = 1 - x\):
+\[
+u = 1 - x \quad du = -dx
+\]
+
+\[
+C(x) = \int \frac{u + 1}{u^2}\, du = \int \frac{du}{u} + \int \frac{du}{u^2} = \ln u - \frac{1}{u} + D
+\]
+
+\[
+C(x) = \ln(1 - x) + \frac{1}{x - 1} + D
+\]
+
+\[
+y_p = C(x)(x - 1) = \ln(1 - x) + \frac{1}{x - 1} + D
+\]
+\newpage
+\noindent
+\subsection*{12.)}
+\[
+8x + 4y + 1 + (4x + 2y + 1)y' = 0
+\]
+Reescribimos la ecuación:
+
+\[
+\frac{dy}{dx} = \frac{-8x - 4y - 1}{4x + 2y + 1}
+\]
+
+\[
+y' = \frac{-8x - 4y - 1}{4x + 2y + 1} \quad \Rightarrow \quad z = 4x + 2y + 1
+\]
+
+\[
+\frac{dz}{dx} = 4 + 2y'
+\]
+
+\[
+y' = \frac{1}{2} \frac{dz}{dx} - 2
+\]
+
+\[
+\frac{1}{2}\frac{dz}{dx} - 2 = \frac{-2z + 1}{z}
+\]
+
+\[
+\frac{dz}{dx} = \frac{-4z + 2}{z} + 4
+\]
+
+\[
+\frac{dz}{dx} = \frac{-4z + 2 + 4z}{z} = \frac{2}{z}
+\]
+
+\[
+z\, dz = 2 dx
+\]
+
+\[
+\int z\, dz = \int 2 dx
+\]
+
+\[
+\frac{z^2}{2} = 2x + C
+\]
+
+Deshacemos el cambio de variable:
+
+\[
+(4x + 2y + 1)^2 = 4x + C
+\]
+
+\[
+16x^2 + 16xy + 4x + 4y^2 + 4y + 1 = 4x + C
+\]
+
+\[
+4x^2 + 4xy + y^2 + 2y + \frac{1}{4} = C
+\]
+
+---
+
+\subsection*{13.}
+\[
+\frac{x}{\sqrt{x^2 + y^2}}\, dx + \frac{y}{\sqrt{x^2 + y^2}}\, dy + \frac{1}{y} dx + \frac{x}{y^2} dy = 0
+\]
+
+Comprobamos que sea exacta:
+
+\[
+M = \frac{x}{\sqrt{x^2 + y^2}} + \frac{1}{y}
+\]
+\[
+N = \frac{y}{\sqrt{x^2 + y^2}} + \frac{x}{y^2}
+\]
+
+\[
+\frac{\partial M}{\partial y} = \dots \quad \frac{\partial N}{\partial x} = \dots
+\]
+
+Si es exacta:
+
+\[
+g(x,y) = \int M\, dx + C
+\]
+
+\[
+\int M\, dx = \int \frac{x}{\sqrt{x^2 + y^2}} dx + \int \frac{1}{y} dx
+\]
+
+\[
+u = x^2 + y^2 \quad du = 2x\, dx
+\]
+
+\[
+\int \frac{x}{\sqrt{x^2 + y^2}} dx = \sqrt{x^2 + y^2}
+\]
+
+\[
+\int \frac{1}{y} dx = \frac{x}{y}
+\]
+
+\[
+g(x,y) = \sqrt{x^2 + y^2} + \frac{x}{y} + C
+\]
+
+\[
+|x| + \frac{x}{y} + \sqrt{x^2 + y^2} + C = 0
+\]
+\subsection*{15.}
+\[
+(x - y)dx + x\, dy = 0
+\]
+
+\[
+M = x - y \quad N = x
+\]
+
+Comprobamos si es exacta:
+
+\[
+\frac{\partial M}{\partial y} = -1 \quad \frac{\partial N}{\partial x} = 1 \quad \Rightarrow \quad \text{No es exacta}
+\]
+
+Buscamos un factor integrante:
+
+\[
+\mu': \frac{\partial_y M - \partial_x N}{N} = \frac{-1 - 1}{x} = \frac{-2}{x} \quad \Rightarrow \quad \mu = \mu(x)
+\]
+
+\[
+\int d\mu = \int \frac{-2}{x} dx \quad \Rightarrow \quad \ln|\mu| = -2 \ln|x| + C \quad \Rightarrow \quad \mu = \frac{C}{x^2}
+\]
+
+Multiplicamos la ecuación original por $\mu$:
+
+\[
+\frac{C}{x^2}(x - y) dx + \frac{C}{x^2} x\, dy = 0
+\]
+
+\[
+\frac{\partial M}{\partial y} = -\frac{1}{x^2} \quad \frac{\partial N}{\partial x} = -\frac{1}{x^2}
+\]
+
+Ahora es exacta:
+
+\[
+\frac{\partial f}{\partial x} = -\frac{y}{x^2} + g'(y)
+\]
+
+\[
+M = \frac{\partial f}{\partial x} = \frac{-y}{x^2} + g'(y) = \frac{1}{x} - \frac{y}{x^2}
+\]
+
+\[
+g'(y) = \frac{1}{x} \quad g(y) = \int \frac{1}{x} dx = \ln|x| + D
+\]
+
+\[
+f(x,y) = \frac{y}{x} + \ln|x| + D
+\]
+
+
+\subsection*{16.}
+\[
+(x^4 \ln x - 2x y^3) dx + 3x^2 y^2 dy = 0
+\]
+
+Comprobamos si es exacta:
+
+\[
+\frac{\partial M}{\partial y} = -6xy^2 \quad \frac{\partial N}{\partial x} = 6xy^2 \quad \Rightarrow \quad \text{No es exacta}
+\]
+
+\[
+\frac{\partial_y M - \partial_x N}{N} = \frac{-6xy^2 - 6xy^2}{3x^2 y^2} = -\frac{4}{x}
+\]
+
+\[
+\mu = \mu(x) \quad \ln \mu = -4 \ln x \quad \Rightarrow \quad \mu = \frac{C}{x^4}
+\]
+
+Multiplicamos por $\mu$:
+
+\[
+\frac{\ln x}{x^4} dx - \frac{2y^3}{x^3} dx + \frac{3y^2}{x^2} dy = 0
+\]
+Comprobamos si ahora es exacta:
+
+\[
+M = \ln x - \frac{2y^3}{x^3} 
+\quad\quad 
+N = \frac{3y^2}{x^2}
+\]
+
+Hacemos las parciales:
+
+\[
+\frac{\partial M}{\partial y} = -\frac{6y^2}{x^3} 
+\quad 
+\frac{\partial N}{\partial x} = -\frac{6y^2}{x^3}
+\]
+
+Es exacta.
+
+\[
+\int M\, dx = \int \ln x\, dx - \int \frac{2y^3}{x^3}\, dx
+\]
+
+\[
+g'(y) = \int \frac{3y^2}{x^2}\, dy = \frac{y^3}{x^2}
+\]
+
+\[
+g(y) = \int \ln x\, dx
+\]
+
+\[
+g(y) = x (\ln x - 1)
+\]
+
+\[
+f(x,y) = \frac{y^3}{x^2} + x(\ln x - 1) + D
+\]
+
+---
+
+\subsection*{22.}
+\[
+\frac{dy}{dx} = \frac{y}{x}, \quad y(0) = 0
+\]
+
+\[
+\frac{dy}{y} = \frac{dx}{x}
+\]
+
+\[
+\int \frac{dy}{y} = \int \frac{dx}{x}
+\]
+
+\[
+\ln |y| = \ln |x| + C
+\]
+
+\[
+y = Cx
+\]
+
+$\Rightarrow$ Familia de rectas que pasan por $(0,0)$.
+
+En el caso de $y(0) = 1$:
+
+\[
+1 = C \cdot 0 = 0
+\]
+No existe solución.
+
+$\Rightarrow$ No está en la familia de curvas.
+
+---
+
+\section*{Método de los coeficientes indeterminados}
+
+Ecuaciones de la forma:
+
+\[
+y' + p y = g(x) \quad \rightarrow \quad p = \text{cte}
+\]
+
+Donde $g(x)$ es “sencilla”, es decir, polinómica, exponencial o aritmética.
+
+---
+
+\subsection*{Ejemplo}
+
+\[
+y' + 2y = e^{-x}
+\]
+
+Ecuación homogénea:
+
+\[
+y' + 2y = 0 \quad \Rightarrow \quad y_h = C e^{-2x}
+\]
+
+Solución particular:
+
+\[
+y_p = A e^{-x}
+\]
+
+Sustituyendo en la ecuación:
+
+\[
+y_p' + 2y_p = -A e^{-x} + 2A e^{-x} = e^{-x}
+\]
+
+\[
+A = 1
+\]
+
+\[
+y_p = e^{-x}
+\]
+
+Solución general:
+
+\[
+y = y_h + y_p = C e^{-2x} + e^{-x}
+\]
+\subsection*{Ejemplo 1}
+
+\[
+y' + y = x^2 + x + 1
+\]
+
+Resolvemos la homogénea:
+
+\[
+y' + y = 0 \quad \Rightarrow \quad y_h = C e^{-x}
+\]
+
+Buscamos la particular:
+
+\[
+y_p = Ax^2 + Bx + C \quad \Rightarrow \quad y_p' = 2Ax + B
+\]
+
+Sustituyendo:
+
+\[
+(2Ax + B) + A x^2 + Bx + C = x^2 + x + 1
+\]
+
+\[
+A x^2 + (2A + B)x + (B + C) = x^2 + x + 1
+\]
+
+Igualando coeficientes:
+
+\[
+A = 1
+\]
+\[
+2A + B = 1 \quad \Rightarrow \quad B = -1
+\]
+\[
+B + C = 1 \quad \Rightarrow \quad C = 2
+\]
+
+De aquí saco la ecuación particular:
+
+\[
+y_p = x^2 - x + 2
+\]
+
+Solución general:
+
+\[
+y = y_h + y_p = C e^{-x} + x^2 - x + 2
+\]
+
+---
+
+\subsection*{Ejemplo 2}
+
+\[
+y' + y = \sin x
+\]
+
+Primero resolvemos la homogénea:
+
+\[
+y' + y = 0 \quad \Rightarrow \quad y_h = C e^{-x}
+\]
+
+Ahora buscamos la particular:
+
+\[
+y_p = A \sin x + B \cos x
+\]
+
+\[
+y_p' = A \cos x - B \sin x
+\]
+
+Sustituyendo:
+
+\[
+A \cos x - B \sin x + A \sin x + B \cos x = \sin x
+\]
+
+\[
+(A - B) \sin x + (A + B) \cos x = \sin x
+\]
+
+Igualando coeficientes:
+
+\[
+A - B = 1
+\]
+\[
+A + B = 0
+\]
+
+Resolviendo el sistema:
+
+\[
+2A = 1 \quad \Rightarrow \quad A = \frac{1}{2}
+\]
+\[
+A = -B \quad \Rightarrow \quad B = -\frac{1}{2}
+\]
+
+Entonces:
+
+\[
+y_p = \frac{1}{2} \sin x - \frac{1}{2} \cos x
+\]
+
+Solución general:
+
+\[
+y = y_h + y_p = C e^{-x} + \frac{1}{2} \sin x - \frac{1}{2} \cos x
+\]
+La ecuación particular quedó:
+
+\[
+y_p = \tfrac{1}{2}\sin x - \tfrac{1}{2}\cos x
+\]
+
+La ecuación general queda:
+
+\[
+y = y_h + y_p = C e^{-x} + \tfrac{1}{2}\sin x - \tfrac{1}{2}\cos x
+\]
+
+---
+
+\section*{EDO de Bernoulli}
+
+Son EDOs de la forma:
+
+\[
+\frac{dy}{dx} + p(x)y = q(x) y^n \quad \text{donde } n \neq 0,1
+\]
+
+Se puede reducir a una EDO lineal haciendo un cambio de variable:
+
+\[
+z = y^{1-n} \quad \Rightarrow \quad z' = (1 - n) y^{-n} y'
+\]
+
+\[
+y' = \frac{1}{1 - n} y^n z'
+\]
+
+Sustituyendo en la ecuación original:
+
+\[
+\frac{1}{1 - n} z' + p(x) z = q(x)
+\]
+
+Multiplicando todo por $(1 - n)$:
+
+\[
+z' + (1 - n) p(x) z = (1 - n) q(x)
+\]
+
+Resultado: una EDO lineal.
+
+---
+
+\subsection*{Ejemplo}
+
+\[
+y' - xy = -x y^3
+\]
+
+Donde:
+\[
+p(x) = -x \quad q(x) = -x \quad n = 3
+\]
+
+Hacemos el cambio de variable:
+
+\[
+z = y^{1 - 3} = y^{-2}
+\]
+\[
+y = z^{-\tfrac{1}{2}}
+\]
+\[
+y' = -\tfrac{1}{2} z^{-\tfrac{3}{2}} z'
+\]
+
+Desarrollando:
+
+\[
+-\tfrac{1}{2} z^{-\tfrac{3}{2}} z' - x z^{-\tfrac{1}{2}} = -x z^{-\tfrac{3}{2}}
+\]
+
+Multiplicando por $-2 z^{\tfrac{3}{2}}$:
+
+\[
+z' + 2xz = 2x
+\]
+
+---
+
+\subsection*{Resolviendo la lineal que nos queda}
+
+\[
+z' + 2xz = 2x
+\]
+
+Resolviendo la homogénea:
+
+\[
+z'_h + 2xz_h = 0
+\]
+\[
+\frac{dz}{z} = -2x\, dx
+\]
+\[
+\int \frac{dz}{z} = \int -2x\, dx
+\]
+\[
+\ln z = -x^2
+\]
+\[
+z_h = C e^{-x^2}
+\]
+
+---
+
+\subsection*{Resolviendo la particular}
+
+\[
+z_p = C e^{x^2}
+\]
+
+\[
+z_p' = C (2x) e^{x^2}
+\]
+
+Sustituyendo en la ecuación:
+
+\[
+C (2x) e^{x^2} + 2x (C e^{x^2}) = 2x
+\]
+
+\[
+C e^{x^2} (2x + 2x) = 2x
+\]
+
+\[
+C e^{x^2} = 1
+\]
+
+\[
+z_p = e^{-x^2}
+\]
+\section*{EDO's de solución paramétrica}
+
+Son del tipo:
+
+\[
+x = x(p), \quad y = y(p)
+\]
+
+Es decir, es una curva de forma paramétrica.
+
+---
+
+\subsection*{Ejemplo}
+
+\[
+y' = p \quad \text{(tipo)}
+\]
+
+\[
+y' = 2x \quad \Rightarrow \quad y = x^2
+\]
+
+Si pasamos a forma paramétrica:
+
+\[
+x(p) = \frac{p}{2}, \quad y(p) = \frac{p^2}{4}
+\]
+
+---
+
+\subsection*{1. EDO's } F(y, y') = 0
+
+\subsubsection*{1.1}
+\[
+y' = g(y) \quad \Rightarrow \quad \frac{dx}{dx} = \frac{1}{g(y)} dy
+\]
+
+\[
+\int \frac{1}{g(y)}\, dy = \int dx
+\]
+
+---
+
+\subsubsection*{1.2}
+\[
+y = g(p) \quad \Rightarrow \quad y = g(p)
+\]
+
+\[
+p = y' = \frac{dy}{dx} \quad \Rightarrow \quad dy = p\, dx
+\]
+
+\[
+y = g(p) \quad \Rightarrow \quad \frac{dy}{dp} = g'(p)
+\]
+
+\[
+g'(p) dp = p\, dx
+\]
+
+Lo que resulta en:
+
+\[
+x = \int \frac{g'(p)}{p}\, dp + C
+\]
+
+---
+
+\subsection*{Ejemplo}
+
+\[
+y = (y')^2 + (y')^3
+\]
+
+Donde \( y' = p = \dfrac{dy}{dx} \):
+
+\[
+y = p^2 + p^3
+\]
+\[
+dy = (2p + 3p^2)\, dp = p\, dx
+\]
+
+\[
+\int (2 + 3p)\, dp = \int dx
+\]
+
+\[
+x(p) = 2p + \tfrac{3}{2} p^2
+\]
+\[
+y(p) = p^2 + p^3
+\]
+
+---
+
+\subsection*{2. EDO's } F(x, y') = 0
+
+\subsubsection*{2.1}
+\[
+y' = g(x) \quad \Rightarrow \quad y = \int g(x)\, dx + C
+\]
+
+\subsubsection*{2.2}
+\[
+x = g(p) \quad p = y' = \frac{dy}{dx} \quad \Rightarrow \quad dy = p\, dx
+\]
+
+\[
+x = g(p) \quad \Rightarrow \quad \frac{dx}{dp} = g'(p)
+\]
+
+\[
+p\, g'(p)\, dp = dy
+\]
+
+\[
+y = \int p\, g'(p)\, dp + C, \quad x(p) = g(p)
+\]
+\subsection*{Ejemplo}
+
+\[
+x = ap + b p^2, \quad y' = p \quad \Rightarrow \quad x = ap + bp^2
+\]
+
+donde \(a, b\) son constantes.
+
+\[
+dx = (a + 2bp)\, dp \quad \Rightarrow \quad dy = p\, dx
+\]
+
+\[
+y = \int (ap + 2bp^2) dp
+\]
+
+\[
+y(p) = \frac{a}{2} p^2 + \frac{2b}{3} p^3 + C
+\]
+\[
+x(p) = ap + bp^2
+\]
+
+---
+
+\subsection*{3. EDO de Lagrange}
+
+\[
+y = x f(p) + g(p)
+\]
+donde establecemos que \(y' = p\).
+
+\[
+y = x f(p) + g(p) \quad \Rightarrow \quad dy = f(p)\, dx + x f'(p)\, dp + g'(p)\, dp
+\]
+
+\[
+dy = p\, dx
+\]
+
+\[
+p\, dx - f(p)\, dx - x f'(p)\, dp - g'(p)\, dp = 0
+\]
+
+\[
+\frac{dx}{dp} [f(p) - p] + x f'(p) + g'(p) = 0
+\]
+
+Multiplico todo por \(dp\):
+
+\[
+dx [f(p) - p] + x f'(p)\, dp + g'(p)\, dp = 0
+\]
+
+\[
+\frac{dx}{dp} [f(p) - p] + x f'(p) + g'(p) = 0
+\]
+
+Divido todo por \([f(p) - p]\):
+
+\[
+\frac{dx}{dp} + \frac{f'(p)}{f(p) - p} x = - \frac{g'(p)}{f(p) - p}
+\]
+
+\[
+\Rightarrow \text{EDO lineal para } x(p)
+\]
+
+Donde:
+
+\[
+P(p) = \frac{f'(p)}{f(p) - p}
+\]
+\[
+Q(p) = -\frac{g'(p)}{f(p) - p}
+\]
+
+\[
+y(p, C) = x(p, C) f(p) + g(p)
+\]
+\subsection*{Ejemplo}
+
+\[
+y = 2xp + \ln p
+\]
+
+Hacemos el cambio:
+
+\[
+p = y', \quad y = 2xp + \ln p
+\]
+
+\[
+dy = 2p\, dx + 2x\, dp + \frac{1}{p}\, dp = p\, dx
+\]
+
+\[
+p\, dx + (2x + \frac{1}{p})\, dp = 0
+\]
+
+\[
+\frac{dx}{dp} + \frac{2x}{p} = -\frac{1}{p^2}
+\]
+
+---
+
+\subsection*{Resolvemos la EDO homogénea}
+
+\[
+\frac{dx}{dp} + \frac{2x}{p} = 0
+\]
+
+\[
+\frac{dx}{x} = -\frac{2\, dp}{p} 
+\quad \Rightarrow \quad 
+\ln x = -2 \ln p + a 
+\quad \Rightarrow \quad 
+x(p) = \frac{C}{p^2}
+\]
+
+---
+
+\subsection*{Solución particular}
+
+\[
+x(p) = \frac{C(p)}{p^2}
+\]
+
+\[
+x' = \frac{C'(p)}{p^2} - \frac{2C(p)}{p^3}
+\]
+
+\[
+\frac{C'(p)}{p^2} - \frac{2C(p)}{p^3} + \frac{2C(p)}{p^3} = -\frac{1}{p^2}
+\]
+
+\[
+C'(p) = -1 \quad \Rightarrow \quad C(p) = -p
+\]
+
+\[
+x_p = \frac{-p}{p^2} = -\frac{1}{p}
+\]
+
+---
+
+\subsection*{Solución general}
+
+\[
+y = 2 \left( \frac{C}{p^2} + \frac{1}{p} \right) p + \ln p = 2 \left( \frac{C}{p} + 1 \right) + \ln p
+\]
+
+---
+
+\section*{4. EDO de Clairaut}
+
+\[
+y' = p
+\]
+
+\[
+y = xp + g(p) = xp + g(p)
+\]
+
+Entonces:
+
+\[
+dy = p\, dx
+\]
+
+\[
+dy = p\, dx + x\, dp + g'(p)\, dp
+\]
+
+\[
+p\, dx + x\, dp + g'(p)\, dp = 0
+\]
+
+---
+
+\subsection*{Posibles soluciones}
+
+\quad Si \( x + g'(p) = 0 \):
+
+\[
+x = -g'(p)
+\]
+\[
+y = y(p) \quad \text{(solución singular)}
+\]
+
+\quad Si \( dp = 0 \):
+
+\[
+p = cte = C
+\]
+\[
+y = Cx + g(C) \quad \text{(solución general)}
+\]
+
 \end{document}
