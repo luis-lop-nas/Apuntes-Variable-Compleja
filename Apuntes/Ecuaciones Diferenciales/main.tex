@@ -350,10 +350,88 @@ Desacemos el cambio de variable $z = \frac{y}{x}$
 \[
 y = x \sin(\ln|x| + C)
 \]
+Familia de soluciones:
+\[
+y' = \frac{dy}{dx} = f\left( \frac{ax + by + c}{a_1 x + b_1 y + c_1} \right)
+\]
+Si \( c = c_1 = 0 \):
 
-\subsection{Cambio de variable lineal}
+\[
+y' = \frac{dy}{dx} = f\left( \frac{ax + by}{a_1 x + b_1 y} \right) =
+f\left( \frac{a + b \frac{y}{x}}{a_1 + b_1 \frac{y}{x}} \right) = 
+f\left( \frac{2 + 3 \frac{y}{x}}{5 + 4 \frac{y}{x}} \right)
+\]
+Cambio de variable:
 
-Si $c \neq 0$ y 
+\[
+z = \frac{y}{x} \quad \Rightarrow \quad y' = z' x + z
+\]
+
+\[
+z'x + z = h\left( \frac{2 + 3z}{5 + 4z} \right)
+\]
+
+\medskip
+\noindent
+Si \( c \neq 0 \) o \( c_1 \neq 0 \), no es homogénea, entonces:
+\[
+\begin{vmatrix}
+a & b \\
+a_1 & b_1
+\end{vmatrix} = 0
+\quad \Rightarrow \quad
+\frac{a_1}{a} = \frac{b_1}{b} = d
+\quad \Rightarrow \quad
+\left[
+\begin{aligned}
+a_1 &= da \\[6pt]
+b_1 &= db
+\end{aligned}
+\right.
+\]
+
+\newpage
+\noindent
+El cambio de variable sería:
+\[
+z = ax + by
+\]
+\[
+y' = f\left( \frac{ax + by + c}{a_1 x + b_1 y + c_1} \right) = f\left( \frac{ax + by + c}{d(ax + by) + c_1} \right) = g(ax + by) = g(z)
+\]
+
+\subsection*{Ejemplo:}
+\[
+y' = \frac{x + y + 1}{-2x - 2y + 1} = \frac{(x + y) + 1}{-2(x + y) + 1}
+\]
+Hacemos el cambio:
+
+\[
+z = x + y
+\quad \Rightarrow \quad
+z' - 1 = \frac{z + 1}{-2z + 1}
+\]
+Operando:
+
+\[
+z' = \frac{z + 1}{-2z + 1} + 1 = \frac{-2z + 1 + z + 1}{-2z + 1} = \frac{-z + 2}{-2z + 1} =
+\frac{dz}{dx} = z'
+\]
+
+\[
+\frac{-2z + 1}{-z + 2} dz = dx
+\]
+Integrando:
+
+\[
+C_1 + x = \int \frac{-2z + 1}{-z + 2} dz = \int \frac{-2z}{-z + 2} dz + \int \frac{1}{-z + 2} dz
+\]
+
+\[
+= -2z + 2 + \int \frac{1}{-z + 2} dz = -\ln|2 - z|
+\]
+Si $c$ o $c_1 \neq 0$ y el determinante $\neq 0$:
+
 \[
 \begin{vmatrix}
 a & b \\
@@ -366,6 +444,9 @@ y = \eta + k
 \end{cases}
 \]
 
+\medskip
+\noindent
+Entonces:
 \[
 y' = \frac{dy}{dx} = \frac{d\eta}{d\xi}\cdot \frac{d\xi}{dx} 
 = \frac{d\eta}{d\xi} \;\;\Rightarrow\;\; y' = \frac{d\eta}{d\xi}
@@ -375,58 +456,58 @@ y' = \frac{dy}{dx} = \frac{d\eta}{d\xi}\cdot \frac{d\xi}{dx}
 \frac{d\eta}{d\xi} = 
 \frac{a\xi + b\eta + ah + bk + c}{a_1\xi + b_1\eta + a_1 h + b_1 k + c_1}
 = \frac{a + b\frac{\eta}{\xi}}{a_1 + b_1\frac{\eta}{\xi}}
-= \frac{dw}{d\xi}
+= \frac{d\eta}{d\xi}
 \]
-
-\textbf{Ejemplo:}
-
+\newpage
+\noindent
+\subsection*{Ejemplo:}
+\vspace{-1.2em}
 \[
 (x+y-2)\,dx + (x-y+4)\,dy = 0
-\;\;\Rightarrow\;\;
-y' = \frac{x+y-2}{-x+y-4}
 \]
-
 Hacemos el cambio de variable:
 \[
+y' = \frac{x+y-2}{-x+y-4}
+\quad \Rightarrow \quad
 \begin{cases}
 x = \xi + h \\
 y = \eta + k
 \end{cases}
 \]
-
+Si sustituimos quedaría:
 \[
 \frac{d\eta}{d\xi} = \frac{\xi + h + \eta + k - 2}{-\xi - h + \eta + k - 4}
-\]
-
-Condiciones:
-\[
-h+k=2, 
-\qquad 
+\quad \Rightarrow \quad
+\begin{cases}
+h+k=2 \\
 -h+k=4
-\;\;\Rightarrow\;\;
-h=-1, \; k=3
+\end{cases}
+\quad \Rightarrow \quad
+\begin{cases}
+h=-1 \\
+k=3
+\end{cases}
 \]
+Entonces:
 
 \[
-\frac{d\eta}{d\xi} = \frac{\xi + \eta + 2}{-\xi + \eta}
-= 1 + \frac{2\xi}{-\xi + \eta}
+\frac{d\eta}{d\xi} = \frac{\xi + \eta}{-\xi + \eta}
+= \frac{1+\tfrac{\eta}{\xi}}{-1+\frac{\eta}{\xi}}
 \]
-
 Cambio de variable:
+
 \[
 z = \frac{\eta}{\xi} \;\;\Rightarrow\;\; \eta = z\xi
-\]
-
-\[
+\quad \Rightarrow \quad
 \frac{d\eta}{d\xi} = \frac{d}{d\xi}(\xi z) = \xi \frac{dz}{d\xi} + z
 \]
+Aplicando la sustitución:
 
 \[
-\frac{1+z}{-1+z} = \frac{dz}{d\xi}\,\xi
+\frac{1+z}{-1+z} = \frac{dz}{d\xi}\,\xi + z
 \;\;\Rightarrow\;\;
-\frac{1+z}{-1+z} = -\frac{dz}{d\xi}\,\xi
+\frac{1+z+z+z^2}{-1+z} = -\frac{dz}{d\xi}\,\xi
 \]
-
 Integramos:
 \[
 \int \frac{z-1}{-z^2+2z+1}\,dz = \int \frac{d\xi}{\xi}
@@ -434,29 +515,47 @@ Integramos:
 \ln|1+2z-z^2| = \ln|\xi^{-2}| + C = \ln\left|\frac{D}{\xi^2}\right|
 \]
 
+\medskip
+\noindent
+Aplicamos exponencial en ambos lados:
+
 \[
 1+2z-z^2 = \frac{D}{\xi^2}
 \;\;\Rightarrow\;\;
 \xi^2 + 2z\xi^2 - z^2\xi^2 = D
 \]
-
+Deshacemos el cambio de variable:
 \[
 (x+1)^2 + 2(x+1)(y-3) - (y-3)^2 = D
 \]
 
+\newpage
+\noindent
 \subsection{EDOs exactas}
-
-Son de la forma: $f(x,y)=c \;\;\Rightarrow\;\; y'=0$
-
+\noindent
+Las ecuaciones diferenciales exactas son aquellas en las que existe una función 
+potencial cuyo diferencial total coincide con la ecuación dada. Su solución se 
+obtiene hallando dicha función potencial f(x,y) tal que sus derivadas parciales 
+coincidan con los coeficientes de la ecuación.\\
+Son de la forma:
+\[
+f(x,y)=c \;\;\Rightarrow\;\; y'=0
+\]
+\medskip
 \[
 df = \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy = 0
 \;\;\Rightarrow\;\;
-\frac{dy}{dx} = -\frac{\frac{\partial f}{\partial x}}{\frac{\partial f}{\partial y}}
+\frac{dy}{dx} = -\frac{\dfrac{\partial f}{\partial x}}{\dfrac{\partial f}{\partial y}}
+\;\;\Rightarrow\;\;
+\begin{cases}
+M(x,y) = \dfrac{\partial f}{\partial x} \\[6pt]
+N(x,y) = \dfrac{\partial f}{\partial y}
+\end{cases}
 \]
 
 \[
-\underbrace{M}_{\frac{\partial f}{\partial x}}(x,y)\,dx + 
-\underbrace{N}_{\frac{\partial f}{\partial y}}(x,y)\,dy
+M(x,y)\,dx + 
+N(x,y)\,dy
 \;\;\Leftrightarrow\;\; 
 \exists f \;\; \text{tal que } f(x,y)=\text{constante}.
 \]
@@ -470,7 +569,6 @@ f(x,y) = \int M\,dx + g(y)
 \frac{\partial f}{\partial y}=N \;\;\Rightarrow\;\;
 \int \frac{\partial M}{\partial y}\,dx + g'(y)
 \]
-
 Por lo tanto,
 \[
 g'(y) = N - \int \frac{\partial M}{\partial y}\,dx 
@@ -479,13 +577,12 @@ g(y) = \int\left[N - \int \frac{\partial M}{\partial y}\,dx\right]dy + C
 \]
 
 \subsubsection*{“Demostración”}
-
+\noindent
 Podemos hacer esto ya que si $f(x,y)=c \;\;\Rightarrow\;\; df=0$,  
 entonces
 \[
 \frac{\partial f}{\partial x}\,dx + \frac{\partial f}{\partial y}\,dy = 0.
 \]
-
 Entonces:
 \[
 \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}
@@ -496,73 +593,76 @@ Entonces:
 \frac{\partial N}{\partial x} = \frac{\partial M}{\partial y}.
 \]
 
-
-\textbf{Ejemplo:}
+\newpage
+\noindent
+\subsection*{Ejemplo:}
+\vspace{-1.2em}
 \[
 (x+y-2)\,dx + (x-y+4)\,dy = 0
 \]
-
 Llamamos \(M\) a la primera parte y \(N\) a la segunda:
 \[
 M=(x+y-2)\,dx, \qquad N=(x-y+4)\,dy
 \]
-\textbf{Comprobamos:}
+Comprobamos que sea exacta:
 \[
-\frac{\partial M}{\partial y}=1  
-\qquad 
+\begin{cases}
+\frac{\partial M}{\partial y}=1 \\[6pt]
 \frac{\partial N}{\partial x}=1
+\end{cases}
+\;\;\Rightarrow\;\; \text{Es exacta.}
 \]
 
 \[
 \frac{\partial f}{\partial x}=x+y-2
 \]
-
+Integramos:
 \[
-\Rightarrow\;
 f=\int (x+y-2)\,dx + g(y)
 = \frac{x^{2}}{2}+xy-2x+g(y)
 \]
-
 \[
 N=\frac{\partial f}{\partial y}=x+g'(y)=x-y+4
 \;\Rightarrow\;
 g(y)=\int(-y+4)\,dy=-\frac{y^{2}}{2}+4y+C
 \]
+
+\medskip
+\noindent
+Resultando en:
 \[
 f(x,y)=\frac{x^{2}}{2}-2x-\frac{y^{2}}{2}+4y+xy+C=0
 \]
 
-\textbf{Ejemplo:}
-
+\subsection*{Ejemplo:}
+\vspace{-1.5em}
 \[
 (\sen(xy)+xy\cos(xy))\,dx+x^{2}\cos(xy)\,dy=0
 \]
-
+Donde:
 \[
 \begin{cases}
-(\sen(xy)+xy\cos(xy))\,dx \;\;\longrightarrow\; M\\[2pt]
+(\sen(xy)+xy\cos(xy))\,dx \;\;\longrightarrow\; M\\[4pt]
 x^{2}\cos(xy)\,dy \;\;\longrightarrow\; N
 \end{cases}
 \]
-
 Comprobamos que sea exacta.
-
 \[
+\begin{cases}
 \frac{\partial M}{\partial y}
-= x\cos(xy) + x\cos(xy) + xy(-x\sen(xy)),
-\qquad
+= x\cos(xy) + x\cos(xy) + xy(-x\sen(xy)) \\[6pt]
 \frac{\partial N}{\partial x}
 = 2x\cos(xy) - x^{2}y\sen(xy)
+\end{cases}
 \]
-\[
-\longrightarrow\; \text{Queda comprobado que es una EDO exacta ya que son iguales.}
-\]
+Queda comprobado que es una EDO exacta ya que son iguales.
 
-\textbf{Resolvemos:}
+\newpage
+\noindent
+Resolvemos:
 \[
 f=\int \big[x^{2}\cos(xy)\big]\,dy + g(x) = -x\,\sen(xy) + g(x)
 \]
-
 \[
 \frac{\partial f}{\partial x}=M
 \;\Rightarrow\;
@@ -577,17 +677,22 @@ g'(x)=2\sen(xy)+2xy\cos(xy)
 g(x)=\int \big[\,2\sen(xy)+2xy\cos(xy)\,\big]\,dx
 \]
 \subsection{EDO's cuasi-exactas}
-
+\noindent
+Las ecuaciones diferenciales cuasiexactas son aquellas que no son exactas inicialmente, 
+pero pueden convertirse en exactas al multiplicarlas por un factor integrante adecuado. 
+Una vez transformadas, se resuelven como una ecuación exacta encontrando la función 
+potencial cuya derivada total reproduce la ecuación original.
 \[
 M\,dx + N\,dy = 0 \;\;\Rightarrow\;\; \frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}
 \qquad
 \mu(x,y)=\text{factor integrante.}
 \]
-
 Si $\;\exists\,\mu(x,y)$ tal que $\;\mu(x,y)M\,dx+\mu(x,y)N\,dy=0\;$ es una EDO exacta, entonces la EDO original es cuasi-exacta.
 
 \medskip
-Supongamos que $\;\exists\,f(x,y)=c,\;\; \frac{\partial f}{\partial x}=\mu M\;\; \text{y}\;\; \frac{\partial f}{\partial y}=\mu N$
+\noindent
+Supongamos que $\;\exists\,f(x,y)=c,\;\; \frac{\partial f}{\partial x}=\mu M\;\; \text{y}\;\; \frac{\partial f}{\partial y}=\mu N$\\
+Entonces:
 
 \[
 \frac{\partial^2 f}{\partial y\,\partial x}=\frac{\partial^2 f}{\partial x\,\partial y}
@@ -604,7 +709,7 @@ N\,\frac{\partial \mu}{\partial x}-M\,\frac{\partial \mu}{\partial y}
 =
 \mu\!\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)
 \]
-
+\newpage
 \begin{itemize}
 \item Si: $\displaystyle \frac{\partial_y M-\partial_x N}{N}$ solo depende de $x$ $\Rightarrow \mu=\mu(x)$
 \end{itemize}
@@ -614,11 +719,11 @@ N\,\frac{\partial \mu}{\partial x}-M\,\frac{\partial \mu}{\partial y}
 \mu = \mu(x) \Rightarrow\quad \frac{\partial \mu}{\partial y} = 0 
 \Rightarrow\quad N\,\frac{\partial \mu}{\partial x} 
 = \mu\!\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right) \\[4pt]
-\Rightarrow\quad 
 \frac{d\mu}{\mu} =
-\underbrace{\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right)\!\Big/ N}_{g(x)}\, dx
+\frac{\tfrac{\partial M}{\partial y} - \tfrac{\partial N}{\partial x}}{N}dx
 \end{gathered}
 \]
+Resolvemos:
 \[
 \int \frac{d\mu}{\mu}=\int g(x)\,dx
 \;\Rightarrow\;
@@ -626,7 +731,7 @@ N\,\frac{\partial \mu}{\partial x}-M\,\frac{\partial \mu}{\partial y}
 \;\Rightarrow\;
 \mu(x)=c\,e^{\int g(x)\,dx}
 \]
-
+\medskip
 \begin{itemize}
 \item Si: $\displaystyle \frac{\partial_x N-\partial_y M}{M}$ solo depende de $y$ $\Rightarrow \mu=\mu(y)$
 \end{itemize}
@@ -637,33 +742,34 @@ N\,\frac{\partial \mu}{\partial x}-M\,\frac{\partial \mu}{\partial y}
 h(y)=\frac{\partial_x N-\partial_y M}{M}
 \]
 
-\textbf{Ejemplo:}
-
+\bigskip
+\subsection*{Ejemplo:}
 \[
 (x+y^2)\,dx - 2xy\,dy = 0
-\]
-
-\[
-\frac{\partial M}{\partial y} = 2y, 
-\qquad 
+\;\;\Rightarrow\;\;
+\begin{cases}
+\frac{\partial M}{\partial y} = 2y, \\[6pt]
 \frac{\partial N}{\partial x} = -2y
+\end{cases}
 \;\;\Rightarrow\;\; \text{No es exacta.}
 \]
-
+Reslvemos:
 \[
 \frac{\partial_y M - \partial_x N}{N} = \frac{2y - (-2y)}{-2xy} = \frac{4y}{-2xy} = -\frac{2}{x}
-\;\;\Rightarrow\;\; g(y)=0
+= g(y)=0
 \;\;\Rightarrow\;\; \mu=\mu(x)
 \]
-
+Integrando:
 \[
 \int \frac{d\mu}{\mu} = \int -\frac{2}{x}\,dx
 \;\;\Rightarrow\;\;
-\ln\mu = -2\ln x + C
+\ln\mu = -2\ln x + C = \ln\left(\frac{C}{x^2}\right)
 \;\;\Rightarrow\;\;
 \mu(x)=\frac{C}{x^2}
 \]
-
+\newpage
+\noindent
+Multiplicamos la EDO por el factor integrante:
 \[
 \mu M\,dx + \mu N\,dy = 0
 \;\;\Rightarrow\;\;
@@ -671,22 +777,21 @@ h(y)=\frac{\partial_x N-\partial_y M}{M}
 \]
 
 \[
-\Big(\tfrac{1}{x}+\tfrac{y^2}{x^2}\Big)\,dx - \tfrac{2y}{x}\,dy=0
+\Big(\frac{1}{x}+\frac{y^2}{x^2}\Big)\,dx - \frac{2y}{x}\,dy=0
 \]
 
 \[
-\frac{\partial f}{\partial x}=\frac{1}{x}+\frac{y^2}{x^2}
+\frac{\partial f}{\partial x}=\frac{y^2}{x^2} + g'(x) = \frac{1}{x} + \frac{y^2}{x^2}
 \;\;\Rightarrow\;\;
-f=\int \left(\frac{1}{x}+\frac{y^2}{x^2}\right)dx + g(y)
-= \frac{y^2}{x}+\ln x+g(y)
+g'(y)=\frac{-1}{x}
+\;\;\Rightarrow\;\;
+g(x)=\ln x+C
 \]
 
 \[
-\frac{\partial f}{\partial y}=\frac{2y}{x}+g'(y)=\frac{-2y}{x}
+\frac{\partial f}{\partial y}=\frac{-2y}{x}
 \;\;\Rightarrow\;\;
-g'(y)=-\frac{2y}{x}+\frac{2y}{x}=0
-\;\;\Rightarrow\;\;
-g(y)=\ln x+C
+f=\int \frac{-2y}{x}\,dy + g(x) = \frac{-y^2}{x} + g(x)
 \]
 
 \[
