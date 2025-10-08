@@ -799,17 +799,24 @@ f(x,y)=\frac{-y^2}{x}+\ln x+C
 \]
 
 \subsection{EDOs lineales de primer orden}
+\noindent
+Las ecuaciones diferenciales lineales de primer orden se resuelven usando un 
+factor integrante que permite escribir la ecuación como una derivada total, 
+facilitando así la integración directa para encontrar la solución general.
 
+\medskip
+\noindent
 La forma general es:
 \[
 \frac{dy}{dx}+p(x)y=q(x)
 \]
-
 Una EDO es lineal si la combinación lineal de soluciones también es solución.
-
+\medskip
+\noindent
 Si $y_1,y_2$ son soluciones $\;\;\Rightarrow\;\;\alpha y_1+\beta y_2$ también es solución.
 
 \medskip
+\noindent
 Hay dos tipos:
 \[
 \text{Si } q(x)=0 \;\;\Rightarrow\;\; \text{EDO homogénea}
@@ -817,6 +824,7 @@ Hay dos tipos:
 \[
 \text{Si } q(x)\neq 0 \;\;\Rightarrow\;\; \text{EDO inhomogénea}
 \]
+Es decir:
 \[
 \frac{d}{dx}(\alpha y_1 + \beta y_2) + p(x)(\alpha y_1 + \beta y_2) 
 = \alpha \frac{dy_1}{dx} + \beta \frac{dy_2}{dx} + \alpha p(x)y_1 + \beta p(x)y_2
@@ -838,7 +846,7 @@ Hay dos tipos:
 \;\;\Rightarrow\;\;
 y=Ce^{-\int p(x)\,dx}
 \]
-\subsection{Inhomogénea $q(x)\neq 0$}
+\subsection{Inhomogénea ($q(x)\neq 0$)}
 \[
 \frac{dy}{dx}+p(x)y=g(x)
 \]
@@ -850,36 +858,29 @@ y_g(x)=y_h(x)+y_p(x)
 \[
 \frac{d}{dx}(y_h+y_p)+p(x)(y_h+y_p)=\frac{dy}{dx}+p(x)y=q(x)
 \]
-
 Primero resuelvo la homogénea:
 \[
 y_h = C e^{-\int p(x)\,dx}
 \]
+Luego la particular:
 \[
 y_p = C(x)y_h \;\;\Rightarrow\;\; y_p = C(x)e^{-\int p(x)\,dx}
 \]
 \[
-\frac{dy_p}{dx}+p(x)y_p = C'(x)y_h + C(x)\left(\frac{dy_h}{dx}+p(x)y_h\right)=q(x)
+\frac{dy_p}{dx}+p(x)y_p = C'(x)y_h + C(x)+y'_h+p(x)y_h=q(x)
 \]
 
 \[
-C(x)\left(\frac{dy_h}{dx}+p(x)y_h\right)=0
-\]
-\[
-C'(x)y_h=q(x)
+C(x)\int\frac{q(x)}{y_h(x)}\,dx+D 
 \;\;\Rightarrow\;\;
-C(x)=\int \frac{q(x)}{y_h}\,dx
-\]
-\[
-y_p = D_1 y_h + y_h \int \frac{q(x)}{y_h}\,dx
+y_p=Dy_h+y_h\int \frac{q(x)}{y_h}\,dx
 \]
 
-\textbf{Ejemplo:}
-
+\subsection*{Ejemplo:}
+\vspace{-1.5em}
 \[
 y' + 2y = e^{-x}
 \]
-
 Primero resolvemos la homogénea:
 \[
 y' + 2y = 0 \;\;\Rightarrow\;\; \int \frac{dy}{y} = \int -2dx 
@@ -888,7 +889,8 @@ y' + 2y = 0 \;\;\Rightarrow\;\; \int \frac{dy}{y} = \int -2dx
 \[
 y_h = Ce^{-2x}
 \]
-
+\newpage
+\noindent
 Ahora resolvemos la particular:
 \[
 y_p = C(x)e^{-2x} \;\;\Rightarrow\;\; 
@@ -896,25 +898,23 @@ y_p' = C'(x)e^{-2x} - 2C(x)e^{-2x}
 \]
 \[
 C'(x)e^{-2x} - 2C(x)e^{-2x} + 2C(x)e^{-2x} = e^{-x} 
-\;\;\Rightarrow\;\; C'(x)e^{-2x} = e^{-x}
+\;\;\Rightarrow\;\; C''(x) = e^{x}
 \]
 \[
 C'(x) = e^x \;\;\Rightarrow\;\; C(x) = \int e^x dx + D = e^x + D
 \]
-
 La solución particular quedaría:
 \[
 y_p = (e^x + D)e^{-2x} = e^{-x} + De^{-2x}
 \]
-
 La solución general quedaría:
 \[
 y_g = y_h + y_p = Ce^{-2x} + e^{-x} + De^{-2x}
 = Ae^{-2x} + e^{-x}
 \]
 
-\textbf{Ejemplo:}
-
+\subsection*{Ejemplo:}
+\vspace{-1.0em}
 \[
 \frac{dy}{dx}=\frac{1}{x\cos y+\sen 2y}
 \;\;\Rightarrow\;\;
@@ -935,7 +935,7 @@ y_g = y_h + y_p = Ce^{-2x} + e^{-x} + De^{-2x}
 &x'+p(y)\,x=g(y)
 \end{aligned}
 \]
-
+Resolvemos la homogénea:
 \[
 x_h'-x_h\cos y=0
 \;\Rightarrow\;
@@ -943,527 +943,161 @@ x_h'-x_h\cos y=0
 \;\Rightarrow\;
 \ln x_h=\sen y + D
 \]
+
 \[
 x_h=e^{\sen y}
 \]
+Resolvemos la particular:
 
 \[
 x_p=C(y)e^{\sen y}
 \;\Rightarrow\;
 x_p'=C'(y)e^{\sen y}+C(y)\cos y\,e^{\sen y}
 \]
+
 \[
-x_p'-x_p\cos y=\sen(2y)
+x_p'-y_p\cos y=\sen(2y)
 \]
 
 \[
 C'(y)e^{\sen y}+C(y)\cos y\,e^{\sen y}-C(y)e^{\sen y}\cos y=\sen 2y
 \]
+
 \[
-\begin{gathered}
- C'(y)e^{\sen y} = \sen 2y \\[4pt]
- C'(y) = \sen 2y\,e^{-\sen y} \\[4pt]
- C(y) = \int \sen 2y\,e^{-\sen y}\,dy  = 2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
-\end{gathered}
+ C'(y) = e^{\sen y}
+ \;\Rightarrow\; C(y) = \int \sen 2y\,e^{-\sen y}\,dy  = 2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
 \]
-\text{Hacemos cambio de variable } \(z=\sen y\) \(\Rightarrow\) \(dz=\cos y\,dy\):
+
+\newpage
+\noindent
+Hacemos un cambio de variable:
+\[
+z = \sen y \;\Rightarrow\; dz = \cos y\, dy
+\]
 \[
 2\!\int \cos y\,\sen y\,e^{-\sen y}\,dy
 =2\!\int z\,e^{-z}\,dz
 \]
-\subsection*{Ejercicios hoja 1}
 
-\subsection*{1.)}
-\[
-\begin{aligned}
-y' \sin x - y \cos x &= 0 
-\quad ;\quad 
-y'\!\left( \frac{\pi}{2} \right) = 1 \quad \rightarrow \quad \text{condición}
-\end{aligned}
-\]
-
-\[
-y' = y \frac{\cos x}{\sin x}
-\]
-
-\[
-\int \frac{dy}{y} = \int \frac{\cos x}{\sin x}\, dx
-\]
+\subsection{Método de los coeficientes indeterminados}
+\noindent
+Las ecuaciones diferenciales con coeficientes indeterminados se 
+resuelven encontrando primero la solución general de la ecuación 
+homogénea asociada y luego una solución particular para la parte no 
+homogénea. Esta última se obtiene proponiendo una forma adecuada 
+según el término independiente y determinando los coeficientes desconocidos.
 
 \medskip
 \noindent
-Hacemos el cambio de variable u = sin x:
-\[
-\ln |y| = \int \frac{du}{u} = \ln |u| + C
-\]
-\[
-u = \sin x
-\]
-\[
-du = \cos x\, dx
-\]
-\[
-y = C \sin x \quad \rightarrow \quad y = \sin x
-\]
-
-\subsection*{11.)}
-\[
-x + y - 2 + (1 - x) y' = 0 \quad ; \quad \forall x \neq 0
-\]
-
-\[
-y' + \frac{y}{1 - x} = \frac{2 - x}{1 - x}
-\]
-
-Ecuación homogénea:
-
-\[
-y_h' + \frac{y}{1 - x} = 0
-\]
-
-\[
-\frac{dy}{dx} = \frac{-y}{1 - x}
-\]
-\newpage
-\noindent
-Integrando:
-
-\[
-\int \frac{dy}{y} = \int \frac{dx}{-1 + x}
-\]
-
-\[
-\ln y = \ln(x - 1) + \ln C
-\]
-
-\[
-y_h = C (x - 1)
-\]
-Sacamos una solución particular:
-
-\[
-y_p = C(x)(x - 1) \quad \Rightarrow \quad y_p' = C'(x)(x - 1) + C(x)
-\]
-
-\[
-C'(x)(x - 1) + C(x) = \frac{2 - x}{1 - x}
-\]
-
-\[
-C'(x)(x - 1)^2 = \frac{2 - x}{1 - x} (1 - x)^2
-\]
-
-\[
-C'(x) = \frac{2 - x}{(1 - x)^2}
-\]
-
-\[
-C(x) = \int \frac{2 - x}{(1 - x)^2}\, dx
-\]
-Hacemos el cambio de variable \(u = 1 - x\):
-\[
-u = 1 - x \quad du = -dx
-\]
-
-\[
-C(x) = \int \frac{u + 1}{u^2}\, du = \int \frac{du}{u} + \int \frac{du}{u^2} = \ln u - \frac{1}{u} + D
-\]
-
-\[
-C(x) = \ln(1 - x) + \frac{1}{x - 1} + D
-\]
-
-\[
-y_p = C(x)(x - 1) = \ln(1 - x) + \frac{1}{x - 1} + D
-\]
-\newpage
-\noindent
-\subsection*{12.)}
-\[
-8x + 4y + 1 + (4x + 2y + 1)y' = 0
-\]
-Reescribimos la ecuación:
-
-\[
-\frac{dy}{dx} = \frac{-8x - 4y - 1}{4x + 2y + 1}
-\]
-
-\[
-y' = \frac{-8x - 4y - 1}{4x + 2y + 1} \quad \Rightarrow \quad z = 4x + 2y + 1
-\]
-
-\[
-\frac{dz}{dx} = 4 + 2y'
-\]
-
-\[
-y' = \frac{1}{2} \frac{dz}{dx} - 2
-\]
-
-\[
-\frac{1}{2}\frac{dz}{dx} - 2 = \frac{-2z + 1}{z}
-\]
-
-\[
-\frac{dz}{dx} = \frac{-4z + 2}{z} + 4
-\]
-
-\[
-\frac{dz}{dx} = \frac{-4z + 2 + 4z}{z} = \frac{2}{z}
-\]
-
-\[
-z\, dz = 2 dx
-\]
-
-\[
-\int z\, dz = \int 2 dx
-\]
-
-\[
-\frac{z^2}{2} = 2x + C
-\]
-
-Deshacemos el cambio de variable:
-
-\[
-(4x + 2y + 1)^2 = 4x + C
-\]
-
-\[
-16x^2 + 16xy + 4x + 4y^2 + 4y + 1 = 4x + C
-\]
-
-\[
-4x^2 + 4xy + y^2 + 2y + \frac{1}{4} = C
-\]
-
----
-
-\subsection*{13.}
-\[
-\frac{x}{\sqrt{x^2 + y^2}}\, dx + \frac{y}{\sqrt{x^2 + y^2}}\, dy + \frac{1}{y} dx + \frac{x}{y^2} dy = 0
-\]
-
-Comprobamos que sea exacta:
-
-\[
-M = \frac{x}{\sqrt{x^2 + y^2}} + \frac{1}{y}
-\]
-\[
-N = \frac{y}{\sqrt{x^2 + y^2}} + \frac{x}{y^2}
-\]
-
-\[
-\frac{\partial M}{\partial y} = \dots \quad \frac{\partial N}{\partial x} = \dots
-\]
-
-Si es exacta:
-
-\[
-g(x,y) = \int M\, dx + C
-\]
-
-\[
-\int M\, dx = \int \frac{x}{\sqrt{x^2 + y^2}} dx + \int \frac{1}{y} dx
-\]
-
-\[
-u = x^2 + y^2 \quad du = 2x\, dx
-\]
-
-\[
-\int \frac{x}{\sqrt{x^2 + y^2}} dx = \sqrt{x^2 + y^2}
-\]
-
-\[
-\int \frac{1}{y} dx = \frac{x}{y}
-\]
-
-\[
-g(x,y) = \sqrt{x^2 + y^2} + \frac{x}{y} + C
-\]
-
-\[
-|x| + \frac{x}{y} + \sqrt{x^2 + y^2} + C = 0
-\]
-\subsection*{15.}
-\[
-(x - y)dx + x\, dy = 0
-\]
-
-\[
-M = x - y \quad N = x
-\]
-
-Comprobamos si es exacta:
-
-\[
-\frac{\partial M}{\partial y} = -1 \quad \frac{\partial N}{\partial x} = 1 \quad \Rightarrow \quad \text{No es exacta}
-\]
-
-Buscamos un factor integrante:
-
-\[
-\mu': \frac{\partial_y M - \partial_x N}{N} = \frac{-1 - 1}{x} = \frac{-2}{x} \quad \Rightarrow \quad \mu = \mu(x)
-\]
-
-\[
-\int d\mu = \int \frac{-2}{x} dx \quad \Rightarrow \quad \ln|\mu| = -2 \ln|x| + C \quad \Rightarrow \quad \mu = \frac{C}{x^2}
-\]
-
-Multiplicamos la ecuación original por $\mu$:
-
-\[
-\frac{C}{x^2}(x - y) dx + \frac{C}{x^2} x\, dy = 0
-\]
-
-\[
-\frac{\partial M}{\partial y} = -\frac{1}{x^2} \quad \frac{\partial N}{\partial x} = -\frac{1}{x^2}
-\]
-
-Ahora es exacta:
-
-\[
-\frac{\partial f}{\partial x} = -\frac{y}{x^2} + g'(y)
-\]
-
-\[
-M = \frac{\partial f}{\partial x} = \frac{-y}{x^2} + g'(y) = \frac{1}{x} - \frac{y}{x^2}
-\]
-
-\[
-g'(y) = \frac{1}{x} \quad g(y) = \int \frac{1}{x} dx = \ln|x| + D
-\]
-
-\[
-f(x,y) = \frac{y}{x} + \ln|x| + D
-\]
-
-
-\subsection*{16.}
-\[
-(x^4 \ln x - 2x y^3) dx + 3x^2 y^2 dy = 0
-\]
-
-Comprobamos si es exacta:
-
-\[
-\frac{\partial M}{\partial y} = -6xy^2 \quad \frac{\partial N}{\partial x} = 6xy^2 \quad \Rightarrow \quad \text{No es exacta}
-\]
-
-\[
-\frac{\partial_y M - \partial_x N}{N} = \frac{-6xy^2 - 6xy^2}{3x^2 y^2} = -\frac{4}{x}
-\]
-
-\[
-\mu = \mu(x) \quad \ln \mu = -4 \ln x \quad \Rightarrow \quad \mu = \frac{C}{x^4}
-\]
-
-Multiplicamos por $\mu$:
-
-\[
-\frac{\ln x}{x^4} dx - \frac{2y^3}{x^3} dx + \frac{3y^2}{x^2} dy = 0
-\]
-Comprobamos si ahora es exacta:
-
-\[
-M = \ln x - \frac{2y^3}{x^3} 
-\quad\quad 
-N = \frac{3y^2}{x^2}
-\]
-
-Hacemos las parciales:
-
-\[
-\frac{\partial M}{\partial y} = -\frac{6y^2}{x^3} 
-\quad 
-\frac{\partial N}{\partial x} = -\frac{6y^2}{x^3}
-\]
-
-Es exacta.
-
-\[
-\int M\, dx = \int \ln x\, dx - \int \frac{2y^3}{x^3}\, dx
-\]
-
-\[
-g'(y) = \int \frac{3y^2}{x^2}\, dy = \frac{y^3}{x^2}
-\]
-
-\[
-g(y) = \int \ln x\, dx
-\]
-
-\[
-g(y) = x (\ln x - 1)
-\]
-
-\[
-f(x,y) = \frac{y^3}{x^2} + x(\ln x - 1) + D
-\]
-
----
-
-\subsection*{22.}
-\[
-\frac{dy}{dx} = \frac{y}{x}, \quad y(0) = 0
-\]
-
-\[
-\frac{dy}{y} = \frac{dx}{x}
-\]
-
-\[
-\int \frac{dy}{y} = \int \frac{dx}{x}
-\]
-
-\[
-\ln |y| = \ln |x| + C
-\]
-
-\[
-y = Cx
-\]
-
-$\Rightarrow$ Familia de rectas que pasan por $(0,0)$.
-
-En el caso de $y(0) = 1$:
-
-\[
-1 = C \cdot 0 = 0
-\]
-No existe solución.
-
-$\Rightarrow$ No está en la familia de curvas.
-
----
-
-\section*{Método de los coeficientes indeterminados}
-
 Ecuaciones de la forma:
-
 \[
 y' + p y = g(x) \quad \rightarrow \quad p = \text{cte}
 \]
+Donde $p(x)$ es “sencilla”, es decir, polinómica, exponencial o aritmética.
 
-Donde $g(x)$ es “sencilla”, es decir, polinómica, exponencial o aritmética.
-
----
-
-\subsection*{Ejemplo}
-
+\medskip
+\noindent
+La solución general es:
+\[
+y_g(x)=y_h(x)+y_p(x)
+\]
+\subsection*{Ejemplo:}
+\vspace{-1.2em}
 \[
 y' + 2y = e^{-x}
+\;\Rightarrow\;
+\begin{cases}
+p(x) = 2 \\[4pt]
+q(x) = e^{-x}
+\end{cases}
 \]
-
 Ecuación homogénea:
 
 \[
 y' + 2y = 0 \quad \Rightarrow \quad y_h = C e^{-2x}
 \]
-
 Solución particular:
 
 \[
-y_p = A e^{-x}
+y_p = A e^{-x} 
+\quad \Rightarrow \quad y_p' = -A e^{-x}
+\quad \Rightarrow \quad y'_p+2y_p = e^{-x}
 \]
-
 Sustituyendo en la ecuación:
 
 \[
-y_p' + 2y_p = -A e^{-x} + 2A e^{-x} = e^{-x}
-\]
-
-\[
+-A e^{-x} + 2A e^{-x} = e^{-x}
+\quad \Rightarrow \quad
+Ae^{-x} = e^{-x} 
+\quad \Rightarrow \quad
 A = 1
 \]
-
-\[
-y_p = e^{-x}
-\]
-
 Solución general:
-
 \[
 y = y_h + y_p = C e^{-2x} + e^{-x}
 \]
-\subsection*{Ejemplo 1}
-
+\subsection*{Ejemplo:}
+\vspace{-1.2em}
 \[
 y' + y = x^2 + x + 1
 \]
-
 Resolvemos la homogénea:
 
 \[
 y' + y = 0 \quad \Rightarrow \quad y_h = C e^{-x}
 \]
-
 Buscamos la particular:
 
 \[
 y_p = Ax^2 + Bx + C \quad \Rightarrow \quad y_p' = 2Ax + B
 \]
-
 Sustituyendo:
 
 \[
-(2Ax + B) + A x^2 + Bx + C = x^2 + x + 1
+2Ax + B + A x^2 + Bx + C = x^2 + x + 1
 \]
-
 \[
-A x^2 + (2A + B)x + (B + C) = x^2 + x + 1
+A x^2 + (2A + B)x + B + C = x^2 + x + 1
 \]
-
 Igualando coeficientes:
 
 \[
-A = 1
+\begin{cases}
+A = 1\\ 
+2A + B = 1 \quad \Rightarrow \quad B = 0\\ 
+B + C = 1 \quad \Rightarrow \quad C = 1
+\end{cases}
 \]
-\[
-2A + B = 1 \quad \Rightarrow \quad B = -1
-\]
-\[
-B + C = 1 \quad \Rightarrow \quad C = 2
-\]
-
 De aquí saco la ecuación particular:
 
 \[
-y_p = x^2 - x + 2
+y_p = x^2 + 2
 \]
-
-Solución general:
+Y la solución general:
 
 \[
-y = y_h + y_p = C e^{-x} + x^2 - x + 2
+y_g = y_h + y_p = C e^{-x} + x^2 + 2
 \]
-
----
-
-\subsection*{Ejemplo 2}
-
+\subsection*{Ejemplo:}
+\vspace{-1.2em}
 \[
 y' + y = \sin x
 \]
-
 Primero resolvemos la homogénea:
 
 \[
-y' + y = 0 \quad \Rightarrow \quad y_h = C e^{-x}
+y' + y = 0 \quad \Rightarrow \quad y_h = C e^{x}
 \]
-
 Ahora buscamos la particular:
 
 \[
 y_p = A \sin x + B \cos x
-\]
-
-\[
+\quad \Rightarrow \quad
 y_p' = A \cos x - B \sin x
 \]
 
+\newpage
+\noindent
 Sustituyendo:
 
 \[
@@ -1473,49 +1107,31 @@ A \cos x - B \sin x + A \sin x + B \cos x = \sin x
 \[
 (A - B) \sin x + (A + B) \cos x = \sin x
 \]
-
 Igualando coeficientes:
 
 \[
-A - B = 1
-\]
-\[
+\begin{cases}
+A - B = 1 \\[4pt]
 A + B = 0
+\end{cases}
 \]
-
-Resolviendo el sistema:
-
+Resolvemos el sistema:
 \[
-2A = 1 \quad \Rightarrow \quad A = \frac{1}{2}
-\]
-\[
+\begin{cases}
+2A = 1 \quad \Rightarrow \quad A = \frac{1}{2} \\[4pt]
 A = -B \quad \Rightarrow \quad B = -\frac{1}{2}
+\end{cases}
 \]
-
-Entonces:
-
-\[
-y_p = \frac{1}{2} \sin x - \frac{1}{2} \cos x
-\]
-
-Solución general:
-
-\[
-y = y_h + y_p = C e^{-x} + \frac{1}{2} \sin x - \frac{1}{2} \cos x
-\]
-La ecuación particular quedó:
+La ecuación particular queda:
 
 \[
 y_p = \tfrac{1}{2}\sin x - \tfrac{1}{2}\cos x
 \]
-
-La ecuación general queda:
+Y la ecuación general queda:
 
 \[
 y = y_h + y_p = C e^{-x} + \tfrac{1}{2}\sin x - \tfrac{1}{2}\cos x
 \]
-
----
 
 \section*{EDO de Bernoulli}
 
@@ -1959,5 +1575,374 @@ p = cte = C
 \[
 y = Cx + g(C) \quad \text{(solución general)}
 \]
+\subsection*{Ejercicios hoja 1}
+
+\subsection*{1.)}
+\[
+\begin{aligned}
+y' \sin x - y \cos x &= 0 
+\quad ;\quad 
+y'\!\left( \frac{\pi}{2} \right) = 1 \quad \rightarrow \quad \text{condición}
+\end{aligned}
+\]
+
+\[
+y' = y \frac{\cos x}{\sin x}
+\]
+
+\[
+\int \frac{dy}{y} = \int \frac{\cos x}{\sin x}\, dx
+\]
+
+\medskip
+\noindent
+Hacemos el cambio de variable u = sin x:
+\[
+\ln |y| = \int \frac{du}{u} = \ln |u| + C
+\]
+\[
+u = \sin x
+\]
+\[
+du = \cos x\, dx
+\]
+\[
+y = C \sin x \quad \rightarrow \quad y = \sin x
+\]
+
+\subsection*{11.)}
+\[
+x + y - 2 + (1 - x) y' = 0 \quad ; \quad \forall x \neq 0
+\]
+
+\[
+y' + \frac{y}{1 - x} = \frac{2 - x}{1 - x}
+\]
+
+Ecuación homogénea:
+
+\[
+y_h' + \frac{y}{1 - x} = 0
+\]
+
+\[
+\frac{dy}{dx} = \frac{-y}{1 - x}
+\]
+\newpage
+\noindent
+Integrando:
+
+\[
+\int \frac{dy}{y} = \int \frac{dx}{-1 + x}
+\]
+
+\[
+\ln y = \ln(x - 1) + \ln C
+\]
+
+\[
+y_h = C (x - 1)
+\]
+Sacamos una solución particular:
+
+\[
+y_p = C(x)(x - 1) \quad \Rightarrow \quad y_p' = C'(x)(x - 1) + C(x)
+\]
+
+\[
+C'(x)(x - 1) + C(x) = \frac{2 - x}{1 - x}
+\]
+
+\[
+C'(x)(x - 1)^2 = \frac{2 - x}{1 - x} (1 - x)^2
+\]
+
+\[
+C'(x) = \frac{2 - x}{(1 - x)^2}
+\]
+
+\[
+C(x) = \int \frac{2 - x}{(1 - x)^2}\, dx
+\]
+Hacemos el cambio de variable \(u = 1 - x\):
+\[
+u = 1 - x \quad du = -dx
+\]
+
+\[
+C(x) = \int \frac{u + 1}{u^2}\, du = \int \frac{du}{u} + \int \frac{du}{u^2} = \ln u - \frac{1}{u} + D
+\]
+
+\[
+C(x) = \ln(1 - x) + \frac{1}{x - 1} + D
+\]
+
+\[
+y_p = C(x)(x - 1) = \ln(1 - x) + \frac{1}{x - 1} + D
+\]
+\newpage
+\noindent
+\subsection*{12.)}
+\[
+8x + 4y + 1 + (4x + 2y + 1)y' = 0
+\]
+Reescribimos la ecuación:
+
+\[
+\frac{dy}{dx} = \frac{-8x - 4y - 1}{4x + 2y + 1}
+\]
+
+\[
+y' = \frac{-8x - 4y - 1}{4x + 2y + 1} \quad \Rightarrow \quad z = 4x + 2y + 1
+\]
+
+\[
+\frac{dz}{dx} = 4 + 2y'
+\]
+
+\[
+y' = \frac{1}{2} \frac{dz}{dx} - 2
+\]
+
+\[
+\frac{1}{2}\frac{dz}{dx} - 2 = \frac{-2z + 1}{z}
+\]
+
+\[
+\frac{dz}{dx} = \frac{-4z + 2}{z} + 4
+\]
+
+\[
+\frac{dz}{dx} = \frac{-4z + 2 + 4z}{z} = \frac{2}{z}
+\]
+
+\[
+z\, dz = 2 dx
+\]
+
+\[
+\int z\, dz = \int 2 dx
+\]
+
+\[
+\frac{z^2}{2} = 2x + C
+\]
+
+Deshacemos el cambio de variable:
+
+\[
+(4x + 2y + 1)^2 = 4x + C
+\]
+
+\[
+16x^2 + 16xy + 4x + 4y^2 + 4y + 1 = 4x + C
+\]
+
+\[
+4x^2 + 4xy + y^2 + 2y + \frac{1}{4} = C
+\]
+
+---
+
+\subsection*{13.}
+\[
+\frac{x}{\sqrt{x^2 + y^2}}\, dx + \frac{y}{\sqrt{x^2 + y^2}}\, dy + \frac{1}{y} dx + \frac{x}{y^2} dy = 0
+\]
+
+Comprobamos que sea exacta:
+
+\[
+M = \frac{x}{\sqrt{x^2 + y^2}} + \frac{1}{y}
+\]
+\[
+N = \frac{y}{\sqrt{x^2 + y^2}} + \frac{x}{y^2}
+\]
+
+\[
+\frac{\partial M}{\partial y} = \dots \quad \frac{\partial N}{\partial x} = \dots
+\]
+
+Si es exacta:
+
+\[
+g(x,y) = \int M\, dx + C
+\]
+
+\[
+\int M\, dx = \int \frac{x}{\sqrt{x^2 + y^2}} dx + \int \frac{1}{y} dx
+\]
+
+\[
+u = x^2 + y^2 \quad du = 2x\, dx
+\]
+
+\[
+\int \frac{x}{\sqrt{x^2 + y^2}} dx = \sqrt{x^2 + y^2}
+\]
+
+\[
+\int \frac{1}{y} dx = \frac{x}{y}
+\]
+
+\[
+g(x,y) = \sqrt{x^2 + y^2} + \frac{x}{y} + C
+\]
+
+\[
+|x| + \frac{x}{y} + \sqrt{x^2 + y^2} + C = 0
+\]
+\subsection*{15.}
+\[
+(x - y)dx + x\, dy = 0
+\]
+
+\[
+M = x - y \quad N = x
+\]
+
+Comprobamos si es exacta:
+
+\[
+\frac{\partial M}{\partial y} = -1 \quad \frac{\partial N}{\partial x} = 1 \quad \Rightarrow \quad \text{No es exacta}
+\]
+
+Buscamos un factor integrante:
+
+\[
+\mu': \frac{\partial_y M - \partial_x N}{N} = \frac{-1 - 1}{x} = \frac{-2}{x} \quad \Rightarrow \quad \mu = \mu(x)
+\]
+
+\[
+\int d\mu = \int \frac{-2}{x} dx \quad \Rightarrow \quad \ln|\mu| = -2 \ln|x| + C \quad \Rightarrow \quad \mu = \frac{C}{x^2}
+\]
+
+Multiplicamos la ecuación original por $\mu$:
+
+\[
+\frac{C}{x^2}(x - y) dx + \frac{C}{x^2} x\, dy = 0
+\]
+
+\[
+\frac{\partial M}{\partial y} = -\frac{1}{x^2} \quad \frac{\partial N}{\partial x} = -\frac{1}{x^2}
+\]
+
+Ahora es exacta:
+
+\[
+\frac{\partial f}{\partial x} = -\frac{y}{x^2} + g'(y)
+\]
+
+\[
+M = \frac{\partial f}{\partial x} = \frac{-y}{x^2} + g'(y) = \frac{1}{x} - \frac{y}{x^2}
+\]
+
+\[
+g'(y) = \frac{1}{x} \quad g(y) = \int \frac{1}{x} dx = \ln|x| + D
+\]
+
+\[
+f(x,y) = \frac{y}{x} + \ln|x| + D
+\]
+
+
+\subsection*{16.}
+\[
+(x^4 \ln x - 2x y^3) dx + 3x^2 y^2 dy = 0
+\]
+
+Comprobamos si es exacta:
+
+\[
+\frac{\partial M}{\partial y} = -6xy^2 \quad \frac{\partial N}{\partial x} = 6xy^2 \quad \Rightarrow \quad \text{No es exacta}
+\]
+
+\[
+\frac{\partial_y M - \partial_x N}{N} = \frac{-6xy^2 - 6xy^2}{3x^2 y^2} = -\frac{4}{x}
+\]
+
+\[
+\mu = \mu(x) \quad \ln \mu = -4 \ln x \quad \Rightarrow \quad \mu = \frac{C}{x^4}
+\]
+
+Multiplicamos por $\mu$:
+
+\[
+\frac{\ln x}{x^4} dx - \frac{2y^3}{x^3} dx + \frac{3y^2}{x^2} dy = 0
+\]
+Comprobamos si ahora es exacta:
+
+\[
+M = \ln x - \frac{2y^3}{x^3} 
+\quad\quad 
+N = \frac{3y^2}{x^2}
+\]
+
+Hacemos las parciales:
+
+\[
+\frac{\partial M}{\partial y} = -\frac{6y^2}{x^3} 
+\quad 
+\frac{\partial N}{\partial x} = -\frac{6y^2}{x^3}
+\]
+
+Es exacta.
+
+\[
+\int M\, dx = \int \ln x\, dx - \int \frac{2y^3}{x^3}\, dx
+\]
+
+\[
+g'(y) = \int \frac{3y^2}{x^2}\, dy = \frac{y^3}{x^2}
+\]
+
+\[
+g(y) = \int \ln x\, dx
+\]
+
+\[
+g(y) = x (\ln x - 1)
+\]
+
+\[
+f(x,y) = \frac{y^3}{x^2} + x(\ln x - 1) + D
+\]
+
+---
+
+\subsection*{22.}
+\[
+\frac{dy}{dx} = \frac{y}{x}, \quad y(0) = 0
+\]
+
+\[
+\frac{dy}{y} = \frac{dx}{x}
+\]
+
+\[
+\int \frac{dy}{y} = \int \frac{dx}{x}
+\]
+
+\[
+\ln |y| = \ln |x| + C
+\]
+
+\[
+y = Cx
+\]
+
+$\Rightarrow$ Familia de rectas que pasan por $(0,0)$.
+
+En el caso de $y(0) = 1$:
+
+\[
+1 = C \cdot 0 = 0
+\]
+No existe solución.
+
+$\Rightarrow$ No está en la familia de curvas.
+
+---
+
+
 
 \end{document}
