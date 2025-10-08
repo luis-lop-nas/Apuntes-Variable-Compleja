@@ -1273,176 +1273,151 @@ Si pasamos a forma paramétrica:
 x(p) = \frac{p}{2}, \quad y(p) = \frac{p^2}{4}
 \]
 
+\newpage
 \subsection*{1. EDO's del tipo F(y, y') = 0}
 
 \subsubsection*{1.1}
+\vspace{-1.2em}
 \[
-y' = g(y) \quad \Rightarrow \quad \frac{dx}{dx} = \frac{1}{g(y)} dy
+y' = g(y) = \frac{dx}{dx} \quad \Rightarrow \quad \int \frac{1}{g(y)}\, dy = \int dx
+\]
+
+\subsubsection*{1.2 (Las importantes)}
+\vspace{-1.2em}
+\[
+y = g(y') \quad \Rightarrow \quad y = g(p)
 \]
 
 \[
-\int \frac{1}{g(y)}\, dy = \int dx
+\begin{cases}
+p = y' \quad \Rightarrow \quad \dfrac{dy}{dx} = p \quad \Rightarrow \quad dy = p\, dx \\[8pt]
+y = g(p) \quad \Rightarrow \quad \dfrac{d}{dp} \quad \Rightarrow \quad dy = g'(p)\, dp
+\end{cases}
 \]
 
----
-
-\subsubsection*{1.2}
-\[
-y = g(p) \quad \Rightarrow \quad y = g(p)
-\]
-
-\[
-p = y' = \frac{dy}{dx} \quad \Rightarrow \quad dy = p\, dx
-\]
-
-\[
-y = g(p) \quad \Rightarrow \quad \frac{dy}{dp} = g'(p)
-\]
-
-\[
-g'(p) dp = p\, dx
-\]
-
+\medskip
+\noindent
 Lo que resulta en:
 
 \[
 x = \int \frac{g'(p)}{p}\, dp + C
 \]
 
----
-
-\subsection*{Ejemplo}
-
+\subsection*{Ejemplo:}
+\vspace{-1.2em}
 \[
-y = (y')^2 + (y')^3
-\]
-
-Donde \( y' = p = \dfrac{dy}{dx} \):
-
-\[
-y = p^2 + p^3
-\]
-\[
-dy = (2p + 3p^2)\, dp = p\, dx
+y = (y')^2 + (y')^3 \quad \Rightarrow \quad \text{donde} \quad \Rightarrow \quad y' = p = dy/dx
 \]
 
 \[
-\int (2 + 3p)\, dp = \int dx
+y = p^2 + p^3 \quad \Rightarrow \quad dy = (2p + 3p^2)\, dp = pdx
 \]
 
 \[
-x(p) = 2p + \tfrac{3}{2} p^2
-\]
-\[
+\int (2 + 3p)\, dp = \int dx \quad \Rightarrow \quad
+\begin{cases}
+x(p) = 2p + \tfrac{3}{2} p^2 \\[6pt]
 y(p) = p^2 + p^3
+\end{cases}
 \]
 
----
-
-\subsection*{2. EDO's } F(x, y') = 0
+\subsection*{2. EDO's del tipo F(x, y') = 0} 
 
 \subsubsection*{2.1}
+\vspace{-1.2em}
 \[
 y' = g(x) \quad \Rightarrow \quad y = \int g(x)\, dx + C
 \]
 
 \subsubsection*{2.2}
+\vspace{-1.2em}
 \[
-x = g(p) \quad p = y' = \frac{dy}{dx} \quad \Rightarrow \quad dy = p\, dx
+x = g(y') \quad \Rightarrow \quad p = y' \quad \Rightarrow \quad \frac{dy}{dx} = p
+\quad \Rightarrow \quad \frac{dy}{p} = dx
 \]
 
 \[
-x = g(p) \quad \Rightarrow \quad \frac{dx}{dp} = g'(p)
+x = g(p) \quad \Rightarrow \quad dx = g'(p)dp = \frac{dy}{p}
 \]
 
 \[
-p\, g'(p)\, dp = dy
+y = \int p\, g'(p)\, dp + C \quad ; \quad x(p) = g(p)
 \]
+\subsection*{Ejemplo:}
 
 \[
-y = \int p\, g'(p)\, dp + C, \quad x(p) = g(p)
+x = ay' + by'^2 \quad ; \quad y' = p \quad \Rightarrow \quad x = ap + bp^2 
 \]
-\subsection*{Ejemplo}
-
-\[
-x = ap + b p^2, \quad y' = p \quad \Rightarrow \quad x = ap + bp^2
-\]
-
 donde \(a, b\) son constantes.
 
 \[
-dx = (a + 2bp)\, dp \quad \Rightarrow \quad dy = p\, dx
+dx = (a + 2bp)\, dp = \frac{dy}{p} \quad \Rightarrow \quad y = \int (ap + 2bp^2)\, dp
 \]
 
 \[
-y = \int (ap + 2bp^2) dp
-\]
-
-\[
-y(p) = \frac{a}{2} p^2 + \frac{2b}{3} p^3 + C
-\]
-\[
+\begin{cases}
+y(p) = \frac{a}{2}p^2 + \frac{2b}{3} p^3 + C \\[6pt]
 x(p) = ap + bp^2
+\end{cases}
 \]
 
----
-
-\subsection*{3. EDO de Lagrange}
-
+\subsection{EDO´s de Lagrange}
+\noindent
+Las ecuaciones de Lagrange tienen la forma $y = x\,f(p) + g(p)$, donde $p = y'$. 
+Se resuelven tratando $p$ como variable independiente y expresando $x$ y $y$ en función de $p$. 
+Esto permite reducir la ecuación a una forma paramétrica más sencilla que puede integrarse directamente.
 \[
-y = x f(p) + g(p)
+y = x f(y') + g(y') \quad\text{donde establecemos que} \quad y' = p.
 \]
-donde establecemos que \(y' = p\).
-
 \[
-y = x f(p) + g(p) \quad \Rightarrow \quad dy = f(p)\, dx + x f'(p)\, dp + g'(p)\, dp
-\]
-
-\[
+y = x f(p) + g(p) \quad \Rightarrow \quad 
+\begin{cases}
+dy = dxf(p) + x f'(p)\, dp + g'(p)\, dp \\[4pt]
 dy = p\, dx
-\]
-
-\[
-p\, dx - f(p)\, dx - x f'(p)\, dp - g'(p)\, dp = 0
+\end{cases}
 \]
 
 \[
 \frac{dx}{dp} [f(p) - p] + x f'(p) + g'(p) = 0
 \]
 
+\newpage
+\noindent
 Multiplico todo por \(dp\):
 
 \[
-dx [f(p) - p] + x f'(p)\, dp + g'(p)\, dp = 0
+dxf(p) + x f'(p)\, dp + g'(p)\, dp = pdx
+\]
+
+\[
+dx[f(p) - p] + x f'(p)\, dp + g'(p)\, dp
 \]
 
 \[
 \frac{dx}{dp} [f(p) - p] + x f'(p) + g'(p) = 0
 \]
 
-Divido todo por \([f(p) - p]\):
+\medskip
+\noindent
+Divido todo por \(f(p) - p\):
 
 \[
-\frac{dx}{dp} + \frac{f'(p)}{f(p) - p} x = - \frac{g'(p)}{f(p) - p}
+\frac{dx}{dp} + \frac{f'(p)}{f(p) - p} x = - \frac{g'(p)}{f(p) - p} 
+\quad \Rightarrow \quad \text{EDO lineal para } x(p)
 \]
-
-\[
-\Rightarrow \text{EDO lineal para } x(p)
-\]
-
 Donde:
 
 \[
-P(p) = \frac{f'(p)}{f(p) - p}
-\]
-\[
+\begin{cases}
+P(p) = \frac{f'(p)}{f(p) - p} \\[10pt]
 Q(p) = -\frac{g'(p)}{f(p) - p}
+\end{cases}
 \]
 
 \[
-y(p, C) = x(p, C) f(p) + g(p)
+y(p,c) = x(p,c) f(p) + g(p)
 \]
-\subsection*{Ejemplo}
+\subsection*{Ejemplo:}
 
 \[
 y = 2xp + \ln p
