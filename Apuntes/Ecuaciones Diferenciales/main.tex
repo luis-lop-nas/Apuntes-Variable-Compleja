@@ -1418,32 +1418,27 @@ Q(p) = -\frac{g'(p)}{f(p) - p}
 y(p,c) = x(p,c) f(p) + g(p)
 \]
 \subsection*{Ejemplo:}
-
+\vspace{-1.2em}
 \[
-y = 2xp + \ln p
+y = 2xy' + \ln y
 \]
-
 Hacemos el cambio:
 
 \[
-p = y', \quad y = 2xp + \ln p
+p = y' \quad ; \quad y = 2xp + \ln p \quad \Rightarrow \quad dy = 2p\, dx + 2x\, dp + \frac{dp}{p} = pdx
 \]
 
 \[
-dy = 2p\, dx + 2x\, dp + \frac{1}{p}\, dp = p\, dx
-\]
-
-\[
-p\, dx + (2x + \frac{1}{p})\, dp = 0
+p\, dx + (2x + \frac{1}{p})\, dp = 0 \quad \Rightarrow \quad p\frac{dx}{dp} + 2x + \frac{1}{p} = 0
 \]
 
 \[
 \frac{dx}{dp} + \frac{2x}{p} = -\frac{1}{p^2}
 \]
 
----
-
-\subsection*{Resolvemos la EDO homogénea}
+\newpage
+\noindent
+Resolvemos la EDO homogénea:
 
 \[
 \frac{dx}{dp} + \frac{2x}{p} = 0
@@ -1452,21 +1447,18 @@ p\, dx + (2x + \frac{1}{p})\, dp = 0
 \[
 \frac{dx}{x} = -\frac{2\, dp}{p} 
 \quad \Rightarrow \quad 
-\ln x = -2 \ln p + a 
+\int \frac{dx}{2x} = \int -\frac{dp}{p}
 \quad \Rightarrow \quad 
+\ln x = -2 \ln p + a 
+\]
+
+\[
 x(p) = \frac{C}{p^2}
 \]
-
----
-
-\subsection*{Solución particular}
+Resolvemos la solución particular:
 
 \[
-x(p) = \frac{C(p)}{p^2}
-\]
-
-\[
-x' = \frac{C'(p)}{p^2} - \frac{2C(p)}{p^3}
+x(p) = \frac{C(p)}{p^2} \quad \Rightarrow \quad x'(p) = \frac{C'(p)}{p^2} - \frac{2C(p)}{p^3}
 \]
 
 \[
@@ -1474,68 +1466,66 @@ x' = \frac{C'(p)}{p^2} - \frac{2C(p)}{p^3}
 \]
 
 \[
-C'(p) = -1 \quad \Rightarrow \quad C(p) = -p
+C'(p) = 1 \quad \Rightarrow \quad C(p) = p
 \]
 
 \[
-x_p = \frac{-p}{p^2} = -\frac{1}{p}
+x_p = \frac{p}{p^2} = \frac{1}{p}
 \]
-
----
-
-\subsection*{Solución general}
+Solución general:
+\[
+y_g = \frac{C}{p^2} + \frac{1}{p} \quad \rightarrow \quad x(p) = \frac{C}{p^2} + \frac{1}{p}
+\quad ; \quad y = 2xy' + \ln y'
+\]
 
 \[
 y = 2 \left( \frac{C}{p^2} + \frac{1}{p} \right) p + \ln p = 2 \left( \frac{C}{p} + 1 \right) + \ln p
 \]
 
----
+\subsection{EDO's de Clairaut}
+\noindent
+Las ecuaciones de Clairaut tienen la forma $y = x\,y' + f(y')$. 
+Se resuelven derivando la ecuación y eliminando la variable $y'$ para obtener la solución general. 
+Además, pueden presentar una solución singular que se obtiene al resolver simultáneamente 
+la ecuación original y su derivada respecto a $y'$.
 
-\section*{4. EDO de Clairaut}
-
+\newpage
+\noindent
+Se hace el cambio de variable:
 \[
 y' = p
 \]
-
 \[
 y = xp + g(p) = xp + g(p)
 \]
-
 Entonces:
 
 \[
-dy = p\, dx
-\]
-
-\[
+\begin{cases}
+dy = p\, dx \\[6pt]
 dy = p\, dx + x\, dp + g'(p)\, dp
+\end{cases}
 \]
-
+\medskip
 \[
-p\, dx + x\, dp + g'(p)\, dp = 0
+p\, dx = p\, dx + x\, dp + g'(p)\, dp = 0 \quad \Rightarrow \quad (x + g'(p)) dp = 0
 \]
 
----
+\medskip
+\noindent
+Posibles soluciones:
+\medskip
+\begin{itemize}
+  \item Si $x + g'(p) = 0$:
+  \[
+  x = g'(p), \text{despejo p} \quad\Rightarrow\quad y = y(x) \quad (solución singular).
+  \]
+  \item Si $dp = 0$: 
+  \[
+  p = \text{cte} = C \quad\Rightarrow\quad y = Cx + g(C) \quad (solución general).
+  \]
+\end{itemize}
 
-\subsection*{Posibles soluciones}
-
-\quad Si \( x + g'(p) = 0 \):
-
-\[
-x = -g'(p)
-\]
-\[
-y = y(p) \quad \text{(solución singular)}
-\]
-
-\quad Si \( dp = 0 \):
-
-\[
-p = cte = C
-\]
-\[
-y = Cx + g(C) \quad \text{(solución general)}
-\]
 \subsection*{Ejercicios hoja 1}
 
 \subsection*{1.)}
