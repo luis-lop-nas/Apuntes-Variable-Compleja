@@ -1538,32 +1538,39 @@ y' \sin x - y \cos x &= 0
 y'\!\left( \frac{\pi}{2} \right) = 1 \quad \rightarrow \quad \text{condición}
 \end{aligned}
 \]
+Identificamos que se trata de una edo de variables separables, por lo tanto resolvemos 
+separando las variables:
 
 \[
 y' = y \frac{\cos x}{\sin x}
 \]
 
 \[
+\frac{dy}{y} = \frac{\cos x}{\sin x}dx
+\quad \Rightarrow \quad
 \int \frac{dy}{y} = \int \frac{\cos x}{\sin x}\, dx
 \]
 
 \medskip
 \noindent
-Hacemos el cambio de variable u = sin x:
-\[
-\ln |y| = \int \frac{du}{u} = \ln |u| + C
-\]
+Hacemos el cambio de variable para resolver la integral con u = sin x:
 \[
 u = \sin x
 \]
 \[
 du = \cos x\, dx
 \]
+
+\[
+\ln |y| = \int \frac{du}{u} = \ln |u| + C
+\]
+
 \[
 y = C \sin x \quad \rightarrow \quad y = \sin x
 \]
 
-\subsection*{11.)}
+\subsection{Ejercicio 11}
+\vspace{-1.2em}
 \[
 x + y - 2 + (1 - x) y' = 0 \quad ; \quad \forall x \neq 0
 \]
