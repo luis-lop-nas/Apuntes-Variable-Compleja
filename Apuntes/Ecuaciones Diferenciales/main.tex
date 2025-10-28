@@ -1518,13 +1518,392 @@ Posibles soluciones:
 \begin{itemize}
   \item Si $x + g'(p) = 0$:
   \[
-  x = g'(p), \text{despejo p} \quad\Rightarrow\quad y = y(x) \quad (solución singular).
+  x = g'(p), \text{despejo p} \quad\Rightarrow\quad y = y(x) \quad \text{(solución singular)}.
   \]
   \item Si $dp = 0$: 
   \[
-  p = \text{cte} = C \quad\Rightarrow\quad y = Cx + g(C) \quad (solución general).
+  p = \text{cte} = C \quad\Rightarrow\quad y = Cx + g(C) \quad \text{(solución general)}.
   \]
 \end{itemize}
+
+\subsection{EDO's de Riccatti}
+\noindent
+Las EDO’s de Riccati son ecuaciones diferenciales ordinarias de primer orden y no lineales.
+Generalmente no se pueden resolver de forma directa, salvo que se conozca una solución particular.
+Mediante un cambio de variable pueden transformarse en una ecuación de Bernoulli o lineal.
+
+\noindent
+\medskip
+Formulación general: 
+\[
+y' + a(x)y^2 + b(x)y + c(x) = 0
+\]
+\begin{itemize}
+    \item Si $a, b, c$ son constantes $\longrightarrow$ ecuaciones de variables separables:
+\end{itemize}
+
+\[
+\frac{dy}{dx} = ay^2 + by + c 
+\quad \Longrightarrow \quad 
+\int \frac{dy}{ay^2 + by + c} = \int dx
+\]
+\newpage
+\noindent
+\begin{itemize}
+    \item Si $a, b, c$ son funciones de $x$, en general no se puede integrar salvo que se conozca una solución particular $y_1$
+\end{itemize}
+\[
+y_g(x) = y_1(x) + z(x) \quad \Longrightarrow \quad y_g' = y_1' + z'
+\]
+\vspace{-0,2 em}
+\[
+y_g^2(x) = y_1^2(x) + z^2(x) + 2y_1z \quad \Rightarrow \quad (y' + a(x)y^2 + b(x)y + c(x) = 0)
+\]
+\vspace{-0,2 em}
+\[
+y_1' + z' + a(x)(y_1^2 + z^2 + 2y_1z) + b(x)(y_1 + z) + c(x) = 0
+\]
+\vspace{-0,2 em}
+\[
+\big[y_1' + a(x)y_1^2 + b(x)y_1 + c(x)\big] + \big[z' + 2a(x)y_1 z + a(x)z^2 + b(x)z\big] = 0
+\]
+
+\noindent
+La primera parte es 0, por lo tanto queda:
+\[
+z' + [2a(x)y_1 + b(x)]z = -a(x)z^2
+\]
+Ecuación de Bernoulli pura $z(x)$
+
+\[
+\frac{dy}{dx} + p(x)y = q(x)y^n
+\]
+\textbf{Ejemplo:}
+
+\[
+y' + y^2 - 2y\sen x + \sen^2 x - \cos x = 0 
+\quad ; \quad y_1 = \sen x
+\]
+Entonces:
+\[
+\begin{cases}
+a(x) = 1 \\
+b(x) = -2\sen x \\
+c(x) = \sen^2 x - \cos x
+\end{cases}
+\]
+Resolvemos:
+\[
+y = \sen x + z(x) \quad \Longrightarrow \quad y' = \cos x + z'
+\]
+\vspace{-0,5 em}
+\[
+y' = \sen x + z'(x) + 2\sen x \, z(x)
+\]
+\vspace{-0,5 em}
+\[
+\cos x + z' + \sen^2 x + 2\sen x \, z - 2(\sen x + z)\sen x + \sen^2 x - \cos x = 0
+\]
+\vspace{-0,5 em}
+\[
+z' + z^2 + 2\sen x \, z - 2\sen x \, z = 0 \quad \Longrightarrow \quad z' + z^2 = 0 \quad \Longrightarrow \quad \frac{dz}{dx} = -z^2
+\]
+\newpage
+\noindent
+Integramos:
+
+\[
+\int \frac{dz}{z^2} = - \int dx 
+\quad \Longrightarrow \quad 
+-\frac{1}{z} = -x + c
+\]
+
+\[
+z = \frac{1}{x + c}
+\quad \Longrightarrow \quad 
+y_g = \sen x + z = \sen x + \frac{1}{x + c}
+\]
+
+\subsection{Familias de curvas:}
+\noindent
+Las familias de curvas son conjuntos de funciones que dependen de un parámetro, expresadas como: \quad $y = y(x, c)$
+
+\medskip
+\noindent
+Cada valor de c genera una curva diferente dentro de la familia.
+Para obtener su ecuación diferencial, se elimina dicho parámetro mediante derivación y sustitución.
+
+\medskip
+\noindent
+\textbf{Ejemplo:}
+\[
+y = c x \quad \Longrightarrow \quad y' = c \quad \Longrightarrow \quad y = y' x \quad \Longrightarrow \quad \frac{dy}{dx} = \frac{y}{x}
+\]
+\vspace{-0,8 em}
+\[
+y = a(1 - e^{-x/a})
+\]
+\vspace{-0,8 em}
+\[
+y' = e^{-x/a}\left( \frac{1}{a} \right)a = e^{-x/a} \quad \Longrightarrow \quad \ln y' = -\frac{x}{a} \quad \Longrightarrow \quad a = -\frac{x}{\ln y'}
+\]
+
+\[
+y = -\frac{x}{\ln y'} \left(1 - e^{\frac{-x}{-x \ln y'}}\right) = \frac{-x}{ln y'}(1 - y') \quad \Longrightarrow \quad y \ln y' = - x(1 - y')
+\]
+\vspace{-0,2 em}
+\[
+x(1 - y') + y \ln y' = 0 \quad \Longrightarrow \quad \text{Ecuación diferencial de familia de curvas}
+\]
+
+\medskip
+\noindent
+Si tengo una ecuación diferencial de la forma $F(x, y, y', \ldots, y^{(n)}) = 0$, se encuentra la familia derivando $n$ veces la ecuación y eliminando los parámetros entre todas las ecuaciones.
+\vspace{0,4 em}
+\[
+y = c_1 x + \frac{c_2}{x} + c_3 
+\quad \Longrightarrow \quad y' = c_1 - \frac{c_2}{x^2}
+\quad \Longrightarrow \quad y'' = \frac{2c_2}{x^3}
+\quad \Longrightarrow \quad y''' = -\frac{6c_2}{x^4}
+\]
+
+\[
+\frac{x^3 y''}{2} = \frac{-x^4 y'''}{6}
+\quad \Longrightarrow \quad \frac{x y''}{3} + y''' = 0
+\]
+
+\[
+c_2 = \frac{x^3 y''}{2}, \quad c_2 = \frac{-x^4 y'''}{6}
+\]
+
+\newpage
+\subsection{Trayectorias ortogonales:}
+\noindent
+Dada una familia de curvas con ecuaciones $h(x, y, a) = 0$, toda otra curva perteneciente a otra familia que corte a cada una de éstas formando un mismo ángulo $\alpha = \frac{\pi}{2}$, se denomina \textit{trayectoria ortogonal}.  
+Dos familias son ortogonales si todas lo son.
+
+\[
+y_1 = y_1(x, c_1) \quad \Longrightarrow \quad F(x, y, y_1') = 0
+\]
+La EDO de la segunda familia será:
+\vspace{0,1 em}
+\[
+F\left(x, y, -\frac{1}{y'}\right) = 0 
+\quad \Longrightarrow \quad y_2 = y_2(x, c) 
+\quad \text{tal que} \quad y_1' \cdot y_2' = 1
+\]
+
+\[
+h(x, y, c) = 0 
+\quad \xrightarrow{\text{hallar las EDO's}} \quad 
+F(x, y, y') = 0
+\]
+\vspace{0,1 em}
+\[
+\quad \xrightarrow{\text{planteo la EDO forma ortogonal}} \quad 
+F\left(x, y, -\frac{1}{y'}\right) = 0 
+\quad \xrightarrow{\text{resolver}} \quad 
+g(x, y, k) = 0
+\]
+
+\newpage
+\section{EDO's de segundo orden y superior}
+\noindent
+Se denomina EDO de orden $n$: 
+\[
+F(x, y, y', y'', \ldots, y'^{(n)}) = 0 
+\quad \text{con} \quad y^{(n)} = \frac{d^n y}{dx^n}
+\]
+La solución general es una familia $n$–paramétrica: 
+\[
+y = y(x, c_1, c_2, \ldots, c_n)
+\]
+Un problema de valor inicial requiere $n$ condiciones iniciales.
+
+\subsection*{Sistema de ecuaciones:}
+\noindent
+En las EDOs de segundo orden y superior, un sistema de ecuaciones establece las condiciones necesarias para determinar una solución única.  
+Cada condición inicial, como \( y(x_0) \), \( y'(x_0) \), \( y''(x_0) \), etc., fija los valores de las constantes de integración.  
+Por lo tanto, un problema de orden \( n \) requiere \( n \) condiciones iniciales para definir completamente la solución.
+\[
+y(x_1) = y_1, \quad y(x_2) = y_2, \quad y(x_3) = y_3, \ldots
+\]
+\[
+y(x_0) = y_0, \quad y'(x_0) = y'_0, \quad y''(x_0) = y''_0, \ldots
+\]
+
+\subsection{EDOs lineales de segundo orden}
+\noindent
+Las EDOs lineales de segundo orden tienen la forma:
+\[
+y'' + P(x)y' + Q(x)y = R(x)
+\]
+Diferenciamos dos tipos:
+\[
+\begin{cases}
+R(x) = 0 & \text{homogénea (EDOLH)} \\
+R(x) \neq 0 & \text{inhomogénea (EDOLI)}
+\end{cases}
+\]
+
+\subsection{Teorema de existencia y unicidad}
+\noindent
+El teorema de existencia y unicidad establece que una EDO lineal de segundo orden tiene una única solución si las funciones \( P(x) \), \( Q(x) \) y \( R(x) \) son continuas en un intervalo que contiene el punto inicial.  
+Esto garantiza que el problema de Cauchy definido por \( y(x_0) \) y \( y'(x_0) \) posee una sola solución válida en dicho intervalo.
+
+\medskip
+\noindent
+Dado un problema de Cauchy:
+\[
+\begin{cases}
+y'' + P(x)y' + Q(x)y = R(x) \\
+y(x_0) = y_0 \\
+y'(x_0) = y'_0
+\end{cases}
+\]
+$\exists !$ solución si $P(x)$, $Q(x)$ y $R(x)$ son continuas en $x \approx x_0$! 
+
+\subsection{EDO equivalente}
+
+\noindent
+Las EDOs equivalentes se expresan en la forma operatorial \( L[y] = R(x) \), donde \( L \) es un operador diferencial que actúa sobre \( y \).  
+La solución general se obtiene como la suma de la solución homogénea \( y_h \) (cuando \( R(x) = 0 \)) y una solución particular \( y_p \) (cuando \( R(x) \neq 0 \)).  
+Por lo tanto, toda solución cumple \( y_g = y_h + y_p \).
+
+\[
+L[y] = R(x) \quad \text{con} \quad L = \frac{d^2}{dx^2} + P(x)\frac{d}{dx} + Q(x)
+\]
+Si $y_h$ es una solución de la EDOLH y $y_p$ es una solución de la EDOLI:
+
+\[
+y_g = y_h + y_p
+\]
+
+\[
+L[y_h] = 0, \quad L[y_p] = R(x) \qquad \Rightarrow \qquad 
+\begin{cases}
+L[y_h] = 0 \\[6pt]
+L[y_p] = R(x)
+\end{cases}
+\]
+Resultando en:
+\[
+L[y_h + y_p] = L[y_h] + L[y_p] =0 + R(x) = R(x)
+\]
+
+\subsection{EDOLH}
+\vspace{-1 em}
+\[
+y = 0 \quad \text{siempre es solución:} \quad L[0] = 0
+\]
+Si \( y_1 \) e \( y_2 \) son soluciones 
+\[
+C_1 y_1 + C_2 y_2 \quad\text{ también lo es.}
+\]
+\[
+L(C_1 y_1 + C_2 y_2) = C_1 L(y_1) + C_2 L(y_2) = 0
+\]
+
+\newpage
+\noindent
+La combinación lineal de dos soluciones independientes es la solución general.  
+Dos funciones son linealmente dependientes si una es múltiplo de la otra.
+
+\[
+\frac{y_2}{y_1 } = C  \quad \Longrightarrow \text{para no independientes.}
+\]
+
+\[
+\text{Solución general} \Rightarrow y_g = C_1 y_1 + C_2 y_2
+\]
+Entonces: 
+\[
+y_g = C_1 y_1 + C_2 y_2 
+\]
+\[
+\text{ deben satisfacer cualquier condición inicial:} 
+\quad 
+\begin{cases}
+y(x_0) = y_0 \\
+y'(x_0) = y'_0
+\end{cases}
+\]
+
+
+\[
+\begin{cases}
+y_g(x_0) = C_1 y_1(x_0) + C_2 y_2(x_0) = y_0 \\
+y'_g(x_0) = C_1 y'_1(x_0) + C_2 y'_2(x_0) = y'_0
+\end{cases}
+\quad \Rightarrow \text{saco } C_1 \text{ y } C_2
+\]
+
+\bigskip
+\noindent
+Aplico el Wronskiano:
+
+\[
+W = 
+\begin{vmatrix}
+y_1(x_0) & y_2(x_0) \\
+y'_1(x_0) & y'_2(x_0)
+\end{vmatrix}
+\neq 0
+\quad \text{para poder obtener } C_1 \text{ y } C_2
+\]
+Si \( y_1 \) e \( y_2 \) son soluciones, entonces \( W \) se anula siempre o nunca se anula.
+
+\medskip
+\noindent
+Si:
+\[
+L[y_1] = L[y_2] = 0 \quad \text{en } [a,b] 
+\quad \Rightarrow \quad 
+W(x) = 
+\begin{cases}
+0 & \forall x \in [a,b] \\
+\neq 0 & \forall x \in [a,b]
+\end{cases}
+\]
+
+\[
+W(x) = y_1 y'_2 - y'_1 y_2
+\]
+
+\[
+W'(x) = y'_1 y'_2 + y_1 y''_2 - y''_1 y_2 - y'_1 y'_2 = y_1 y''_2 - y''_1 y_2
+\]
+
+\[
+\begin{cases}
+y''_1 + P(x)y'_1 + Q(x)y_1 = 0 \\
+y''_2 + P(x)y'_2 + Q(x)y_2 = 0
+\end{cases}
+\Rightarrow 
+y_1 y''_2 - y''_1 y_2 + P(y_1 y'_2 - y'_1 y_2) = 0
+\]
+
+\[
+W'(x) + P(x)W(x) = 0
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 \section{Ejercicios hoja 1}
