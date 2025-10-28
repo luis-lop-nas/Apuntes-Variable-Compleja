@@ -1886,6 +1886,68 @@ y_1 y''_2 - y''_1 y_2 + P(y_1 y'_2 - y'_1 y_2) = 0
 \[
 W'(x) + P(x)W(x) = 0
 \]
+\vspace{-0,5 em}
+\[
+W'(x) = y'_1 y''_2 - y''_1 y'_2 + P(y'_1 y_2 - y_1 y'_2) = 0
+\quad \Longrightarrow \quad
+W'(x) = -P(x)W(x)
+\]
+
+\newpage
+\[
+\frac{dW}{dx} = -P(x)W \quad \Longrightarrow \quad 
+W(x) = C e^{-\int P(x)\,dx}
+\]
+
+\[
+\text{Si } C = 0 \Longrightarrow W = 0 \quad \forall x \in [a,b] 
+\quad \Rightarrow \text{Linealmente dependientes}
+\]
+
+\[
+\text{Si } C \neq 0 \Longrightarrow W \neq 0 \quad \forall x \in [a,b] 
+\quad \Rightarrow \text{Linealmente independientes}
+\]
+
+\[
+\text{Si } y_1 \text{ e } y_2 \text{ son linealmente dependientes:}
+\]
+
+\[
+\frac{y_1}{y_2} = \text{cte} \quad \Rightarrow \quad W = 
+\begin{vmatrix}
+y_1 & k y_1 \\
+y'_1 & k y'_1
+\end{vmatrix}
+= 0 
+\quad \Rightarrow \quad y_1 = k y_2 \quad \Rightarrow \quad y'_1 = k y'_2
+\]
+
+\[
+W = y_1 y'_2 - y'_1 y_2 = k y_1 y'_1 - k y'_1 y_1 = 0
+\]
+
+\[
+\frac{W}{y_2^2} = \frac{y_1 y'_2 - y'_1 y_2}{y_2^2} 
+= \left(\frac{y_2}{y_1}\right)' = 0 
+\quad \Longrightarrow \quad \frac{y_2}{y_1} = k
+\]
+
+\[
+\text{Si } y_1 \text{ e } y_2 \text{ son linealmente independientes } 
+\Longrightarrow W \neq 0 
+\Longrightarrow \exists! \, C_1, C_2 \text{ tales que } 
+y_g = C_1 y_1 + C_2 y_2
+\]
+
+
+
+
+
+
+
+
+
 
 
 
