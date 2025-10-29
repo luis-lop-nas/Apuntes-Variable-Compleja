@@ -1944,6 +1944,220 @@ W \neq 0
 \Longrightarrow \exists! \, C_1, C_2 \text{ tales que } 
 y_g = C_1 y_1 + C_2 y_2
 \]
+\textbf{Ejemplo:}
+
+\[
+y'' - y = 0
+\]
+Entonces:
+
+\[
+\begin{cases}
+y = e^{-x}, \quad y'' = -e^{-x} \\
+y = e^{x}, \quad y'' = e^{x}
+\end{cases}
+\qquad \Rightarrow \qquad
+\begin{cases}
+y_1 = senh x \\
+y_2 = cosh x
+\end{cases}
+\]
+Sabiendo que:
+
+\[
+\begin{cases}
+senh x = \frac{e^x - e^{-x}}{2} \\
+cosh x = \frac{e^x + e^{-x}}{2}
+\end{cases}
+\]
+\vspace{1 em}
+\[
+y = C_1 \sinh x + C_2 \cosh x
+\]
+
+\newpage
+\noindent
+\textbf{Linealmente dependientes:} \quad \( y_1 = e^x, \; y_2 = 3e^x \)
+
+\medskip
+\noindent
+\textbf{Linealmente independientes:} \quad \( y_1 = e^x, \; y_2 = e^{-x} \)
+
+\[
+C_1 e^{-x} + C_2 \frac{e^x + e^{-x}}{2}
+\quad \Rightarrow \quad
+\left(C_1 + \frac{C_2}{2}\right)e^{-x} + \frac{C_2}{2}e^x
+\]
+
+\medskip
+\noindent
+Obtención de segundas soluciones:
+
+\medskip
+\noindent
+Si \( y_1 \) es una solución conocida de una EDOLH, entonces:
+
+\[
+y_2 = U(x)y_1 \quad \text{es la segunda solución.}
+\]
+\vspace{-.07 em}
+\[
+y_2' = U'(x)y_1 + U(x)y_1' \quad \Rightarrow \quad 
+y_2'' = U''(x)y_1 + 2U'(x)y_1' + U(x)y_1''
+\]
+
+\[
+y_2'' + P(x)y_2' + Q(x)y_2 = 0
+\]
+
+\[
+U''y_1 + 2U'y_1' + U y_1'' + P(x)(U'y_1 + U y_1') + Q(x)U y_1 = 0
+\]
+Ahora resolvemos la última parte.
+
+\[
+U''y_1 + 2U'y_1' + PU'y_1 = 0 
+\quad \Rightarrow \quad
+\frac{U''}{U'} y_1 + 2y_1' + P(x)y_1 = 0
+\]
+
+\[
+\quad \Rightarrow \quad 
+\frac{U''}{U'} + 2\frac{y_1'}{y_1} + P = 0
+\quad \Rightarrow \quad 
+\frac{U''}{U'} = -P - 2\frac{y_1'}{y_1}
+\]
+
+\[
+\quad \Rightarrow \quad 
+(\ln U')' = -P - 2(\ln y_1)' 
+\quad \Rightarrow \quad 
+\ln U' = \int -Pdx - 2\ln y_1
+\]
+
+\[
+U' = \frac{e^{-\int P(x)dx}}{y_1^2}
+\quad \Rightarrow \quad 
+U = \int\frac{e^{-\int P(x)dx}}{y_1^2} dx
+\quad \Rightarrow \quad 
+y_2 = y_1 \int \frac{e^{-\int P(x)dx}}{y_1^2}dx
+\]
+
+\[
+W = 
+\begin{vmatrix}
+y_1 & y_2 \\
+y_1' & y_2'
+\end{vmatrix}
+\neq 0
+\]
+
+\newpage
+\noindent
+\textbf{Ejemplo:}
+
+\[
+x^2 y'' - 2x y' + 2y = 0
+\quad \text{con} \quad 
+y(0) = 1, \; y'(0) = 1
+\]
+Nos quitamos \( x^2 \):
+
+\[
+y'' - \frac{2y'}{x} + \frac{2y}{x^2} = 0
+\]
+
+\[
+y_2 = U(x)y_1 = U(x)x 
+\quad \Rightarrow \quad 
+y_2' = U'x + U
+\quad ; \quad 
+y_2'' = U''x + 2U'
+\]
+
+\[
+U''x + 2U' - \frac{2}{x}(U'x + U) + \frac{2}{x^2}(Ux) = 0
+\]
+
+\[
+U''x + 2U' - 2U' - \frac{2U}{x} + \frac{2U}{x} = 0 
+\]
+De aquí sacamos:
+
+\[
+\quad \Rightarrow \quad 
+U''x = 0 
+\quad \Rightarrow \quad 
+U' = C_1 
+\quad \Rightarrow \quad 
+U = C_1x + C_2
+\]
+
+\[
+y_2 = (C_1x + C_2)x = C_1x^2 + C_2x
+\]
+
+\[
+y_g = D_1y_1 + D_2y_2 = D_1x + D_2(C_1x^2 + C_2x) = S_1x + S_2x^2
+\]
+Sustituyendo las condiciones iniciales:
+
+\[
+y_g(0) = S_1 \cdot 0 + S_2 \cdot 0 = 0 \neq 1 
+\]
+\textit{No hay solución para esas combinaciones lineales.}
+
+\newpage
+\subsection{Teorema de existencia y unicidad}
+\noindent
+El teorema de existencia y unicidad establece que una EDO lineal de segundo orden tiene una única solución si las funciones \( p(x) \) y \( q(x) \) son continuas y derivables en un intervalo \( I \).  
+Además, la solución depende de las condiciones iniciales \( y(x_0) \) y \( y'(x_0) \).  
+De esta forma, el problema de Cauchy queda bien definido en dicho intervalo.
+\[
+y'' + p(x)y' + q(x)y = 0
+\]
+\[
+\begin{cases}
+y(x_0) = y_0 \\
+y'(x_0) = y'_0
+\end{cases}
+\quad \Rightarrow \quad 
+\exists ! \text{ solución si } p(x) \text{ y } q(x) \text{ son derivables en } x \in I
+\]
+
+\subsection{EDOLH de coeficientes constantes}
+\noindent
+Son de la forma:
+
+\[
+y'' + p y' + q y = 0
+\quad \text{con } p, q \text{ constantes.}
+\]
+
+\[
+y = e^{mx}, \quad y' = m e^{mx}, \quad y'' = m^2 e^{mx}
+\]
+
+\[
+m^2 e^{mx} + p m e^{mx} + q e^{mx} = 0 
+\quad \Rightarrow \quad \text{(divido por } e^{mx})
+\]
+
+\[
+m^2 + p m + q = 0
+\quad \Longrightarrow \quad
+m_{1,2} = \frac{-p \pm \sqrt{p^2 - 4q}}{2}
+\]
+
+Las posibles soluciones son:
+
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item 2 soluciones reales distintas
+    \item 2 soluciones imaginarias
+    \item 2 soluciones reales iguales
+\end{enumerate}
+
+
 
 
 
