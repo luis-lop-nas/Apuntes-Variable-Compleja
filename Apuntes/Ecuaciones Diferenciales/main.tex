@@ -2127,12 +2127,18 @@ y'(x_0) = y'_0
 
 \subsection{EDOLH de coeficientes constantes}
 \noindent
+Las EDO lineales homogéneas de coeficientes constantes son ecuaciones diferenciales en las que los coeficientes que acompañan a las derivadas son números fijos.    
+Permiten obtener soluciones mediante una ecuación característica de segundo grado.
+
+\medskip
+\noindent
 Son de la forma:
 
 \[
 y'' + p y' + q y = 0
 \quad \text{con } p, q \text{ constantes.}
 \]
+Proponemos una solución de la forma:
 
 \[
 y = e^{mx}, \quad y' = m e^{mx}, \quad y'' = m^2 e^{mx}
@@ -2140,8 +2146,8 @@ y = e^{mx}, \quad y' = m e^{mx}, \quad y'' = m^2 e^{mx}
 
 \[
 m^2 e^{mx} + p m e^{mx} + q e^{mx} = 0 
-\quad \Rightarrow \quad \text{(divido por } e^{mx})
 \]
+Dividimos por \( e^{mx} \) (nunca es 0):
 
 \[
 m^2 + p m + q = 0
@@ -2157,12 +2163,636 @@ Las posibles soluciones son:
     \item 2 soluciones reales iguales
 \end{enumerate}
 
+\begin{enumerate}[label=\textbf{\alph*)}]
+\item 2 soluciones reales distintas: \quad \( p^2 - 4q > 0 \Rightarrow m_1, m_2 \in \mathbb{R} \)
+\vspace{0,4 em}
+\[
+y_1 = e^{m_1 x}, \quad y_2 = e^{m_2 x}
+\quad \Rightarrow \quad 
+y = C_1 e^{m_1 x} + C_2 e^{m_2 x}
+\]
+
+Entonces:
+\vspace{0,4 em}
+\[
+y'' + y' - 6y = 0 \quad ; \quad y = e^{mx}, \; y' = m e^{mx}, \; y'' = m^2 e^{mx}
+\]
+Sustituimos en la ecuación:
+\vspace{0,4 em}
+\[
+m^2 e^{mx} + m e^{mx} - 6 e^{mx} = 0 
+\quad \Rightarrow \quad 
+m^2 + m - 6 = 0  
+\]
+\vspace{-0,2 em}
+\[
+m_{1,2} = \frac{-1 \pm \sqrt{1 + 24}}{2} = \frac{-1 \pm 5}{2}
+\]
+\vspace{-0,2 em}
+\[
+m_1 = 2, \quad m_2 = -3 
+\quad \Rightarrow \quad 
+y_1 = e^{2x}, \quad y_2 = e^{-3x}
+\]
+La solución general es:
+\vspace{-0,2 em}
+\[
+y_g = C_1 e^{2x} + C_2 e^{-3x}
+\]
+
+\bigskip
+\item 2 Soluciones imaginarias: \quad \( p^2 - 4q < 0 \Rightarrow m_{1,2} = a \pm bi \)
+\vspace{0,4 em}
+\[
+y_1 = C_1 e^{(a + bi)x}, \quad y_2 = C_2 e^{(a - bi)x}
+\quad \Rightarrow \quad 
+y_g = C_1 e^{a x} e^{i b x} + C_2 e^{a x} e^{-i b x}
+\]
+
+Entonces:
+\vspace{0,4 em}
+\[
+y_g = e^{a x} [ C_1 e^{i b x} + C_2 e^{-i b x} ] 
+= e^{a x} [ C_1 (\cos bx + i \sin bx) + C_2 (\cos bx - i \sin bx) ]
+\]
+\vspace{-0,4 em}
+\[
+= e^{a x} [ (C_1 + C_2)\cos bx + i(C_1 - C_2)\sin bx ] 
+= e^{a x} [ C_3 \cos bx + C_4 \sin bx ]
+\]
+La solución general es:
+
+\[
+\text{donde } 
+\begin{cases}
+y_3 = e^{a x}\cos bx \\
+y_4 = e^{a x}\sin bx
+\end{cases}
+\quad \Rightarrow \quad
+y_g = C_3 y_3 + C_4 y_4
+\]
+\end{enumerate}
+
+\newpage
+\textbf{c)} 2 Soluciones reales iguales: \quad \( p^2 - 4q = 0 \quad \Rightarrow \quad m_1 = m_2 = m \)
+
+\medskip
+Donde:
+
+\[
+\begin{cases}
+y_1 = e^{mx} \\
+y_2 = U(x) e^{mx}
+\end{cases}
+\quad \Rightarrow \quad
+\begin{cases}
+U(x) = x \\
+y_2 = x e^{mx}
+\end{cases}
+\quad \Rightarrow \quad
+y = C_1 e^{mx} + C_2 x e^{mx}
+\]
+
+\medskip
+\noindent
+\textbf{Ejemplo:}
+\vspace{0,1 em}
+\[
+y'' + 2y' + y = 0 
+\quad \Rightarrow \quad 
+m^2 + 2m + 1 = 0 
+\quad \Rightarrow \quad 
+(m + 1)^2 = 0 
+\quad \Rightarrow \quad 
+m = -1
+\]
+Donde:
+
+\[
+y_1 = e^{-x}, \quad 
+y_2 = x e^{-x}
+\]
+
+\[
+y_g = C_1 y_1 + C_2 y_2 = C_1 e^{-x} + C_2 x e^{-x} = e^{-x}(C_1 + C_2 x)
+\]
+
+\subsection{Ecuación equidimensional de Euler}
+\noindent
+La ecuación equidimensional de Euler es una EDO lineal de segundo orden donde los coeficientes dependen de potencias de x.
+
+\medskip
+\noindent
+Son de la forma:
+
+\[
+x^2 y'' + p x y' + q y = 0 
+\quad \text{con } p, q \text{ constantes.}
+\]
+Se resuelve con el cambio de variable:
+
+\[
+y' = \frac{dy}{dx} \quad ; \quad
+\dot{y} = \frac{dy}{dz}
+\quad \text{donde } z = \ln x
+\]
+Resolvemos aplicando el cambio de variable:
+
+\[
+y' = \frac{dy}{dx} = \frac{dy}{dz} \frac{dz}{dx} = \dot{y}\frac{1}{x}
+\quad \Rightarrow \quad 
+pxy' = p\dot{y}
+\]
+
+\[
+y'' = \frac{d}{dx} (\dot{y}\frac{1}{x}) = \frac{d}{dx} (\dot{y})\frac{1}{x} + \dot{y}\frac{d}{dx}(\frac{1}{x})
+= \frac{dz}{dx} \frac{d}{dz}(\dot{y})\frac{1}{x} - \dot{y}\frac{1}{x^2}
+= \ddot{y} \frac{1}{x^2} - \dot{y}\frac{1}{x^2}
+\]
+
+\[
+= \frac{1}{x^2}(\ddot{y} - \dot{y}) \quad \Rightarrow \quad 
+x^2 y'' = \ddot{y} - \dot{y}
+\]
+
+\newpage
+\noindent
+Sustituyo en la ecuación inicial:
+
+\[
+x^2 \left(\frac{1}{x^2}(\ddot{y} - \dot{y})\right) + p x \left(\frac{1}{x}\dot{y}\right) + q y = 0
+\]
+Entonces:
+
+\[
+\ddot{y} - \dot{y} + p \dot{y} + q y = 0 
+\quad \Rightarrow \quad 
+\ddot{y} + (p - 1)\dot{y} + q y = 0
+\]
+\noindent
+\textbf{Ejemplo:}
+\vspace{0,4 em}
+\[
+x^2 y'' + x y' + 10y = 0 
+\quad \text{con} \quad x = e^z
+\]
+\vspace{-0,4 em}
+\[
+\ddot{y} + 2\dot{y} + 10y = 0 
+\quad \Rightarrow \quad 
+m^2 + 2m + 10 = 0 
+\quad \Rightarrow \quad 
+m_{1,2} = -1 \pm 3i
+\]
+
+\[
+y(z) = e^{-z} \left( C_1 \sin(3z) + C_2 \cos(3z) \right)
+\]
+
+\[
+y(x) = \frac{1}{x} \left[ C_1 \sin(3\ln x) + C_2 \cos(3\ln x) \right]
+\]
+Otra forma de resolverlo:
+\vspace{0,2 em}
+\[
+\begin{cases}
+x = e^z \\
+y = e^{m z}
+\end{cases}
+\quad \Rightarrow \quad
+y = x^m \quad \Rightarrow \quad 
+y' = m x^{m-1}, \quad y'' = m(m-1)x^{m-2}
+\]
+Entonces:
+
+\[
+x^2 y'' + p x y' + q y = 0 
+\quad \Rightarrow \quad 
+x^m [ m(m-1) + p m + q ] = 0
+\]
+
+\[
+m^2 + m(p - 1) + q = 0
+\]
+\noindent
+\textbf{Ejemplo:}
+\vspace{0,4 em}
+\[
+m = -1 \pm 3i 
+\quad \Rightarrow \quad 
+y = x^{-1 \pm 3i} 
+\]
+
+\[
+y_1 = \frac{(e^{\ln x})^{\pm 3i}}{x} 
+= \frac{e^{\pm 3i \ln x}}{x}
+= \frac{\cos(3\ln x) + i\sin(3\ln x)}{x}
+\]
+
+\[
+y_2 = \frac{\cos(3\ln x) - i\sin(3\ln x)}{x}
+\]
+
+\[
+y_3 = \frac{y_1 + y_2}{2} = \frac{\cos(3\ln x)}{x}
+\]
+
+\[
+y_4 = \frac{y_1 - y_2}{2} = \frac{\sin(3\ln x)}{x}
+\]
+
+\[
+y_g = C_3 y_3 + C_4 y_4 
+= \frac{1}{x} [ C_3 \cos(3\ln x) + C_4 \sin(3\ln x) ]
+\]
+
+\subsection{EDOLI de coeficientes constantes}
+\noindent
+Una EDOLI de coeficientes constantes es una ecuación diferencial lineal no homogénea donde los coeficientes p y q son números fijos.
+
+\medskip
+\noindent
+Son de la forma:
+
+\[
+y'' + p y' + q y = R(x)
+\quad \text{donde} \quad 
+y_g = y_h + y_p
+\]
+Se reselve utilizando el método de los coeficientes indeterminados:  
+
+\medskip
+\noindent
+\( R(x) \) es una función sencilla:
+\[
+\begin{cases}
+\text{trigonométrica} \\
+\text{exponencial} \\
+\text{polinómica}
+\end{cases}
+\quad \Rightarrow \quad
+\text{y siendo \( p, q \) constantes.}
+\]
 
 
+\subsubsection*{a) Exponenciales}
+\vspace{-0,7 em}
+\[
+y'' + p y' + q y = e^{a x}
+\]
 
+\[
+y_p = A e^{a x}, \quad y_p' = A a e^{a x}, \quad y_p'' = A a^2 e^{a x}
+\]
+sustituyendo en la ecuación:
 
+\[
+A a^2 e^{a x} + p A a e^{a x} + q A e^{a x} = e^{a x}
+\]
 
+\[
+A (a^2 + p a + q) = 1
+\quad \Rightarrow \quad 
+A = \frac{1}{a^2 + p a + q}
+\]
+Siempre que \( a^2 + p a + q \neq 0 \),  
+en caso contrario, \( a \) es una raíz de la ecuación inicial  
+(\( e^{a x} \in y_h \)).
 
+\medskip
+\noindent
+Si \( a^2 + p a + q = 0 \), entonces:
+\[
+y_p = A e^{a x} x
+\]
+Entonces:
+
+\[
+y_p' = A e^{a x} (a x + 1)
+\]
+
+\[
+y_p'' = A e^{a x} (a^2 x + 2a)
+\]
+
+\[
+A [2a + p + x(a^2 + p a + q)] = 1
+\quad \Rightarrow \quad 
+A = \frac{1}{2a + p}
+\]
+
+\[
+A = \frac{1}{2}
+\]
+\noindent
+\textbf{Ejemplo:}
+
+\[
+y'' + 3y' - 10y = 6e^{4x}
+\]
+Sacamos la homogénea igualando a 0
+\vspace{0,2 em}
+\[
+y'' + 3y' - 10y = 0 
+\quad \Rightarrow \quad 
+y_h = e^{mx}
+\quad \Rightarrow \quad 
+m^2 + 3m - 10 = 0
+\]
+\vspace{-0,6 em}
+\[
+\begin{cases}
+m_1 = -5 \\
+m_2 = 2
+\end{cases}
+\quad \Rightarrow \quad 
+y_h = C_1 e^{-5x} + C_2 e^{2x}
+\]
+Sacamos la particular:
+\vspace{-0,1 em}
+\[
+y_p = A e^{4x}, 
+\quad y_p' = 4A e^{4x}, 
+\quad y_p'' = 16A e^{4x}
+\]
+Sustituimos en la ecuación principal:
+\vspace{0,3 em}
+\[
+16A e^{4x} + 12A e^{4x} - 10A e^{4x} = 6 e^{4x}
+\quad \text{Dividimos ambos lados por } e^{4x}
+\]
+\[
+16A + 12A - 10A = 6 
+\quad \Rightarrow \quad 
+18A = 6 
+\quad \Rightarrow \quad 
+A = \frac{1}{3}
+\]
+
+\[
+\Rightarrow \quad y_p = \frac{1}{3} e^{4x}
+\]
+Sacamos la general:
+\vspace{0,5 em}
+\[
+y_g = C_1 e^{-5x} + C_2 e^{2x} + \frac{1}{3} e^{4x}
+\]
+\noindent
+\textbf{Ejemplo:}
+\vspace{0,7 em}
+\[
+y'' + 10y' + 25y = 14e^{-5x}
+\]
+Sacamos la homogénea:
+\[
+y_h = e^{mx}
+\quad \Rightarrow \quad 
+m^2 + 10m + 25 = 0 
+\quad \Rightarrow \quad 
+m_{1,2} = -5 \text{ (doble)}
+\]
+\[
+y_h = C_1 e^{-5x} + C_2 x e^{-5x}
+\]
+
+\newpage
+\noindent
+Sacamos la particular:
+\[
+y_p = A x^2 e^{-5x}, 
+\quad y_p' = 2A x e^{-5x} - 5A x^2 e^{-5x},
+\quad y_p'' = e^{-5x} A(2 - 20x + 25x^2)
+\]
+Sustituimos en la ecuación principal:
+\vspace{-0,2 em}
+\[
+A e^{-5x} (2 - 20x - 25x^2) + 20A x e^{-5x} - 50A x e^{-5x} + 25A x^2 e^{-5x} = 14 e^{-5x}
+\]
+\vspace{-1 em}
+\[
+A (2 - 20x - 25x^2 + 20x - 50x + 25x^2) e^{-5x} = 14 e^{-5x}
+\quad \Rightarrow \quad A = 7
+\]
+\vspace{-0,3 em}
+\[
+y_p = 7x^2 e^{-5x}
+\]
+Sacamos la general:
+
+\[
+y_g = C_1 e^{-5x} + C_2 x e^{-5x} + 7x^2 e^{-5x}
+\]
+\noindent
+\textbf{b) Trigonométricas}
+
+\[
+R(x) = \sin(bx) \quad (\text{o } \cos(bx)) \quad y'' + p y' + q y = \sin(bx)
+\]
+\vspace{-0,6 em}
+\[
+y_p = A \sin(bx) + B \cos(bx)
+\]
+\[
+y_p' = A b \cos(bx) - B b \sin(bx)
+\]
+\[
+y_p'' = -A b^2 \sin(bx) - B b^2 \cos(bx)
+\]
+\noindent
+Sustituyendo en la ecuación:
+\vspace{0,1 em}
+\begin{align*}
+& -A b^2 \sin(bx) - B b^2 \cos(bx) 
++ p \big(A b \cos(bx) - B b \sin(bx)\big) \nonumber \\
+& \quad + q \big(A \sin(bx) + B \cos(bx)\big) 
+= \sin(bx)
+\end{align*}
+\[
+\sin(bx)[-A b^2 - p B b + q A] + \cos(bx)[-B b^2 + p A b + q B] = \sin(bx)
+\]
+
+\[
+\begin{cases}
+-A b^2 - p B b + q A = 1 \\
+-B b^2 + p A b + q B = 0
+\end{cases}
+\quad \Rightarrow \quad
+\begin{cases}
+A (q - b^2) + B p b = 1 \\
+A p b + B (q - b^2) = 0
+\end{cases}
+\]
+
+\medskip
+\noindent
+Encontramos las soluciones para \(A\) y \(B\), y para que existan tienen que ser linealmente independientes.
+
+\[
+\exists A, B \text{ si } 
+\begin{vmatrix}
+q - b^2 & p b \\
+p b & q - b^2
+\end{vmatrix}
+\neq 0 
+\quad ; \quad 
+\begin{vmatrix}
+q - b^2 & p b \\
+p b & q - b^2
+\end{vmatrix}
+= 0 \Rightarrow 
+\begin{cases}
+p = 0 \\
+q = b^2
+\end{cases}
+\]
+
+\newpage
+\noindent
+\[
+\textit{Si } p = 0, \, q = b^2:
+\quad \Rightarrow \quad 
+y'' + b^2 y = 0 
+\quad \Rightarrow \quad 
+y_h = C_1 \sin(bx) + C_2 \cos(bx)
+\]
+Se propone una solución diferente multiplicando por x
+
+\[
+y_p = x (A \sin(bx) + B \cos(bx))
+\]
+\noindent
+\textbf{Ejemplo:}
+
+\[
+y'' + 4y = \sin(3x)
+\]
+Por lo tanto:
+\vspace{0,1 em}
+\[
+y_h = e^{mx}, \quad m^2 + 4 = 0 \Rightarrow m = \pm 2i
+\quad \Rightarrow \quad 
+y_h = C_1 \sin(2x) + C_2 \cos(2x)
+\]
+\[
+y_p = A \sin(3x) + B \cos(3x)
+\]
+\[
+y_p' = 3A \cos(3x) - 3B \sin(3x)
+\]
+\[
+y_p'' = -9A \sin(3x) - 9B \cos(3x)
+\]
+Sustituyendo en la ecuación principal:
+\vspace{0,1 em}
+\[
+-9A \sin(3x) - 9B \cos(3x) + 4A \sin(3x) + 4B \cos(3x) = \sin(3x)
+\]
+\[
+-5A \sin(3x) - 5B \cos(3x) = \sin(3x)
+\]
+Resolvemos el sistema:
+
+\[
+\begin{cases}
+B = 0 \\
+A = -\dfrac{1}{5}
+\end{cases}
+\quad \Rightarrow \quad 
+y_p = -\dfrac{1}{5} \sin(3x)
+\]
+
+\medskip
+\noindent
+Poniendo la ecuación general:
+
+\[
+y_g = C_1 \sin(2x) + C_2 \cos(2x) - \dfrac{1}{5} \sin(3x)
+\]
+\noindent
+\textbf{c) Polinómicas}
+
+\[
+y'' + p y' + q y = \sum_{i=0}^{n} a_i x^i
+\]
+Propongo una solución particular:
+
+\[
+y_p = \sum_{i=0}^{n} A_i x^i, 
+\quad y_p' = \sum_{i=0}^{n} i A_i x^{i-1}, 
+\quad y_p'' = \sum_{i=0}^{n} i(i-1) A_i x^{i-2}
+\]
+
+\newpage
+\noindent
+Sustituyendo en la ecuación principal:
+
+\[
+\sum i(i-1)A_i x^{i-2} + p \sum i A_i x^{i-1} + q \sum A_i x^i =
+\]
+\[
+= \sum i(i-1)A_i x^{i-2} + p i A_i x^{i-1} + q A_i x^i = \sum a_i x^i
+\]
+\noindent
+Existe \( A_i \) si \( q \neq 0 \); si \( q = 0 \), propongo otra solución multiplicando por \( x \):
+\[
+\quad y_p = x \sum A_i x^i = \sum A_i x^{i+1}
+\]
+\noindent
+\textbf{Ejemplo:}
+
+\[
+y'' - 2y' + 5y = 25x^2 + 12
+\]
+Sacamos las particulares:
+\[
+y_p = Ax^2 + Bx + C, \quad
+y_p' = 2Ax + B, \quad
+y_p'' = 2A
+\]
+Sustituyendo en la ecuación principal:
+{\small
+\[
+2A - 2(2Ax + B) + 5(Ax^2 + Bx + C)
+= 2A - 4Ax - 2B + 5Ax^2 + 5Bx + 5C
+= 25x^2 + 12
+\]
+}
+\vspace{-0,6 em}
+\[
+\Rightarrow 
+\begin{cases}
+5A = 25 \\
+5B - 4A = 0 \\
+2A 2B + 5C = R
+\end{cases}
+\quad \Rightarrow \quad
+A = 5, \, B = 4, \, C = 2
+\]
+
+\[
+y_p = 5x^2 + 4x + 2
+\]
+Proponemos una homogénea:
+\[
+y_h = e^{mx}, \quad m^2 - 2m + 5 = 0 
+\quad \Rightarrow \quad 
+m_{1,2} = 1 \pm 2i
+\]
+\[
+y_h = e^x (C_1 \cos 2x + C_2 \sin 2x)
+\]
+Ponemos la ecuación general:
+\[
+y_g = e^x (C_1 \cos 2x + C_2 \sin 2x) + 5x^2 + 4x + 2
+\]
+Para varios términos inhomogéneos:
+\[
+y'' + p y' + q y = R_1(x) + R_2(x) + \dots
+\]
+La general es la suma de la homogénea y las particulares:
+\[
+y_g = y_h + y_{p1} + y_{p2} + \dots
+\]
 
 
 
